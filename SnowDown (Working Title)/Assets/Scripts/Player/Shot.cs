@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_2 : MonoBehaviour
+public class Shot : MonoBehaviour
 {
     Rigidbody2D rb;
     public float speed;
+    public int damage;
 
+    public Vector2 movement;
+
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-
+    // Update is called once per frame
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal_P2");
-        float moveVertical = Input.GetAxis("Vertical_P2");
 
-
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
+    }
 
-        rb.freezeRotation = true;
-
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        gameObject.SetActive(false);
     }
 }
