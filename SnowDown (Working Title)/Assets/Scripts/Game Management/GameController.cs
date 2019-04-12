@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameController : MonoBehaviour
 
     public float coverSpawnTimer;
     private float coverSpawnTime;
+    public float coverDuration;
+    private float coverDurationTime;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +38,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         // Player1 health and ammo checks
         {
@@ -221,12 +225,25 @@ public class GameController : MonoBehaviour
             {
                 if (coverPool[i].activeInHierarchy == false)
                 {
-                    int spawnSelection = Random.Range(0, 3);
+                    int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
 
                     coverPool[i].transform.position = coverSpawnLocations[spawnSelection].position;
                     coverPool[i].SetActive(true);
 
                     break;
+                }
+            }
+        }
+
+        for(int i = 0; i < coverPool.Length; i++)
+        {
+           if(coverPool[i].activeInHierarchy == true)
+            {
+                coverPool[i].GetComponent<Cover>().timer += Time.deltaTime;
+                if(coverPool[i].GetComponent<Cover>().timer > coverDuration)
+                {
+                    coverPool[i].SetActive(false);
+                    coverPool[i].GetComponent<Cover>().timer = 0.0f;
                 }
             }
         }

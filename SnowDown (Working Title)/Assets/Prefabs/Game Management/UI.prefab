@@ -545,7 +545,7 @@ GameObject:
   - component: {fileID: 1414804303631469595}
   - component: {fileID: 2950303584045642515}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,8 +567,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000022888, y: 318.4}
-  m_SizeDelta: {x: 246.5, y: 102.8}
+  m_AnchoredPosition: {x: -7.8751, y: 318.4}
+  m_SizeDelta: {x: 572.75, y: 102.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1414804303631469595
 CanvasRenderer:
@@ -611,7 +611,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pressing Reload Replenishes 1 Bullet
+  m_Text: 'Pressing Reload Replenishes 1 Bullet
+
+    Press "Escape" to restart'
 --- !u!1 &1348686158448236899
 GameObject:
   m_ObjectHideFlags: 0
