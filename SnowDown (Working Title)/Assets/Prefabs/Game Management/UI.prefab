@@ -611,7 +611,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Pressing Reload Replenishes 1 Bullet
+  m_Text: 'Reload Replenishes 1 Bullet
 
     Press "Escape" to restart'
 --- !u!1 &1348686158448236899
