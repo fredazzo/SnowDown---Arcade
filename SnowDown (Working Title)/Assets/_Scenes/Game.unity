@@ -122,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 7728241858435045730, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
       propertyPath: m_Name
-      value: UI P1
+      value: UI
       objectReference: {fileID: 0}
     - target: {fileID: 7728241858435045730, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
@@ -233,6 +233,37 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819384786542101161, guid: 919dda118f7812e4393d1d28f5187967,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -285.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 2819384786542101161, guid: 919dda118f7812e4393d1d28f5187967,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 173.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4572694451863292733, guid: 919dda118f7812e4393d1d28f5187967,
+        type: 3}
+      propertyPath: m_Text
+      value: "Player 1 Controls \nmove: arrow keys\nshoot: return\nreload: P\nAim
+        Up: right shift\nAim down: left ctrl\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390110056727875505, guid: 919dda118f7812e4393d1d28f5187967,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Player 2 Controls
+
+        move: wasd
+
+        shoot: space
+
+        relaod: Y
+
+        Aim up: Q
+
+        Aim down: E'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919dda118f7812e4393d1d28f5187967, type: 3}
@@ -477,6 +508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: fireRate
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2359954321262655738, guid: aa134346cad646848bb3d2355d363fde,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa134346cad646848bb3d2355d363fde, type: 3}
