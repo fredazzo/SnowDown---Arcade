@@ -10,10 +10,9 @@ public class PlayerBase : MonoBehaviour
     public int clipSize;
     public int reloadAmount;
 
-    //protected float nextFire = 0.0f;
-    //public float fireRate;
     public float speed;
     public float rotateSpeed;
+    protected float rotaionInRadians;
 
     public GameObject shot;
     public GameObject[] shotPool;

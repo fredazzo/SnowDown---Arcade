@@ -8,8 +8,8 @@ public class Player_1 : PlayerBase
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        shot.GetComponent<Shot>().movement.x = transform.rotation.x;
-        shot.GetComponent<Shot>().movement.y = transform.rotation.y;
+        //shot.GetComponent<Shot>().movement.x = -1.0f;
+        //shot.GetComponent<Shot>().movement.y = 0.0f;
 
         clipSize = reloadAmount;
 
@@ -19,6 +19,7 @@ public class Player_1 : PlayerBase
             shotPool[i] = obj;
             shotPool[i].SetActive(false);
         }
+
     }
 
 
@@ -39,9 +40,10 @@ public class Player_1 : PlayerBase
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && clipSize > 0 /*&& Time.time > nextFire*/)
+        rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
+
+        if (Input.GetButtonDown("Fire1") && clipSize > 0 )
         {
-            // nextFire = Time.time + fireRate;
             clipSize--;
 
             for (int i = 0; i < shotPool.Length; i++)
@@ -50,6 +52,8 @@ public class Player_1 : PlayerBase
                 {
                     shotPool[i].transform.position = shotSpawn.transform.position;
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
+                    shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
+                    shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
                     shotPool[i].SetActive(true);
 
                     break;

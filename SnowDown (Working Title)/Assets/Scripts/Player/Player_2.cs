@@ -31,6 +31,8 @@ public class Player_2 : PlayerBase
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
 
+        transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P2") * rotateSpeed);
+
         rb.freezeRotation = true;
 
     }
@@ -38,9 +40,12 @@ public class Player_2 : PlayerBase
     private void Update()
     {
 
-        if (Input.GetButtonDown("Fire2") && clipSize > 0/*&& Time.time > nextFire*/)
+        rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
+
+
+        if (Input.GetButtonDown("Fire2") && clipSize > 0)
         {
-            //nextFire = Time.time + fireRate;
+
             clipSize--; 
 
 
@@ -50,6 +55,8 @@ public class Player_2 : PlayerBase
                 {
                     shotPool[i].transform.position = shotSpawn.transform.position;
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
+                    shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
+                    shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
                     shotPool[i].SetActive(true);
 
                     break;

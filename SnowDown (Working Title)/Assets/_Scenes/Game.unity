@@ -1043,12 +1043,12 @@ PrefabInstance:
     - target: {fileID: 8648096266160700764, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8648096266160700764, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8648096266160700764, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}
@@ -1068,7 +1068,7 @@ PrefabInstance:
     - target: {fileID: 8648096266160700764, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8648096266160701088, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}
@@ -1091,6 +1091,16 @@ PrefabInstance:
       propertyPath: shotSpawn
       value: 
       objectReference: {fileID: 8648096266278622045}
+    - target: {fileID: 8648096266160701088, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648096266160701088, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
+        type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
 --- !u!4 &8648096266278622045 stripped
