@@ -8,8 +8,8 @@ public class Player_1 : PlayerBase
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        shot.GetComponent<Shot>().movement.x = -1.0f;
-        shot.GetComponent<Shot>().movement.y = 0.0f;
+        shot.GetComponent<Shot>().movement.x = transform.rotation.x;
+        shot.GetComponent<Shot>().movement.y = transform.rotation.y;
 
         clipSize = reloadAmount;
 
@@ -30,6 +30,8 @@ public class Player_1 : PlayerBase
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
+
+        transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P1") * rotateSpeed);
 
         rb.freezeRotation = true;
 
