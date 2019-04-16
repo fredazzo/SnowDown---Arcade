@@ -13,6 +13,7 @@ public class PlayerBase : MonoBehaviour
     //protected float nextFire = 0.0f;
     //public float fireRate;
     public float speed;
+    public float rotateSpeed;
 
     public GameObject shot;
     public GameObject[] shotPool;
