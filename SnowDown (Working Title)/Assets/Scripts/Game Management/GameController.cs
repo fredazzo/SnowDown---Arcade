@@ -26,7 +26,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < coverPool.Length; i++)
+
+        if (Display.displays.Length > 1)
+            Display.displays[1].Activate();
+
+        for (int i = 0; i < coverPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(cover);
             coverPool[i] = obj;
