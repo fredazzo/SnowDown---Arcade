@@ -247,8 +247,8 @@ PrefabInstance:
     - target: {fileID: 4572694451863292733, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
       propertyPath: m_Text
-      value: "Player 1 Controls \nmove: arrow keys\nshoot: return\nreload: P\nAim
-        Up: right shift\nAim down: left ctrl\n"
+      value: "Player 1 Controls \nmove: arrow keys\nshoot: enter\nreload: P\nAim Up:
+        right shift\nAim down: left ctrl\n"
       objectReference: {fileID: 0}
     - target: {fileID: 1390110056727875505, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
@@ -1135,7 +1135,7 @@ PrefabInstance:
     - target: {fileID: 8648096266160701088, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}
       propertyPath: speed
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
