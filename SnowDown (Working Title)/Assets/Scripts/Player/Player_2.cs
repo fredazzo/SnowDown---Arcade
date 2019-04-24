@@ -8,8 +8,7 @@ public class Player_2 : PlayerBase
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        shot.GetComponent<Shot>().movement.x = 1.0f;
-        shot.GetComponent<Shot>().movement.y = 0.0f;
+        source = GetComponent<AudioSource>();
 
         clipSize = reloadAmount;
 
@@ -57,6 +56,9 @@ public class Player_2 : PlayerBase
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
                     shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
+                    source.clip = shootClip;
+                    source.loop = false;
+                    source.Play();
                     shotPool[i].SetActive(true);
 
                     break;
@@ -64,7 +66,10 @@ public class Player_2 : PlayerBase
             }
         }
 
-        if (Input.GetButtonDown("Reload_P2"))
+
+
+
+        if (Input.GetButtonUp("Reload_P2"))
         {
             clipSize++;
         }

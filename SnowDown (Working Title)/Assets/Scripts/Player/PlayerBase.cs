@@ -19,6 +19,11 @@ public class PlayerBase : MonoBehaviour
 
     public Transform shotSpawn;
 
+    public AudioSource source;
+    public AudioClip hitClip;
+    public AudioClip moveClip;
+    public AudioClip shootClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +42,8 @@ public class PlayerBase : MonoBehaviour
         if(other.gameObject.tag == "Projectile")
         {
             healthPoints--;
+            source.clip = hitClip;
+            source.Play();
         }
     }
 
