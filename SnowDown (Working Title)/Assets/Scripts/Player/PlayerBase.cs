@@ -19,10 +19,12 @@ public class PlayerBase : MonoBehaviour
 
     public Transform shotSpawn;
 
-    protected AudioSource source;
-    public AudioClip hitClip;
-    public AudioClip moveClip;
-    public AudioClip shootClip;
+    public AudioClip hitClip1;
+    public AudioClip hitClip2;
+    public AudioClip moveClip1;
+    public AudioClip moveClip2;
+    public AudioClip shootClip1;
+    public AudioClip shootClip2;
 
     // Start is called before the first frame update
     void Start()
@@ -37,14 +39,5 @@ public class PlayerBase : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(other.gameObject.tag == "Projectile")
-        {
-            healthPoints--;
-            source.clip = hitClip;
-            source.Play();
-        }
-    }
 
 }

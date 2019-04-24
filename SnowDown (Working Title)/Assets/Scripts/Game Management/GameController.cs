@@ -23,16 +23,11 @@ public class GameController : MonoBehaviour
     public float coverDuration;
     private float coverDurationTime;
 
-    private AudioSource source;
-    public AudioClip music;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        source = GetComponent<AudioSource>();
-        source.clip = music;
-        source.Play();
+
 
         if (Display.displays.Length > 1)
             Display.displays[1].Activate();
