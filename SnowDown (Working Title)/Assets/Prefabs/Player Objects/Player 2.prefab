@@ -81,12 +81,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   shotSpawn: {fileID: 4189963192649911442}
-  hitClip1: {fileID: 8300000, guid: 2e09732440b46da4bbaefe16b6ed102f, type: 3}
-  hitClip2: {fileID: 8300000, guid: 691fa55d29b582c49aaf337ec568af65, type: 3}
-  moveClip1: {fileID: 0}
-  moveClip2: {fileID: 0}
-  shootClip1: {fileID: 8300000, guid: 7c7c16225994d9e43a28d25520b4dde5, type: 3}
-  shootClip2: {fileID: 8300000, guid: 12a130bc60558784289da046203a3a43, type: 3}
+  hitClip: {fileID: 8300000, guid: 00a5add8a58123b46bf940080538c0ee, type: 3}
+  moveClip: {fileID: 0}
+  shootClip: {fileID: 8300000, guid: c82a5f9a6c7adaf4cb7c6c8ad2a25f47, type: 3}
 --- !u!61 &5505875627481548308
 BoxCollider2D:
   m_ObjectHideFlags: 0
