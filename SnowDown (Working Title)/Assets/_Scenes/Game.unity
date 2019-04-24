@@ -869,6 +869,11 @@ PrefabInstance:
       propertyPath: player2Ammo.Array.data[4]
       value: 
       objectReference: {fileID: 6729921899937480279}
+    - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 817aac4497a59864db4f3a1f37b0d8b8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
 --- !u!114 &2520399996606070810 stripped
