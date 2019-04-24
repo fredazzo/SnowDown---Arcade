@@ -8,7 +8,6 @@ public class Player_1 : PlayerBase
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        source = GetComponent<AudioSource>();
 
         clipSize = reloadAmount;
 
@@ -53,8 +52,7 @@ public class Player_1 : PlayerBase
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
                     shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
-                    source.clip = shootClip;
-                    source.Play();
+                    SoundManager.instance.RandomizeSfx(SoundManager.instance.p1ShootingSource, shootClip1, shootClip2);
                     shotPool[i].SetActive(true);
 
                     break;
@@ -62,11 +60,6 @@ public class Player_1 : PlayerBase
             }
         }
 
-        if(Input.GetButton("Horizontal_P1") || Input.GetButton("Vertical_P1"))
-        {
-            source.clip = moveClip;
-            source.Play();
-        }
 
 
         if(Input.GetButtonUp("Reload_P1"))
@@ -80,6 +73,16 @@ public class Player_1 : PlayerBase
         if (healthPoints <= 0)
         {
             this.gameObject.SetActive(false);
+        }
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Projectile")
+        {
+            healthPoints--;
+            SoundManager.instance.RandomizeSfx(SoundManager.instance.p1HitSource, hitClip1, hitClip2);
         }
     }
 }
