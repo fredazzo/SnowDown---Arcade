@@ -21,6 +21,11 @@ public class Cover : MonoBehaviour
 
     }
 
+    public void OnEnable()
+    {
+        SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource, spawnClip);
+    }
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag == "Projectile")
