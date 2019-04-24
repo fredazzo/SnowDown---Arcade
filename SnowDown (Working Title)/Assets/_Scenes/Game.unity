@@ -997,6 +997,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2911057573595989693, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 12a130bc60558784289da046203a3a43, type: 3}
     - target: {fileID: 4725123394953547585, guid: 4452a38c7295d97498aff77253651050,
         type: 3}
       propertyPath: m_Volume
