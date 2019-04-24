@@ -17,8 +17,8 @@ public class SoundManager : MonoBehaviour
 
     public static SoundManager instance = null;
 
-    public float lowPitchRange = .95f;
-    public float highPitchRange = 1.05f;
+    //public float lowPitchRange = .95f;
+    //public float highPitchRange = 1.05f;
  
     // Start is called before the first frame update
     void Awake()
@@ -40,9 +40,9 @@ public class SoundManager : MonoBehaviour
     public void RandomizeSfx(AudioSource source, params AudioClip[] clips)
     {
         int randomIndex = Random.Range(0, clips.Length);
-        float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+        //float randomPitch = Random.Range(lowPitchRange, highPitchRange);
 
-        source.pitch = randomPitch;
+        //source.pitch = randomPitch;
         source.clip = clips[randomIndex];
         source.Play();
     }
