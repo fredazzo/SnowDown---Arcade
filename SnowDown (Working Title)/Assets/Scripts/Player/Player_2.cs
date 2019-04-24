@@ -57,7 +57,6 @@ public class Player_2 : PlayerBase
                     shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
                     source.clip = shootClip;
-                    source.loop = false;
                     source.Play();
                     shotPool[i].SetActive(true);
 

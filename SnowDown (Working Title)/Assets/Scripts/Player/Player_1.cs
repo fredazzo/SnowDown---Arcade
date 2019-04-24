@@ -54,13 +54,18 @@ public class Player_1 : PlayerBase
                     shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
                     source.clip = shootClip;
-                    source.loop = false;
                     source.Play();
                     shotPool[i].SetActive(true);
 
                     break;
                 }
             }
+        }
+
+        if(Input.GetButton("Horizontal_P1") || Input.GetButton("Vertical_P1"))
+        {
+            source.clip = moveClip;
+            source.Play();
         }
 
 

@@ -19,7 +19,7 @@ public class PlayerBase : MonoBehaviour
 
     public Transform shotSpawn;
 
-    public AudioSource source;
+    protected AudioSource source;
     public AudioClip hitClip;
     public AudioClip moveClip;
     public AudioClip shootClip;
