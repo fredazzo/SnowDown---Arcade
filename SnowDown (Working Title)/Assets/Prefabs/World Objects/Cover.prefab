@@ -152,4 +152,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   hitClip: {fileID: 8300000, guid: 3bdbe72f482e24942a2196ff3bb85c1f, type: 3}
-  spawnClip: {fileID: 8300000, guid: bbafa3d619b14924a982905208394742, type: 3}
+  spawnClip: {fileID: 8300000, guid: 764701f2354a9994c89d97f7b65a2a15, type: 3}
