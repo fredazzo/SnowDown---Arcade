@@ -19,9 +19,9 @@ public class PlayerBase : MonoBehaviour
 
     public Transform shotSpawn;
 
-    public AudioClip hitClip;
-    public AudioClip moveClip;
-    public AudioClip shootClip;
+    //public AudioClip hitClip;
+    //public AudioClip moveClip;
+    //public AudioClip shootClip;
 
 
     // Start is called before the first frame update

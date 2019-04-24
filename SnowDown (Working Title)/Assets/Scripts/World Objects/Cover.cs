@@ -25,7 +25,7 @@ public class Cover : MonoBehaviour
     {
         if(other.gameObject.tag == "Projectile")
         {
-            SoundManager.instance.PlaySingle(SoundManager.instance.coverHitSource, hitClip);
+            SoundManager.instance.PlaySingle(SoundManager.instance.coverHitSource);
         }
     }
 
