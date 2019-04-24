@@ -31,20 +31,19 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlaySingle(AudioSource source, AudioClip clip)
+    public void PlaySingle(AudioSource source)
     {
-        source.clip = clip;
         source.Play();
     }
 
-    public void RandomizeSfx(AudioSource source, params AudioClip[] clips)
-    {
-        int randomIndex = Random.Range(0, clips.Length);
-        //float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+    //public void RandomizeSfx(AudioSource source, params AudioClip[] clips)
+    //{
+    //    int randomIndex = Random.Range(0, clips.Length);
+    //    //float randomPitch = Random.Range(lowPitchRange, highPitchRange);
 
-        //source.pitch = randomPitch;
-        source.clip = clips[randomIndex];
-        source.Play();
-    }
+    //    //source.pitch = randomPitch;
+    //    source.clip = clips[randomIndex];
+    //    source.Play();
+    //}
 
 }
