@@ -239,6 +239,7 @@ public class GameController : MonoBehaviour
                     int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
 
                     coverPool[i].transform.position = coverSpawnLocations[spawnSelection].position;
+                    coverPool[i].transform.rotation = coverSpawnLocations[spawnSelection].rotation;
                     coverPool[i].SetActive(true);
 
                     break;
