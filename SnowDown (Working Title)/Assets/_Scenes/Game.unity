@@ -1002,10 +1002,70 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 12a130bc60558784289da046203a3a43, type: 3}
+    - target: {fileID: 2911057573595989693, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2911057573595989693, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608396839605446489, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4608396839605446489, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 00a5add8a58123b46bf940080538c0ee, type: 3}
+    - target: {fileID: 4608396839605446489, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: BypassListenerEffects
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4725123394953547585, guid: 4452a38c7295d97498aff77253651050,
         type: 3}
       propertyPath: m_Volume
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725123394953547585, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725123394953547585, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c82a5f9a6c7adaf4cb7c6c8ad2a25f47, type: 3}
+    - target: {fileID: 6074730041479338411, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074730041479338411, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 00a5add8a58123b46bf940080538c0ee, type: 3}
+    - target: {fileID: 8157527404527617904, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157527404527617904, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3bdbe72f482e24942a2196ff3bb85c1f, type: 3}
+    - target: {fileID: 4022941433082699728, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4452a38c7295d97498aff77253651050, type: 3}
