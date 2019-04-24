@@ -152,9 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0
-  source: {fileID: 3944083547414842875}
   hitClip: {fileID: 8300000, guid: 3bdbe72f482e24942a2196ff3bb85c1f, type: 3}
-  spawnClip: {fileID: 8300000, guid: 12a130bc60558784289da046203a3a43, type: 3}
+  spawnClip: {fileID: 8300000, guid: bbafa3d619b14924a982905208394742, type: 3}
 --- !u!82 &3944083547414842875
 AudioSource:
   m_ObjectHideFlags: 0
