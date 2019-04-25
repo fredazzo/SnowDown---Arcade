@@ -28,9 +28,12 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
+        Debug.Log("displays connected: " + Display.displays.Length);
 
         if (Display.displays.Length > 1)
             Display.displays[1].Activate();
+        if (Display.displays.Length > 2)
+            Display.displays[2].Activate();
 
         for (int i = 0; i < coverPool.Length; i++)
         {
