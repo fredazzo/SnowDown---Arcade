@@ -60,7 +60,7 @@ public class Player_1 : PlayerBase
             }
         }
 
-
+        OnMovement(SoundManager.instance.p1MoveSource, "Horizontal_P1", "Vertical_P1");
 
         if(Input.GetButtonUp("Reload_P1"))
         {

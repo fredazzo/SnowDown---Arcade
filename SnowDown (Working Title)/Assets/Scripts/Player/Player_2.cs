@@ -10,7 +10,6 @@ public class Player_2 : PlayerBase
         rb = GetComponent<Rigidbody2D>();
 
         clipSize = reloadAmount;
-
         for (int i = 0; i < shotPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -55,7 +54,7 @@ public class Player_2 : PlayerBase
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
                     shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
-                    SoundManager.instance.PlaySingle(SoundManager.instance.p2ShootingSource);
+                    SoundManager.instance.p2ShootingSource.Play();
                     shotPool[i].SetActive(true);
 
                     break;
@@ -63,7 +62,7 @@ public class Player_2 : PlayerBase
             }
         }
 
-
+        OnMovement(SoundManager.instance.p2MoveSource, "Horizontal_P2", "Vertical_P2");
 
 
         if (Input.GetButtonUp("Reload_P2"))
@@ -86,7 +85,10 @@ public class Player_2 : PlayerBase
         if (other.gameObject.tag == "Projectile")
         {
             healthPoints--;
-            SoundManager.instance.PlaySingle(SoundManager.instance.p2HitSource);
+            SoundManager.instance.p2HitSource.Play();
         }
     }
+
+
+
 }
