@@ -54,7 +54,7 @@ public class Player_2 : PlayerBase
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
                     shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
-                    SoundManager.instance.p2ShootingSource.Play();
+                    SoundManager.instance.PlaySingle(SoundManager.instance.p2ShootingSource);
                     shotPool[i].SetActive(true);
 
                     break;
@@ -85,7 +85,7 @@ public class Player_2 : PlayerBase
         if (other.gameObject.tag == "Projectile")
         {
             healthPoints--;
-            SoundManager.instance.p2HitSource.Play();
+            SoundManager.instance.PlaySingle(SoundManager.instance.p2HitSource);
         }
     }
 
