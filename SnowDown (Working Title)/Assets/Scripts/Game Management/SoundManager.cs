@@ -8,12 +8,12 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource p1ShootingSource;
     public AudioSource p1HitSource;
-
     public AudioSource p2ShootingSource;
     public AudioSource p2HitSource;
-
     public AudioSource coverHitSource;
     public AudioSource coverSpawnSource;
+    public AudioSource p1MoveSource;
+    public AudioSource p2MoveSource;
 
     public static SoundManager instance = null;
 

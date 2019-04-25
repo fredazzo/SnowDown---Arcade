@@ -226,20 +226,7 @@ public class GameController : MonoBehaviour
 
         if(coverSpawnTime > coverSpawnTimer)
         {
-            coverSpawnTime = 0f;
-            for (int i = 0; i < coverPool.Length; i++)
-            {
-                if (coverPool[i].activeInHierarchy == false)
-                {
-                    int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
-
-                    coverPool[i].transform.position = coverSpawnLocations[spawnSelection].position;
-                    coverPool[i].transform.rotation = coverSpawnLocations[spawnSelection].rotation;
-                    coverPool[i].SetActive(true);
-
-                    break;
-                }
-            }
+            SpawnCover();
         }
 
         for(int i = 0; i < coverPool.Length; i++)
@@ -252,6 +239,25 @@ public class GameController : MonoBehaviour
                     coverPool[i].SetActive(false);
                     coverPool[i].GetComponent<Cover>().timer = 0.0f;
                 }
+            }
+        }
+    }
+
+    void SpawnCover()
+    {
+        coverSpawnTime = 0f;
+        for (int i = 0; i < coverPool.Length; i++)
+        {
+            if (coverPool[i].activeInHierarchy == false)
+            {
+                int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
+
+                coverPool[i].transform.position = coverSpawnLocations[spawnSelection].position;
+                coverPool[i].transform.rotation = coverSpawnLocations[spawnSelection].rotation;
+                SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
+                coverPool[i].SetActive(true);
+
+                break;
             }
         }
     }

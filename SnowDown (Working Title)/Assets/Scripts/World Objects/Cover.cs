@@ -21,10 +21,10 @@ public class Cover : MonoBehaviour
 
     }
 
-    public void OnEnable()
-    {
-        SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
-    }
+    //public void OnEnable()
+    //{
+    //    SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
+    //}
 
     void OnCollisionEnter2D(Collision2D other)
     {
