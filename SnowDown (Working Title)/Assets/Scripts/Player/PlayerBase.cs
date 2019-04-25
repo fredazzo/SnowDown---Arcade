@@ -19,6 +19,8 @@ public class PlayerBase : MonoBehaviour
 
     public Transform shotSpawn;
 
+    protected bool moving;
+
     //public AudioClip hitClip;
     //public AudioClip moveClip;
     //public AudioClip shootClip;
@@ -37,5 +39,26 @@ public class PlayerBase : MonoBehaviour
 
     }
 
+    public void OnMovement(AudioSource source, string horizontalAxis, string verticalAxis)
+    {
+        if (Input.GetButton(horizontalAxis))
+        {
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
+        }
+        if (Input.GetButton(verticalAxis))
+        {
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
+        }
 
+        if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
+        {
+            source.Pause();
+        }
+    }
 }
