@@ -237,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 2819384786542101161, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -437.4
+      value: -537
       objectReference: {fileID: 0}
     - target: {fileID: 2819384786542101161, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
@@ -247,13 +247,12 @@ PrefabInstance:
     - target: {fileID: 2819384786542101161, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -838.7
+      value: -846.05
       objectReference: {fileID: 0}
     - target: {fileID: 4572694451863292733, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
       propertyPath: m_Text
-      value: "Player 1 Controls \nmove: arrow keys\nshoot: enter\nreload: ]\nAim Up:
-        P\nAim down: O\n"
+      value: "Player 1 Controls \nmove: arrow keys\n\n\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4572694451863292733, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
@@ -277,13 +276,7 @@ PrefabInstance:
 
         move: wasd
 
-        shoot: space
-
-        relaod: R
-
-        Aim up: Q
-
-        Aim down: E'
+'
       objectReference: {fileID: 0}
     - target: {fileID: 1390110056727875505, guid: 919dda118f7812e4393d1d28f5187967,
         type: 3}
@@ -1186,6 +1179,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 817aac4497a59864db4f3a1f37b0d8b8, type: 3}
+    - target: {fileID: 4644107894331494494, guid: 4452a38c7295d97498aff77253651050,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1159030087863242771, guid: 4452a38c7295d97498aff77253651050,
         type: 3}
       propertyPath: m_Volume
