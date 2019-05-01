@@ -16,18 +16,20 @@ public class GameController : MonoBehaviour
     public Image[] player1Ammo;
     public Image[] player2Ammo;
 
-    public Transform[] coverSpawnLocations;
+    public Transform[] coverSpawnLocationsLeft;
+    public Transform[] coverSpawnLocationsRight;
 
     public float coverSpawnTimer;
     private float coverSpawnTime;
     public float coverDuration;
     private float coverDurationTime;
 
+    int j;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        j = 0;
         Debug.Log("displays connected: " + Display.displays.Length);
 
         if (Display.displays.Length > 1)
@@ -230,12 +232,20 @@ public class GameController : MonoBehaviour
 
         coverSpawnTime += Time.deltaTime;
 
-        if(coverSpawnTime > coverSpawnTimer)
+  
+        if (coverSpawnTime > coverSpawnTimer)
         {
-            SpawnCover();
-        }
 
-        for(int i = 0; i < coverPool.Length; i++)
+            SpawnCover(j);
+            j++;
+
+        }
+        Debug.Log(j);
+
+        if (j > 2)
+            j = 0;
+
+        for (int i = 0; i < coverPool.Length; i++)
         {
            if(coverPool[i].activeInHierarchy == true)
             {
@@ -249,22 +259,30 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void SpawnCover()
+    void SpawnCover(int j)
     {
         coverSpawnTime = 0f;
         for (int i = 0; i < coverPool.Length; i++)
         {
+            
             if (coverPool[i].activeInHierarchy == false)
             {
-                int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
+               // int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
 
-                coverPool[i].transform.position = coverSpawnLocations[spawnSelection].position;
-                coverPool[i].transform.rotation = coverSpawnLocations[spawnSelection].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsLeft[j].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsLeft[j].rotation;
+                SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
+                coverPool[i].SetActive(true);
+                i++;
+                coverPool[i].transform.position = coverSpawnLocationsRight[j].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsRight[j].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
 
                 break;
             }
+
         }
+
     }
 }

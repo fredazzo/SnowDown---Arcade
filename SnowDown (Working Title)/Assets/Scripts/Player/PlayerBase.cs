@@ -20,6 +20,10 @@ public class PlayerBase : MonoBehaviour
     public Transform shotSpawn;
 
     protected bool moving;
+    protected bool hit;
+
+    public SpriteRenderer sprite;
+
 
     //public AudioClip hitClip;
     //public AudioClip moveClip;
@@ -60,5 +64,12 @@ public class PlayerBase : MonoBehaviour
         {
             source.Pause();
         }
+    }
+
+    public IEnumerator whitecolor()
+    {
+        yield return new WaitForSeconds(0.02f);
+        sprite.color = Color.white;
+        hit = false;
     }
 }
