@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_2 : PlayerBase
 {
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,8 +38,12 @@ public class Player_2 : PlayerBase
 
     private void Update()
     {
-
         rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
+        //var pos = Camera.main.WorldToScreenPoint(transform.position);
+        //Vector2 dir = Input.mousePosition - pos;
+        //transform.rotation = Quaternion.AngleAxis(rotaionInRadians, Vector3.forward);
+
+
 
 
         if (Input.GetButtonDown("Fire2") && clipSize > 0)
@@ -79,10 +84,13 @@ public class Player_2 : PlayerBase
             this.gameObject.SetActive(false);
         }
 
-        if (hit)
+        if (gameObject.activeSelf)
         {
-            sprite.color = Color.red;
-            StartCoroutine(whitecolor());
+            if (hit)
+            {
+                sprite.color = Color.red;
+                StartCoroutine(whitecolor());
+            }
         }
     }
 
@@ -94,7 +102,7 @@ public class Player_2 : PlayerBase
             healthPoints--;
             SoundManager.instance.PlaySingle(SoundManager.instance.p2HitSource);
             hit = true;
-            CameraShake.instance.MinorShake(.02f);
+            CameraShake.instance.MinorShake(.05f);
         }
     }
 

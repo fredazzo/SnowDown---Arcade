@@ -76,10 +76,13 @@ public class Player_1 : PlayerBase
             this.gameObject.SetActive(false);
         }
 
-        if(hit)
+        if (gameObject.activeSelf)
         {
-            sprite.color = Color.red;
-            StartCoroutine(whitecolor());
+            if (hit)
+            {
+                sprite.color = Color.red;
+                StartCoroutine(whitecolor());
+            }
         }
     }
 
