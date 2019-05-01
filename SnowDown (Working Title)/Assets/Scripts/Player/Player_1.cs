@@ -5,10 +5,11 @@ using UnityEngine;
 public class Player_1 : PlayerBase
 {
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        hit = false;
         clipSize = reloadAmount;
 
         for (int i = 0; i < shotPool.Length; i++)
@@ -74,6 +75,12 @@ public class Player_1 : PlayerBase
         {
             this.gameObject.SetActive(false);
         }
+
+        if(hit)
+        {
+            sprite.color = Color.red;
+            StartCoroutine(whitecolor());
+        }
     }
 
 
@@ -83,8 +90,11 @@ public class Player_1 : PlayerBase
         {
             healthPoints--;
             SoundManager.instance.PlaySingle(SoundManager.instance.p1HitSource);
+            hit = true;
         }
     }
+
+
 }
 
 

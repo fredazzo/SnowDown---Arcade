@@ -160,9 +160,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   shotSpawn: {fileID: 6132105335873496986}
-  hitClip: {fileID: 8300000, guid: 00a5add8a58123b46bf940080538c0ee, type: 3}
-  moveClip: {fileID: 0}
-  shootClip: {fileID: 8300000, guid: 12a130bc60558784289da046203a3a43, type: 3}
+  sprite: {fileID: 3014013708674467019}
 --- !u!61 &5269414756378864887
 BoxCollider2D:
   m_ObjectHideFlags: 0
