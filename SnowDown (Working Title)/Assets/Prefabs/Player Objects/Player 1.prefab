@@ -107,7 +107,7 @@ Transform:
   m_GameObject: {fileID: 8648096266160701095}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 4.9359}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 4.9359}
   m_Children:
   - {fileID: 6132105335873496986}
   - {fileID: 2797178257913152332}
@@ -150,7 +150,7 @@ MonoBehaviour:
   healthPoints: 10
   clipSize: 0
   reloadAmount: 5
-  speed: 10
+  speed: 6
   rotateSpeed: 3
   shot: {fileID: 3554387050375894785, guid: 14e9259165de0c64f8a8594850d83817, type: 3}
   shotPool:
