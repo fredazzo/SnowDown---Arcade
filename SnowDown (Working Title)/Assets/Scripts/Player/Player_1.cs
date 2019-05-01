@@ -91,6 +91,7 @@ public class Player_1 : PlayerBase
             healthPoints--;
             SoundManager.instance.PlaySingle(SoundManager.instance.p1HitSource);
             hit = true;
+            CameraShake.instance.MinorShake(.05f);
         }
     }
 

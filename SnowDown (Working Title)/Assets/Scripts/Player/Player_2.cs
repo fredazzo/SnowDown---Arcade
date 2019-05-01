@@ -8,6 +8,7 @@ public class Player_2 : PlayerBase
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hit = false;
 
         clipSize = reloadAmount;
         for (int i = 0; i < shotPool.Length; i++)
@@ -93,7 +94,7 @@ public class Player_2 : PlayerBase
             healthPoints--;
             SoundManager.instance.PlaySingle(SoundManager.instance.p2HitSource);
             hit = true;
-
+            CameraShake.instance.MinorShake(.02f);
         }
     }
 
