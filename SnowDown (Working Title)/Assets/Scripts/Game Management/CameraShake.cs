@@ -64,3 +64,5 @@ public class CameraShake : MonoBehaviour
         intensity = in_intensity;
     }
 }
+
+// credit: http://synersteel.com/blog/2015/7/6/unity3d-basic-screen-shake
