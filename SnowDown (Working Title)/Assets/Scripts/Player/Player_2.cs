@@ -77,6 +77,12 @@ public class Player_2 : PlayerBase
         {
             this.gameObject.SetActive(false);
         }
+
+        if (hit)
+        {
+            sprite.color = Color.red;
+            StartCoroutine(whitecolor());
+        }
     }
 
 
@@ -86,6 +92,8 @@ public class Player_2 : PlayerBase
         {
             healthPoints--;
             SoundManager.instance.PlaySingle(SoundManager.instance.p2HitSource);
+            hit = true;
+
         }
     }
 
