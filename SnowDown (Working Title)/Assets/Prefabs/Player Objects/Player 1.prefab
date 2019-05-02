@@ -150,7 +150,7 @@ MonoBehaviour:
   healthPoints: 10
   clipSize: 0
   reloadAmount: 5
-  speed: 6
+  speed: 4
   rotateSpeed: 3
   shot: {fileID: 3554387050375894785, guid: 14e9259165de0c64f8a8594850d83817, type: 3}
   shotPool:

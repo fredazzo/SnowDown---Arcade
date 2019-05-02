@@ -18,11 +18,14 @@ public class Player_2 : PlayerBase
             shotPool[i] = obj;
             shotPool[i].SetActive(false);
         }
+
     }
 
 
     void FixedUpdate()
     {
+        Ray2D ray = new Ray2D(transform.position, Input.mousePosition);
+
         float moveHorizontal = Input.GetAxis("Horizontal_P2");
         float moveVertical = Input.GetAxis("Vertical_P2");
 
@@ -30,7 +33,8 @@ public class Player_2 : PlayerBase
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
 
-        transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P2") * rotateSpeed);
+        //transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P2") * rotateSpeed);
+
 
         rb.freezeRotation = true;
 
@@ -39,11 +43,6 @@ public class Player_2 : PlayerBase
     private void Update()
     {
         rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
-        //var pos = Camera.main.WorldToScreenPoint(transform.position);
-        //Vector2 dir = Input.mousePosition - pos;
-        //transform.rotation = Quaternion.AngleAxis(rotaionInRadians, Vector3.forward);
-
-
 
 
         if (Input.GetButtonDown("Fire2") && clipSize > 0)
