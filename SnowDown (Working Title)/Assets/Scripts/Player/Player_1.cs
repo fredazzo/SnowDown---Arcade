@@ -31,7 +31,8 @@ public class Player_1 : PlayerBase
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
 
-        transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P1") * rotateSpeed);
+        //transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P1") * rotateSpeed);
+       // transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Mouse Y") * rotateSpeed);
 
         rb.freezeRotation = true;
 
@@ -39,6 +40,9 @@ public class Player_1 : PlayerBase
 
     private void Update()
     {
+
+        //faceMouse();
+
         rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
 
         if (Input.GetButtonDown("Fire1") && clipSize > 0 )
