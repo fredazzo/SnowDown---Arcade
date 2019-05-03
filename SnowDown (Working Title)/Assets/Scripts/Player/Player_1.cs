@@ -32,7 +32,7 @@ public class Player_1 : PlayerBase
         rb.velocity = movement * speed;
 
         //transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Rotate_P1") * rotateSpeed);
-        transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Mouse Y") * rotateSpeed);
+       // transform.Rotate(0.0f, 0.0f, -Input.GetAxis("Mouse Y") * rotateSpeed);
 
         rb.freezeRotation = true;
 
