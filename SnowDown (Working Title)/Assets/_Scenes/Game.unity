@@ -481,6 +481,7 @@ GameObject:
   - component: {fileID: 971801943}
   - component: {fileID: 971801942}
   - component: {fileID: 971801941}
+  - component: {fileID: 971801944}
   m_Layer: 10
   m_Name: Particle System (1)
   m_TagString: Untagged
@@ -5168,6 +5169,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 89.83, y: -157.371, z: 7.9100003}
+--- !u!114 &971801944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971801940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bb429750ef0ce4785a6b52ae5cded4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1034635735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,6 +5293,7 @@ GameObject:
   - component: {fileID: 1839124046}
   - component: {fileID: 1839124045}
   - component: {fileID: 1839124044}
+  - component: {fileID: 1839124047}
   m_Layer: 10
   m_Name: Particle System
   m_TagString: Untagged
@@ -9967,6 +9981,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 89.83, y: -157.371, z: 7.9100003}
+--- !u!114 &1839124047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839124043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16bb429750ef0ce4785a6b52ae5cded4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1869334098 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2359954321262655687, guid: aa134346cad646848bb3d2355d363fde,
