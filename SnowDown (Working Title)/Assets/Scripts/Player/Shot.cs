@@ -25,9 +25,22 @@ public class Shot : MonoBehaviour
         rb.velocity = movement * speed;
     }
 
+    private void Update()
+    {
+        //if(anim.GetBool("isFinished"))
+        //    gameObject.SetActive(false);
+        //Debug.Log(anim.GetBool("isFinished"));
+    }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        anim.SetTrigger("collided");
-        gameObject.SetActive(false);
+        //if(other.gameObject.tag == "Player")
+        //{
+        //    anim.SetTrigger("collided");
+
+        //}
+        //else
+        //{
+            gameObject.SetActive(false);
+        //}
     }
 }
