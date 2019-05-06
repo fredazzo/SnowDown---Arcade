@@ -27,7 +27,15 @@ public class Shot : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        anim.SetTrigger("collided");
-        gameObject.SetActive(false);
+        if(other.gameObject.tag == "Player")
+        {
+            anim.SetTrigger("collided");
+            if (anim.GetBool("isFinished"))
+                gameObject.SetActive(false);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
