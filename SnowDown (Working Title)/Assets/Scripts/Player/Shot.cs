@@ -10,6 +10,8 @@ public class Shot : MonoBehaviour
 
     public Vector2 movement;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class Shot : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        anim.SetTrigger("collided");
         gameObject.SetActive(false);
     }
 }

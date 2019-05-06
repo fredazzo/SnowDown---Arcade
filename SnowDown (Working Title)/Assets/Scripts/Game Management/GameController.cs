@@ -98,7 +98,7 @@ public class GameController : MonoBehaviour
                 player1Health[0].enabled = false;
             }
 
-            if (_player1.GetComponent<Player_1>().clipSize <= 4)
+            if (_player1.GetComponent<Player_1>().currentClipSize <= 4)
             {
                 player1Ammo[4].enabled = false;
             }
@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
             {
                 player1Ammo[4].enabled = true;
             }
-            if (_player1.GetComponent<Player_1>().clipSize <= 3)
+            if (_player1.GetComponent<Player_1>().currentClipSize <= 3)
             {
                 player1Ammo[3].enabled = false;
             }
@@ -114,7 +114,7 @@ public class GameController : MonoBehaviour
             {
                 player1Ammo[3].enabled = true;
             }
-            if (_player1.GetComponent<Player_1>().clipSize <= 2)
+            if (_player1.GetComponent<Player_1>().currentClipSize <= 2)
             {
                 player1Ammo[2].enabled = false;
             }
@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour
             {
                 player1Ammo[2].enabled = true;
             }
-            if (_player1.GetComponent<Player_1>().clipSize <= 1)
+            if (_player1.GetComponent<Player_1>().currentClipSize <= 1)
             {
                 player1Ammo[1].enabled = false;
             }
@@ -130,7 +130,7 @@ public class GameController : MonoBehaviour
             {
                 player1Ammo[1].enabled = true;
             }
-            if (_player1.GetComponent<Player_1>().clipSize <= 0)
+            if (_player1.GetComponent<Player_1>().currentClipSize <= 0)
             {
                 player1Ammo[0].enabled = false;
             }
@@ -141,7 +141,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        // Player health and ammo checks
+        // Player2 health and ammo checks
         { 
         if (_player2.GetComponent<Player_2>().healthPoints == 9)
         {
@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour
             player2Health[0].enabled = false;
         }
 
-        if (_player2.GetComponent<Player_2>().clipSize <= 4)
+        if (_player2.GetComponent<Player_2>().currentClipSize <= 4)
         {
             player2Ammo[4].enabled = false;
         }
@@ -192,7 +192,7 @@ public class GameController : MonoBehaviour
         {
             player2Ammo[4].enabled = true;
         }
-        if (_player2.GetComponent<Player_2>().clipSize <= 3)
+        if (_player2.GetComponent<Player_2>().currentClipSize <= 3)
         {
             player2Ammo[3].enabled = false;
         }
@@ -201,7 +201,7 @@ public class GameController : MonoBehaviour
             player2Ammo[3].enabled = true;
 
         }
-        if (_player2.GetComponent<Player_2>().clipSize <= 2)
+        if (_player2.GetComponent<Player_2>().currentClipSize <= 2)
         {
             player2Ammo[2].enabled = false;
         }
@@ -210,7 +210,7 @@ public class GameController : MonoBehaviour
             player2Ammo[2].enabled = true;
 
         }
-        if (_player2.GetComponent<Player_2>().clipSize <= 1)
+        if (_player2.GetComponent<Player_2>().currentClipSize <= 1)
         {
             player2Ammo[1].enabled = false;
         }
@@ -219,7 +219,7 @@ public class GameController : MonoBehaviour
             player2Ammo[1].enabled = true;
 
         }
-        if (_player2.GetComponent<Player_2>().clipSize <= 0)
+        if (_player2.GetComponent<Player_2>().currentClipSize <= 0)
         {
             player2Ammo[0].enabled = false;
         }

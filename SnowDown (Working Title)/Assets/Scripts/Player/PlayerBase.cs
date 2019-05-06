@@ -7,8 +7,9 @@ public class PlayerBase : MonoBehaviour
     protected Rigidbody2D rb;
 
     public int healthPoints;
-    public int clipSize;
+    public int currentClipSize;
     public int reloadAmount;
+    public int maxClipSize;
 
     public float speed;
     public float rotateSpeed;
@@ -23,11 +24,6 @@ public class PlayerBase : MonoBehaviour
     protected bool hit;
 
     public SpriteRenderer sprite;
-
-
-    //public AudioClip hitClip;
-    //public AudioClip moveClip;
-    //public AudioClip shootClip;
 
 
     // Start is called before the first frame update
