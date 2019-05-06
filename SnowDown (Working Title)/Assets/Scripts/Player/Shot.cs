@@ -25,17 +25,22 @@ public class Shot : MonoBehaviour
         rb.velocity = movement * speed;
     }
 
+    private void Update()
+    {
+        //if(anim.GetBool("isFinished"))
+        //    gameObject.SetActive(false);
+        //Debug.Log(anim.GetBool("isFinished"));
+    }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
-        {
-            anim.SetTrigger("collided");
-            if (anim.GetBool("isFinished"))
-                gameObject.SetActive(false);
-        }
-        else
-        {
+        //if(other.gameObject.tag == "Player")
+        //{
+        //    anim.SetTrigger("collided");
+
+        //}
+        //else
+        //{
             gameObject.SetActive(false);
-        }
+        //}
     }
 }
