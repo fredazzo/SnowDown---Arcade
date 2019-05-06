@@ -10,8 +10,8 @@ public class Player_2 : PlayerBase
     {
         rb = GetComponent<Rigidbody2D>();
         hit = false;
+        currentClipSize = maxClipSize;
 
-        clipSize = reloadAmount;
         for (int i = 0; i < shotPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -47,10 +47,10 @@ public class Player_2 : PlayerBase
 
  
 
-        if (Input.GetButtonDown("Fire2") && clipSize > 0)
+        if (Input.GetButtonDown("Fire2") && currentClipSize > 0)
         {
 
-            clipSize--;
+            currentClipSize--;
 
 
             for (int i = 0; i < shotPool.Length; i++)
@@ -74,11 +74,11 @@ public class Player_2 : PlayerBase
 
         if (Input.GetButtonUp("Reload_P2"))
         {
-            clipSize++;
+            currentClipSize++;
         }
-        if (clipSize > 5)
+        if (currentClipSize > maxClipSize)
         {
-            clipSize = 5;
+            currentClipSize = maxClipSize;
         }
         if (healthPoints <= 0)
         {
