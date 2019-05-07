@@ -12,30 +12,20 @@ public class Snowball : MonoBehaviour
 
     public Animator anim;
 
-    bool collided;
-    BoxCollider2D collider;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<BoxCollider2D>();
-        collided = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
         rb.velocity = movement * speed;
     }
 
     private void Update()
     {
-        if (collided)
-        {
-            speed = 0;
-            collider.enabled = false;
-        }
         if (anim.GetBool("isFinished") && !anim.GetBool("collided"))
             gameObject.SetActive(false);
 
@@ -44,8 +34,8 @@ public class Snowball : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            rb.velocity = Vector2.zero;
             anim.SetBool("collided", true);
-            collided = true;
         }
         else
         {
