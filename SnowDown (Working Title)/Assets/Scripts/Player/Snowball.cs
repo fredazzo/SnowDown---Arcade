@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shot : MonoBehaviour
+public class Snowball : MonoBehaviour
 {
     Rigidbody2D rb;
     public float speed;
@@ -21,26 +21,25 @@ public class Shot : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
         rb.velocity = movement * speed;
     }
 
     private void Update()
     {
-        //if(anim.GetBool("isFinished"))
-        //    gameObject.SetActive(false);
-        //Debug.Log(anim.GetBool("isFinished"));
+        if (anim.GetBool("isFinished") && !anim.GetBool("collided"))
+            gameObject.SetActive(false);
+
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //if(other.gameObject.tag == "Player")
-        //{
-        //    anim.SetTrigger("collided");
-
-        //}
-        //else
-        //{
+        if (other.gameObject.tag == "Player")
+        {
+            rb.velocity = Vector2.zero;
+            anim.SetBool("collided", true);
+        }
+        else
+        {
             gameObject.SetActive(false);
-        //}
+        }
     }
 }

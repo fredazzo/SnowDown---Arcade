@@ -14,6 +14,8 @@ public class PlayerBase : MonoBehaviour
     public float speed;
     public float rotateSpeed;
     protected float rotaionInRadians;
+    public float unlimAmmoDuration;
+    protected float powerUpTimer = 0f;
 
     public GameObject shot;
     public GameObject[] shotPool;
@@ -22,22 +24,10 @@ public class PlayerBase : MonoBehaviour
 
     protected bool moving;
     protected bool hit;
+    public bool unlimAmmo;
 
     public SpriteRenderer sprite;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
 
     public void OnMovement(AudioSource source, string horizontalAxis, string verticalAxis)
     {
@@ -78,5 +68,19 @@ public class PlayerBase : MonoBehaviour
         Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
         transform.right = direction;
+    }
+
+    public void UnlimAmmo()
+    {
+        powerUpTimer += Time.deltaTime;
+
+        currentClipSize = maxClipSize;
+
+        if (powerUpTimer > unlimAmmoDuration)
+        {
+            powerUpTimer = 0f;
+            unlimAmmo = false;
+
+        }
     }
 }
