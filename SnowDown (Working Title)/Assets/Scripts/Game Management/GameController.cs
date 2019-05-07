@@ -9,7 +9,9 @@ public class GameController : MonoBehaviour
     public GameObject _player1;
     public GameObject _player2;
     public GameObject cover;
+    public GameObject powerUp;
     public GameObject[] coverPool;
+    public GameObject[] powerUpPool;
 
     public Image[] player1Health;
     public Image[] player2Health;
@@ -18,11 +20,17 @@ public class GameController : MonoBehaviour
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
+    public Transform[] powerUpSpawnsLeft;
+    public Transform[] powerUpSpawnsRight;
 
     public float coverSpawnTimer;
     private float coverSpawnTime;
     public float coverDuration;
-    private float coverDurationTime;
+    public float powerUpIdleDuration;
+
+    public float powerUpCooldown;
+
+    bool powerUpActive;
 
     int j;
 
@@ -44,6 +52,12 @@ public class GameController : MonoBehaviour
             coverPool[i].SetActive(false);
         }
 
+        for (int i = 0; i < powerUpPool.Length; i++)
+        {
+            GameObject obj = (GameObject)Instantiate(powerUp);
+            powerUpPool[i] = obj;
+            powerUpPool[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -54,6 +68,7 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
+
 
         // Player1 health and ammo checks
         {
@@ -245,6 +260,17 @@ public class GameController : MonoBehaviour
         if (j > 2)
             j = 0;
 
+        if (_player1.GetComponent<Player_1>().healthPoints < 5 && !powerUpActive)
+        {
+            SpawnPowerUp(powerUpSpawnsRight);
+        }
+
+        if (_player2.GetComponent<Player_2>().healthPoints < 5 && !powerUpActive)
+        {
+            SpawnPowerUp(powerUpSpawnsLeft);
+        }
+
+
         for (int i = 0; i < coverPool.Length; i++)
         {
            if(coverPool[i].activeInHierarchy == true)
@@ -257,6 +283,22 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < powerUpPool.Length; i++)
+        {
+            if (powerUpPool[i].activeInHierarchy == true)
+            {
+                powerUpPool[i].GetComponent<UnlimAmmo>().timer += Time.deltaTime;
+                if (powerUpPool[i].GetComponent<UnlimAmmo>().timer > powerUpIdleDuration)
+                {
+                    powerUpPool[i].SetActive(false);
+                    powerUpPool[i].GetComponent<UnlimAmmo>().timer = 0.0f;
+                    
+                }
+            }
+        }
+
+
+        Debug.Log(powerUpSpawnTimer);
     }
 
     void SpawnCover(int j)
@@ -284,5 +326,24 @@ public class GameController : MonoBehaviour
 
         }
 
+    }
+
+    void SpawnPowerUp(Transform[] locations)
+    {
+        int spawnChance = Random.Range(0, 4);
+        int randomLocation = Random.Range(0, locations.Length - 1);
+
+            for (int i = 0; i < powerUpPool.Length; i++)
+            {
+                if (powerUpPool[i].activeInHierarchy == false)
+                {
+                    powerUpPool[i].transform.position = locations[randomLocation].position;
+                    powerUpPool[i].transform.rotation = locations[randomLocation].rotation;
+                    powerUpPool[i].SetActive(true);
+                    powerUpActive = true;
+                    break;
+                }
+            }
+        
     }
 }

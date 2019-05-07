@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnlimAmmo : MonoBehaviour
 {
+    public float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,8 @@ public class UnlimAmmo : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerBase>().unlimAmmo = true;
-
-            Debug.Log("unlimAmmo:" + other.gameObject.GetComponent<PlayerBase>().unlimAmmo);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+
     }
 }

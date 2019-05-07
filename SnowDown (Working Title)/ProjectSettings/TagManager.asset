@@ -45,6 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Projectile
+    uniqueID: 2638556477
+    locked: 0
   - name: Particle Effects
     uniqueID: 1325554817
     locked: 0
