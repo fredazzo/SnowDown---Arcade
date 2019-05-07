@@ -20,6 +20,7 @@ public class snowball_exit_anim : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetBool("isFinished", true);
+        animator.SetBool("collided", false);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
@@ -33,4 +34,6 @@ public class snowball_exit_anim : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
+
+
 }

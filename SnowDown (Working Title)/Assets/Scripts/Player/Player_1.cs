@@ -45,6 +45,13 @@ public class Player_1 : PlayerBase
 
         rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
 
+        OnMovement(SoundManager.instance.p1MoveSource, "Horizontal_P1", "Vertical_P1");
+
+        if (unlimAmmo)
+        {
+            UnlimAmmo();
+        }
+
         if (Input.GetButtonDown("Fire1") && currentClipSize > 0 )
         {
             currentClipSize--;
@@ -55,8 +62,8 @@ public class Player_1 : PlayerBase
                 {
                     shotPool[i].transform.position = shotSpawn.transform.position;
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
-                    shotPool[i].GetComponent<Shot>().movement.x = Mathf.Cos(rotaionInRadians);
-                    shotPool[i].GetComponent<Shot>().movement.y = Mathf.Sin(rotaionInRadians);
+                    shotPool[i].GetComponent<Snowball>().movement.x = Mathf.Cos(rotaionInRadians);
+                    shotPool[i].GetComponent<Snowball>().movement.y = Mathf.Sin(rotaionInRadians);
                     SoundManager.instance.PlaySingle(SoundManager.instance.p1ShootingSource);
                     shotPool[i].SetActive(true);
 
@@ -65,7 +72,6 @@ public class Player_1 : PlayerBase
             }
         }
 
-        OnMovement(SoundManager.instance.p1MoveSource, "Horizontal_P1", "Vertical_P1");
 
         if(Input.GetButtonUp("Reload_P1"))
         {
