@@ -13,10 +13,10 @@ public class GameController : MonoBehaviour
     public GameObject[] coverPool;
     public GameObject[] powerUpPool;
 
-    public Image[] player1Health;
-    public Image[] player2Health;
-    public Image[] player1Ammo;
-    public Image[] player2Ammo;
+    //public Image[] player1Health;
+    //public Image[] player2Health;
+    //public Image[] player1Ammo;
+    //public Image[] player2Ammo;
 
     public Image playerOneHealth;
     public Image playerTwoHealth;
