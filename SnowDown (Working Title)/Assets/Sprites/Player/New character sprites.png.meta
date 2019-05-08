@@ -2,8 +2,8 @@ fileFormatVersion: 2
 guid: 2ca79fb01306ef3458ff01b338c8115b
 TextureImporter:
   fileIDToRecycleName:
-    21300000: New character sprites_2
-    21300002: New character sprites_3
+    21300000: Player 2 Sprite
+    21300002: Player 1 Sprite
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New character sprites_2
+      name: Player 2 Sprite
       rect:
         serializedVersion: 2
         x: 53
@@ -105,7 +105,7 @@ TextureImporter:
         width: 291
         height: 284
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -117,7 +117,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New character sprites_3
+      name: Player 1 Sprite
       rect:
         serializedVersion: 2
         x: 440
@@ -125,7 +125,7 @@ TextureImporter:
         width: 291
         height: 284
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
