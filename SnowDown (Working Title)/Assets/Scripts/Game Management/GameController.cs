@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     public float coverDuration;
     public float powerUpIdleDuration;
     public float powerUpCooldown;
+    public float damagePerHit;
     float healthThreshold;
 
     bool powerUpActivatedRight;
@@ -73,6 +74,8 @@ public class GameController : MonoBehaviour
         playerOneAmmo.text = _player1.GetComponent<Player_1>().currentClipSize.ToString();
         playerTwoAmmo.text = _player2.GetComponent<Player_2>().currentClipSize.ToString();
 
+        _player1.GetComponent<Player_1>().damagePerHit = damagePerHit;
+        _player2.GetComponent<Player_2>().damagePerHit = damagePerHit;
 
     }
 
