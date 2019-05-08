@@ -317,7 +317,7 @@ public class GameController : MonoBehaviour
             if (coverPool[i].activeInHierarchy == false)
             {
                // int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
-
+                
                 coverPool[i].transform.position = coverSpawnLocationsLeft[coverSpawnIndex].position;
                 coverPool[i].transform.rotation = coverSpawnLocationsLeft[coverSpawnIndex].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
