@@ -298,7 +298,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        Debug.Log(powerUpSpawnTimer);
+
     }
 
     void SpawnCover(int j)

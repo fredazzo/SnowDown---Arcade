@@ -10291,16 +10291,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
         type: 3}
-      propertyPath: powerUpSpawnsLeft.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
-        type: 3}
-      propertyPath: powerUpSpawnsRight.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
-        type: 3}
       propertyPath: _player1
       value: 
       objectReference: {fileID: 1386017332}
@@ -10473,11 +10463,6 @@ PrefabInstance:
         type: 3}
       propertyPath: coverSpawnTimer
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
-        type: 3}
-      propertyPath: powerUpIdleDuration
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5966138931832207118, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
