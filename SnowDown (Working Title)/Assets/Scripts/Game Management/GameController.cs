@@ -23,21 +23,23 @@ public class GameController : MonoBehaviour
     public Transform[] powerUpSpawnsLeft;
     public Transform[] powerUpSpawnsRight;
 
-    public float coverSpawnTimer;
-    private float coverSpawnTime;
+    public float coverSpawnWait;
+    private float coverSpawnTimer;
     public float coverDuration;
     public float powerUpIdleDuration;
-
     public float powerUpCooldown;
 
-    bool powerUpActive;
+    bool powerUpActivatedRight;
+    bool powerUpActivatedLeft;
 
-    int j;
+    int coverSpawnIndex;
+    int healthThreshold;
 
     // Start is called before the first frame update
     void Start()
     {
-        j = 0;
+        coverSpawnIndex = 0;
+        healthThreshold = _player1.GetComponent<PlayerBase>().healthPoints / 2;
         Debug.Log("displays connected: " + Display.displays.Length);
 
         if (Display.displays.Length > 1)
@@ -245,30 +247,34 @@ public class GameController : MonoBehaviour
         }
     }
 
-        coverSpawnTime += Time.deltaTime;
+        coverSpawnTimer += Time.deltaTime;
 
   
-        if (coverSpawnTime > coverSpawnTimer)
+        if (coverSpawnTimer > coverSpawnWait)
         {
 
-            SpawnCover(j);
-            j++;
+            SpawnCover(coverSpawnIndex);
+            coverSpawnIndex++;
 
         }
-        Debug.Log(j);
+        Debug.Log(coverSpawnIndex);
 
-        if (j > 2)
-            j = 0;
+        if (coverSpawnIndex > 2)
+            coverSpawnIndex = 0;
 
-        if (_player1.GetComponent<Player_1>().healthPoints < 5 && !powerUpActive)
+        if (_player1.GetComponent<Player_1>().healthPoints < healthThreshold && !powerUpActivatedRight)
         {
             SpawnPowerUp(powerUpSpawnsRight);
+            powerUpActivatedRight = true;
         }
 
-        if (_player2.GetComponent<Player_2>().healthPoints < 5 && !powerUpActive)
+        if (_player2.GetComponent<Player_2>().healthPoints < healthThreshold && !powerUpActivatedLeft)
         {
             SpawnPowerUp(powerUpSpawnsLeft);
+            powerUpActivatedLeft = true;
         }
+
+
 
 
         for (int i = 0; i < coverPool.Length; i++)
@@ -283,6 +289,7 @@ public class GameController : MonoBehaviour
                 }
             }
         }
+
         for (int i = 0; i < powerUpPool.Length; i++)
         {
             if (powerUpPool[i].activeInHierarchy == true)
@@ -301,9 +308,9 @@ public class GameController : MonoBehaviour
 
     }
 
-    void SpawnCover(int j)
+    void SpawnCover(int coverSpawnIndex)
     {
-        coverSpawnTime = 0f;
+        coverSpawnTimer = 0f;
         for (int i = 0; i < coverPool.Length; i++)
         {
             
@@ -311,13 +318,13 @@ public class GameController : MonoBehaviour
             {
                // int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
 
-                coverPool[i].transform.position = coverSpawnLocationsLeft[j].position;
-                coverPool[i].transform.rotation = coverSpawnLocationsLeft[j].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsLeft[coverSpawnIndex].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsLeft[coverSpawnIndex].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
                 i++;
-                coverPool[i].transform.position = coverSpawnLocationsRight[j].position;
-                coverPool[i].transform.rotation = coverSpawnLocationsRight[j].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsRight[coverSpawnIndex].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsRight[coverSpawnIndex].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
 
@@ -340,7 +347,7 @@ public class GameController : MonoBehaviour
                     powerUpPool[i].transform.position = locations[randomLocation].position;
                     powerUpPool[i].transform.rotation = locations[randomLocation].rotation;
                     powerUpPool[i].SetActive(true);
-                    powerUpActive = true;
+                    
                     break;
                 }
             }
