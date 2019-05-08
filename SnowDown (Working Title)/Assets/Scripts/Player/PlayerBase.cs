@@ -6,11 +6,12 @@ public class PlayerBase : MonoBehaviour
 {
     protected Rigidbody2D rb;
 
-    public int healthPoints;
     public int currentClipSize;
     public int reloadAmount;
     public int maxClipSize;
 
+    public float healthPoints;
+    public float damagePerHit;
     public float speed;
     public float rotateSpeed;
     protected float rotaionInRadians;

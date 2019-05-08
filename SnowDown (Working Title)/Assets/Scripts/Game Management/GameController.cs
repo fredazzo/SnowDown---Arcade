@@ -18,6 +18,13 @@ public class GameController : MonoBehaviour
     public Image[] player1Ammo;
     public Image[] player2Ammo;
 
+    public Image playerOneHealth;
+    public Image playerTwoHealth;
+
+    public Text playerOneAmmo;
+    public Text playerTwoAmmo;
+
+
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
     public Transform[] powerUpSpawnsLeft;
@@ -28,18 +35,19 @@ public class GameController : MonoBehaviour
     public float coverDuration;
     public float powerUpIdleDuration;
     public float powerUpCooldown;
+    float healthThreshold;
 
     bool powerUpActivatedRight;
     bool powerUpActivatedLeft;
 
-    int coverSpawnIndex;
-    int healthThreshold;
+    int j;
 
     // Start is called before the first frame update
     void Start()
     {
-        coverSpawnIndex = 0;
-        healthThreshold = _player1.GetComponent<PlayerBase>().healthPoints / 2;
+        j = 0;
+
+
         Debug.Log("displays connected: " + Display.displays.Length);
 
         if (Display.displays.Length > 1)
@@ -60,6 +68,12 @@ public class GameController : MonoBehaviour
             powerUpPool[i] = obj;
             powerUpPool[i].SetActive(false);
         }
+        healthThreshold = _player1.GetComponent<PlayerBase>().healthPoints / 2;
+
+        playerOneAmmo.text = _player1.GetComponent<Player_1>().currentClipSize.ToString();
+        playerTwoAmmo.text = _player2.GetComponent<Player_2>().currentClipSize.ToString();
+
+
     }
 
     // Update is called once per frame
@@ -71,181 +85,199 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
+        {
+            // Player1 health and ammo checks
+            //{
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 9)
+            //    {
+            //        player1Health[9].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 8)
+            //    {
+            //        player1Health[8].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 7)
+            //    {
+            //        player1Health[7].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 6)
+            //    {
+            //        player1Health[6].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 5)
+            //    {
+            //        player1Health[5].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 4)
+            //    {
+            //        player1Health[4].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 3)
+            //    {
+            //        player1Health[3].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 2)
+            //    {
+            //        player1Health[2].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 1)
+            //    {
+            //        player1Health[1].enabled = false;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().healthPoints == 0)
+            //    {
+            //        player1Health[0].enabled = false;
+            //    }
 
-        // Player1 health and ammo checks
-        {
-            if (_player1.GetComponent<Player_1>().healthPoints == 9)
-            {
-                player1Health[9].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 8)
-            {
-                player1Health[8].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 7)
-            {
-                player1Health[7].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 6)
-            {
-                player1Health[6].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 5)
-            {
-                player1Health[5].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 4)
-            {
-                player1Health[4].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 3)
-            {
-                player1Health[3].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 2)
-            {
-                player1Health[2].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 1)
-            {
-                player1Health[1].enabled = false;
-            }
-            if (_player1.GetComponent<Player_1>().healthPoints == 0)
-            {
-                player1Health[0].enabled = false;
-            }
-
-            if (_player1.GetComponent<Player_1>().currentClipSize <= 4)
-            {
-                player1Ammo[4].enabled = false;
-            }
-            else
-            {
-                player1Ammo[4].enabled = true;
-            }
-            if (_player1.GetComponent<Player_1>().currentClipSize <= 3)
-            {
-                player1Ammo[3].enabled = false;
-            }
-            else
-            {
-                player1Ammo[3].enabled = true;
-            }
-            if (_player1.GetComponent<Player_1>().currentClipSize <= 2)
-            {
-                player1Ammo[2].enabled = false;
-            }
-            else
-            {
-                player1Ammo[2].enabled = true;
-            }
-            if (_player1.GetComponent<Player_1>().currentClipSize <= 1)
-            {
-                player1Ammo[1].enabled = false;
-            }
-            else
-            {
-                player1Ammo[1].enabled = true;
-            }
-            if (_player1.GetComponent<Player_1>().currentClipSize <= 0)
-            {
-                player1Ammo[0].enabled = false;
-            }
-            else
-            {
-                player1Ammo[0].enabled = true;
-            }
-        }
+            //    if (_player1.GetComponent<Player_1>().currentClipSize <= 4)
+            //    {
+            //        player1Ammo[4].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player1Ammo[4].enabled = true;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().currentClipSize <= 3)
+            //    {
+            //        player1Ammo[3].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player1Ammo[3].enabled = true;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().currentClipSize <= 2)
+            //    {
+            //        player1Ammo[2].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player1Ammo[2].enabled = true;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().currentClipSize <= 1)
+            //    {
+            //        player1Ammo[1].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player1Ammo[1].enabled = true;
+            //    }
+            //    if (_player1.GetComponent<Player_1>().currentClipSize <= 0)
+            //    {
+            //        player1Ammo[0].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player1Ammo[0].enabled = true;
+            //    }
+            //}
 
 
-        // Player2 health and ammo checks
-        { 
-        if (_player2.GetComponent<Player_2>().healthPoints == 9)
-        {
-            player2Health[9].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 8)
-        {
-            player2Health[8].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 7)
-        {
-            player2Health[7].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 6)
-        {
-            player2Health[6].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 5)
-        {
-            player2Health[5].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 4)
-        {
-            player2Health[4].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 3)
-        {
-            player2Health[3].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 2)
-        {
-            player2Health[2].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 1)
-        {
-            player2Health[1].enabled = false;
-        }
-        if (_player2.GetComponent<Player_2>().healthPoints == 0)
-        {
-            player2Health[0].enabled = false;
+            // Player2 health and ammo checks
+            //    { 
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 9)
+            //    {
+            //        player2Health[9].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 8)
+            //    {
+            //        player2Health[8].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 7)
+            //    {
+            //        player2Health[7].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 6)
+            //    {
+            //        player2Health[6].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 5)
+            //    {
+            //        player2Health[5].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 4)
+            //    {
+            //        player2Health[4].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 3)
+            //    {
+            //        player2Health[3].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 2)
+            //    {
+            //        player2Health[2].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 1)
+            //    {
+            //        player2Health[1].enabled = false;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().healthPoints == 0)
+            //    {
+            //        player2Health[0].enabled = false;
+            //    }
+
+            //    if (_player2.GetComponent<Player_2>().currentClipSize <= 4)
+            //    {
+            //        player2Ammo[4].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player2Ammo[4].enabled = true;
+            //    }
+            //    if (_player2.GetComponent<Player_2>().currentClipSize <= 3)
+            //    {
+            //        player2Ammo[3].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player2Ammo[3].enabled = true;
+
+            //    }
+            //    if (_player2.GetComponent<Player_2>().currentClipSize <= 2)
+            //    {
+            //        player2Ammo[2].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player2Ammo[2].enabled = true;
+
+            //    }
+            //    if (_player2.GetComponent<Player_2>().currentClipSize <= 1)
+            //    {
+            //        player2Ammo[1].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player2Ammo[1].enabled = true;
+
+            //    }
+            //    if (_player2.GetComponent<Player_2>().currentClipSize <= 0)
+            //    {
+            //        player2Ammo[0].enabled = false;
+            //    }
+            //    else
+            //    {
+            //        player2Ammo[0].enabled = true;
+
+            //    }
+            //}
         }
 
-        if (_player2.GetComponent<Player_2>().currentClipSize <= 4)
+        playerOneAmmo.text = _player1.GetComponent<Player_1>().currentClipSize.ToString();
+        if (_player1.GetComponent<Player_1>().currentClipSize <= 0)
         {
-            player2Ammo[4].enabled = false;
+            playerOneAmmo.text = "Reload!";
         }
-        else
-        {
-            player2Ammo[4].enabled = true;
-        }
-        if (_player2.GetComponent<Player_2>().currentClipSize <= 3)
-        {
-            player2Ammo[3].enabled = false;
-        }
-        else
-        {
-            player2Ammo[3].enabled = true;
 
-        }
-        if (_player2.GetComponent<Player_2>().currentClipSize <= 2)
-        {
-            player2Ammo[2].enabled = false;
-        }
-        else
-        {
-            player2Ammo[2].enabled = true;
+        playerOneHealth.fillAmount = _player1.GetComponent<Player_1>().healthPoints;
 
-        }
-        if (_player2.GetComponent<Player_2>().currentClipSize <= 1)
-        {
-            player2Ammo[1].enabled = false;
-        }
-        else
-        {
-            player2Ammo[1].enabled = true;
-
-        }
+        playerTwoAmmo.text = _player2.GetComponent<Player_2>().currentClipSize.ToString();
         if (_player2.GetComponent<Player_2>().currentClipSize <= 0)
         {
-            player2Ammo[0].enabled = false;
+            playerTwoAmmo.text = "Reload!";
         }
-        else
-        {
-            player2Ammo[0].enabled = true;
 
-        }
-    }
+        playerTwoHealth.fillAmount = _player2.GetComponent<Player_2>().healthPoints;
+
 
         coverSpawnTimer += Time.deltaTime;
 
@@ -253,14 +285,14 @@ public class GameController : MonoBehaviour
         if (coverSpawnTimer > coverSpawnWait)
         {
 
-            SpawnCover(coverSpawnIndex);
-            coverSpawnIndex++;
+            SpawnCover(j);
+            j++;
 
         }
-        Debug.Log(coverSpawnIndex);
+        Debug.Log(j);
 
-        if (coverSpawnIndex > 2)
-            coverSpawnIndex = 0;
+        if (j > 2)
+            j = 0;
 
         if (_player1.GetComponent<Player_1>().healthPoints < healthThreshold && !powerUpActivatedRight)
         {
@@ -308,7 +340,7 @@ public class GameController : MonoBehaviour
 
     }
 
-    void SpawnCover(int coverSpawnIndex)
+    void SpawnCover(int j)
     {
         coverSpawnTimer = 0f;
         for (int i = 0; i < coverPool.Length; i++)
@@ -318,13 +350,13 @@ public class GameController : MonoBehaviour
             {
                // int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
                 
-                coverPool[i].transform.position = coverSpawnLocationsLeft[coverSpawnIndex].position;
-                coverPool[i].transform.rotation = coverSpawnLocationsLeft[coverSpawnIndex].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsLeft[j].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsLeft[j].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
                 i++;
-                coverPool[i].transform.position = coverSpawnLocationsRight[coverSpawnIndex].position;
-                coverPool[i].transform.rotation = coverSpawnLocationsRight[coverSpawnIndex].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsRight[j].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsRight[j].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
 
@@ -353,4 +385,13 @@ public class GameController : MonoBehaviour
             }
         
     }
+
+    //void SetAmmoText(Text ammoText, GameObject player)
+    //{
+    //    ammoText.text = player.GetComponent<PlayerBase>().ToString();
+    //    if(player.GetComponent<PlayerBase>().currentClipSize <= 0)
+    //    {
+    //        ammoText.text = "Reload!";
+    //    }
+    //}
 }

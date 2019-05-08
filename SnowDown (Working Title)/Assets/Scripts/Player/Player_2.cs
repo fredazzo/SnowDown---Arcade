@@ -18,6 +18,7 @@ public class Player_2 : PlayerBase
             shotPool[i] = obj;
             shotPool[i].SetActive(false);
         }
+        healthPoints = 1f;
 
     }
 
@@ -105,7 +106,7 @@ public class Player_2 : PlayerBase
     {
         if (other.gameObject.tag == "Projectile")
         {
-            healthPoints--;
+            healthPoints -= damagePerHit;
             SoundManager.instance.PlaySingle(SoundManager.instance.p2HitSource);
             hit = true;
             CameraShake.instance.MinorShake(.05f);
