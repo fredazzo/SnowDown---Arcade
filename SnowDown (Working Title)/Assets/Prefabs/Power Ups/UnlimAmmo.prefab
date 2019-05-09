@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8150219701648363203}
   - component: {fileID: 8150219701648363202}
   - component: {fileID: 8150219701648363212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UnlimAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8150219702312739771}
   - component: {fileID: 8150219702312739396}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,8 +2,8 @@ fileFormatVersion: 2
 guid: 27236274ded00d1498d59529253c4fda
 TextureImporter:
   fileIDToRecycleName:
-    21300000: NEWEST covers_0
-    21300002: NEWEST covers_1
+    21300000: Left Cover
+    21300002: Right Cover
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -97,15 +97,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: NEWEST covers_0
+      name: Left Cover
       rect:
         serializedVersion: 2
         x: 15
-        y: 19
+        y: 18
         width: 238
         height: 428
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -117,7 +117,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: NEWEST covers_1
+      name: Right Cover
       rect:
         serializedVersion: 2
         x: 329
@@ -125,7 +125,7 @@ TextureImporter:
         width: 238
         height: 428
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
