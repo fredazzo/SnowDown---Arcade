@@ -5089,46 +5089,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201727671133129132, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201727671133129132, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8201727671133129132, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 94.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-        type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c, type: 3}
 --- !u!114 &1554442625 stripped
@@ -10429,7 +10389,7 @@ PrefabInstance:
     - target: {fileID: 8880183917612889915, guid: 17eac6f87785e3243a4e91fe5fa0879c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17eac6f87785e3243a4e91fe5fa0879c, type: 3}
