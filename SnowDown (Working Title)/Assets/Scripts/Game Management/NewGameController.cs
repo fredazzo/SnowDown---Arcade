@@ -20,6 +20,8 @@ public class NewGameController : MonoBehaviour
     public Text playerTwoAmmo;
     public Text playerOneReload;
     public Text playerTwoReload;
+    public Text playerOneUnlimAmmo;
+    public Text playerTwoUnlimAmmo;
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
@@ -36,13 +38,12 @@ public class NewGameController : MonoBehaviour
     bool powerUpActivatedRight;
     bool powerUpActivatedLeft;
 
-    int j;
+    int coverSpawnLocation;
 
     // Start is called before the first frame update
     void Start()
     {
-        j = 0;
-
+        coverSpawnLocation = 0;
 
         Debug.Log("displays connected: " + Display.displays.Length);
 
@@ -85,8 +86,8 @@ public class NewGameController : MonoBehaviour
         playerOneHealth.fillAmount = (float)_player1.GetComponent<PlayerGlobal>().currentHealthPoints / _player1.GetComponent<PlayerGlobal>().maxHealthPoints;
         playerTwoHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
 
-        SetAmmoText(playerOneAmmo, playerOneReload, _player1);
-        SetAmmoText(playerTwoAmmo, playerTwoReload, _player2);
+        SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
+        SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo,  _player2);
 
         if (_player1.GetComponent<PlayerGlobal>().currentHealthPoints < healthThreshold && !powerUpActivatedRight)
         {
@@ -104,13 +105,13 @@ public class NewGameController : MonoBehaviour
         if (coverSpawnTimer > coverSpawnWait)
         {
 
-            SpawnCover(j);
-            j++;
+            SpawnCover(coverSpawnLocation);
+            coverSpawnLocation++;
 
         }
 
-        if (j > 2)
-            j = 0;
+        if (coverSpawnLocation > 2)
+            coverSpawnLocation = 0;
 
         for (int i = 0; i < coverPool.Length; i++)
         {
@@ -143,7 +144,7 @@ public class NewGameController : MonoBehaviour
 
     }
 
-    void SpawnCover(int j)
+    void SpawnCover(int coverSpawnLocation)
     {
         coverSpawnTimer = 0f;
         for (int i = 0; i < coverPool.Length; i++)
@@ -153,13 +154,13 @@ public class NewGameController : MonoBehaviour
             {
                 // int spawnSelection = Random.Range(0, coverSpawnLocations.Length - 1);
 
-                coverPool[i].transform.position = coverSpawnLocationsLeft[j].position;
-                coverPool[i].transform.rotation = coverSpawnLocationsLeft[j].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsLeft[coverSpawnLocation].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsLeft[coverSpawnLocation].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
                 i++;
-                coverPool[i].transform.position = coverSpawnLocationsRight[j].position;
-                coverPool[i].transform.rotation = coverSpawnLocationsRight[j].rotation;
+                coverPool[i].transform.position = coverSpawnLocationsRight[coverSpawnLocation].position;
+                coverPool[i].transform.rotation = coverSpawnLocationsRight[coverSpawnLocation].rotation;
                 SoundManager.instance.PlaySingle(SoundManager.instance.coverSpawnSource);
                 coverPool[i].SetActive(true);
 
@@ -190,7 +191,7 @@ public class NewGameController : MonoBehaviour
 
     }
 
-    void SetAmmoText(Text ammoText, Text reloadText, GameObject player)
+    void SetAmmoText(Text ammoText, Text reloadText, Text unlimAmmoText, GameObject player)
     {
         ammoText.text = player.GetComponent<PlayerGlobal>().currentClipSize.ToString();
         if (player.GetComponent<PlayerGlobal>().currentClipSize <= 0)
@@ -202,7 +203,16 @@ public class NewGameController : MonoBehaviour
         {
             reloadText.text = " ";
         }
-
+        if(player.GetComponent<PlayerGlobal>().unlimAmmo)
+        {
+            ammoText.text = " ";
+            reloadText.text = " ";
+            unlimAmmoText.text = "\x221E";
+        }
+        else
+        {
+            unlimAmmoText.text = " ";
+        }
     }
 
     //void PowerUpActivity(GameObject player, bool powerUpActivity, Transform[] spawns)
@@ -214,3 +224,5 @@ public class NewGameController : MonoBehaviour
     //    }
     //}
 }
+
+// infinity symbol: \x221E

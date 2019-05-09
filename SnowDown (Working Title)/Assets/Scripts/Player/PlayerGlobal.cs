@@ -21,12 +21,12 @@ public class PlayerGlobal : MonoBehaviour
     public int maxHealthPoints;
 
     public float fireRate;
-    float fireTimer;
+    float fireTimer = 0f;
     public float speed;
     public float rotateSpeed;
     float rotaionInRadians;
     public float unlimAmmoDuration;
-    protected float powerUpTimer = 0f;
+    float powerUpTimer = 0f;
 
     public GameObject shot;
     public GameObject[] shotPool;
@@ -72,7 +72,6 @@ public class PlayerGlobal : MonoBehaviour
 
     }
 
-
     void FixedUpdate()
     {
 
@@ -100,6 +99,7 @@ public class PlayerGlobal : MonoBehaviour
         {
             UnlimAmmo();
         }
+
         fireTimer += Time.deltaTime;
 
         if (Input.GetButtonDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate)
@@ -148,7 +148,6 @@ public class PlayerGlobal : MonoBehaviour
             }
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D other)
     {
