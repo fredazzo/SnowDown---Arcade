@@ -9,9 +9,11 @@ public class PlayerBase : MonoBehaviour
     public int currentClipSize;
     public int reloadAmount;
     public int maxClipSize;
+    public int currentHealthPoints;
+    public int maxHealthPoints;
 
-    public float healthPoints;
-    public float damagePerHit;
+    public float fireRate;
+    protected float fireTimer;
     public float speed;
     public float rotateSpeed;
     protected float rotaionInRadians;
@@ -81,7 +83,6 @@ public class PlayerBase : MonoBehaviour
         {
             powerUpTimer = 0f;
             unlimAmmo = false;
-
         }
     }
 }

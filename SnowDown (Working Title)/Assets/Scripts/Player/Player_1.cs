@@ -11,6 +11,7 @@ public class Player_1 : PlayerBase
         rb = GetComponent<Rigidbody2D>();
         hit = false;
         currentClipSize = maxClipSize;
+        currentHealthPoints = maxHealthPoints;
 
         for (int i = 0; i < shotPool.Length; i++)
         {
@@ -18,7 +19,6 @@ public class Player_1 : PlayerBase
             shotPool[i] = obj;
             shotPool[i].SetActive(false);
         }
-        healthPoints = 1f;
 
     }
 
@@ -53,8 +53,10 @@ public class Player_1 : PlayerBase
             UnlimAmmo();
         }
 
-        if (Input.GetButtonDown("Fire1") && currentClipSize > 0 )
+        fireTimer += Time.deltaTime;
+        if (Input.GetButtonDown("Fire1") && currentClipSize > 0 && fireTimer > fireRate)
         {
+            fireTimer = 0f;
             currentClipSize--;
 
             for (int i = 0; i < shotPool.Length; i++)
@@ -82,7 +84,7 @@ public class Player_1 : PlayerBase
         {
             currentClipSize = maxClipSize;
         }
-        if (healthPoints <= 0)
+        if (currentHealthPoints <= 0)
         {
             this.gameObject.SetActive(false);
         }
@@ -102,7 +104,7 @@ public class Player_1 : PlayerBase
     {
         if (other.gameObject.tag == "Projectile")
         {
-            healthPoints -= damagePerHit;
+            currentHealthPoints--;
             SoundManager.instance.PlaySingle(SoundManager.instance.p1HitSource);
             hit = true;
             CameraShake.instance.MinorShake(.05f);

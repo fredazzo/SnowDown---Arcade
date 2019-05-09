@@ -23,7 +23,8 @@ public class GameController : MonoBehaviour
 
     public Text playerOneAmmo;
     public Text playerTwoAmmo;
-
+    public Text playerOneReload;
+    public Text playerTwoReload;
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
@@ -69,13 +70,12 @@ public class GameController : MonoBehaviour
             powerUpPool[i] = obj;
             powerUpPool[i].SetActive(false);
         }
-        healthThreshold = _player1.GetComponent<PlayerBase>().healthPoints / 2;
+        healthThreshold = _player1.GetComponent<PlayerBase>().maxHealthPoints / 2;
 
         playerOneAmmo.text = _player1.GetComponent<Player_1>().currentClipSize.ToString();
         playerTwoAmmo.text = _player2.GetComponent<Player_2>().currentClipSize.ToString();
-
-        _player1.GetComponent<Player_1>().damagePerHit = damagePerHit;
-        _player2.GetComponent<Player_2>().damagePerHit = damagePerHit;
+        playerOneReload.text = " ";
+        playerTwoReload.text = " ";
 
     }
 
@@ -268,18 +268,27 @@ public class GameController : MonoBehaviour
         playerOneAmmo.text = _player1.GetComponent<Player_1>().currentClipSize.ToString();
         if (_player1.GetComponent<Player_1>().currentClipSize <= 0)
         {
-            playerOneAmmo.text = "Reload!";
+            playerOneAmmo.text = " ";
+            playerOneReload.text =  "Reload!";
+        }
+        else
+        {
+            playerOneReload.text = " ";
         }
 
-        playerOneHealth.fillAmount = _player1.GetComponent<Player_1>().healthPoints;
+        playerOneHealth.fillAmount = (float)_player1.GetComponent<Player_1>().currentHealthPoints / _player1.GetComponent<Player_1>().maxHealthPoints;
 
         playerTwoAmmo.text = _player2.GetComponent<Player_2>().currentClipSize.ToString();
         if (_player2.GetComponent<Player_2>().currentClipSize <= 0)
         {
-            playerTwoAmmo.text = "Reload!";
+            playerTwoAmmo.text = " ";
+            playerTwoReload.text = "Reload!";
         }
-
-        playerTwoHealth.fillAmount = _player2.GetComponent<Player_2>().healthPoints;
+        else
+        {
+            playerTwoReload.text = " ";
+        }
+        playerTwoHealth.fillAmount = (float)_player2.GetComponent<Player_2>().currentHealthPoints / _player2.GetComponent<Player_2>().maxHealthPoints;
 
 
         coverSpawnTimer += Time.deltaTime;
@@ -297,13 +306,13 @@ public class GameController : MonoBehaviour
         if (j > 2)
             j = 0;
 
-        if (_player1.GetComponent<Player_1>().healthPoints < healthThreshold && !powerUpActivatedRight)
+        if (_player1.GetComponent<Player_1>().currentHealthPoints < healthThreshold && !powerUpActivatedRight)
         {
             SpawnPowerUp(powerUpSpawnsRight);
             powerUpActivatedRight = true;
         }
 
-        if (_player2.GetComponent<Player_2>().healthPoints < healthThreshold && !powerUpActivatedLeft)
+        if (_player2.GetComponent<Player_2>().currentHealthPoints < healthThreshold && !powerUpActivatedLeft)
         {
             SpawnPowerUp(powerUpSpawnsLeft);
             powerUpActivatedLeft = true;
