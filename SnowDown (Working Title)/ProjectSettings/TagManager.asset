@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Cannon
+    uniqueID: 1503682257
+    locked: 0
+  - name: Arms
+    uniqueID: 1665809931
+    locked: 0
   - name: Projectile
     uniqueID: 2638556477
     locked: 0

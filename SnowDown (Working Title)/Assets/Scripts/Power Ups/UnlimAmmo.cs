@@ -22,7 +22,7 @@ public class UnlimAmmo : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerBase>().unlimAmmo = true;
+            other.gameObject.GetComponent<PlayerGlobal>().unlimAmmo = true;
             gameObject.SetActive(false);
         }
 
