@@ -977,7 +977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1216404203658046375}
-  - component: {fileID: 5271990237886897340}
+  - component: {fileID: 1193072813}
   m_Layer: 0
   m_Name: GameContoller
   m_TagString: Untagged
@@ -1003,7 +1003,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5271990237886897340
+--- !u!114 &1193072813
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8052730144419411388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 535bfa60bc6ab494d9455cc5bbdf0f6d, type: 3}
+  m_Script: {fileID: 11500000, guid: a2073f410cb914d4994cd545e64c385b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player1: {fileID: 0}
@@ -1023,43 +1023,16 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   powerUpPool:
   - {fileID: 0}
   - {fileID: 0}
-  player1Health:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player2Health:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player1Ammo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player2Ammo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  playerOneHealth: {fileID: 0}
+  playerTwoHealth: {fileID: 0}
+  playerOneAmmo: {fileID: 0}
+  playerTwoAmmo: {fileID: 0}
+  playerOneReload: {fileID: 0}
+  playerTwoReload: {fileID: 0}
   coverSpawnLocationsLeft:
   - {fileID: 494110895}
   - {fileID: 1197950187}
@@ -1076,10 +1049,10 @@ MonoBehaviour:
   - {fileID: 1907912385306653250}
   - {fileID: 5228290881290657864}
   - {fileID: 4478000754065030891}
-  coverSpawnWait: 0
-  coverDuration: 7
-  powerUpIdleDuration: 4
-  powerUpCooldown: 0
+  coverSpawnWait: 5
+  coverDuration: 4
+  powerUpIdleDuration: 5
+  powerUpCooldown: 10
 --- !u!1 &9007729414870779188
 GameObject:
   m_ObjectHideFlags: 0
