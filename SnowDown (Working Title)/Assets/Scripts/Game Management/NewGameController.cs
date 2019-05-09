@@ -20,6 +20,8 @@ public class NewGameController : MonoBehaviour
     public Text playerTwoAmmo;
     public Text playerOneReload;
     public Text playerTwoReload;
+    public Text playerOneUnlimAmmo;
+    public Text playerTwoUnlimAmmo;
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
@@ -84,8 +86,8 @@ public class NewGameController : MonoBehaviour
         playerOneHealth.fillAmount = (float)_player1.GetComponent<PlayerGlobal>().currentHealthPoints / _player1.GetComponent<PlayerGlobal>().maxHealthPoints;
         playerTwoHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
 
-        SetAmmoText(playerOneAmmo, playerOneReload, _player1);
-        SetAmmoText(playerTwoAmmo, playerTwoReload, _player2);
+        SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
+        SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo,  _player2);
 
         if (_player1.GetComponent<PlayerGlobal>().currentHealthPoints < healthThreshold && !powerUpActivatedRight)
         {
@@ -189,7 +191,7 @@ public class NewGameController : MonoBehaviour
 
     }
 
-    void SetAmmoText(Text ammoText, Text reloadText, GameObject player)
+    void SetAmmoText(Text ammoText, Text reloadText, Text unlimAmmoText, GameObject player)
     {
         ammoText.text = player.GetComponent<PlayerGlobal>().currentClipSize.ToString();
         if (player.GetComponent<PlayerGlobal>().currentClipSize <= 0)
@@ -201,7 +203,16 @@ public class NewGameController : MonoBehaviour
         {
             reloadText.text = " ";
         }
-
+        if(player.GetComponent<PlayerGlobal>().unlimAmmo)
+        {
+            ammoText.text = " ";
+            reloadText.text = " ";
+            unlimAmmoText.text = "\x221E";
+        }
+        else
+        {
+            unlimAmmoText.text = " ";
+        }
     }
 
     //void PowerUpActivity(GameObject player, bool powerUpActivity, Transform[] spawns)
@@ -213,3 +224,5 @@ public class NewGameController : MonoBehaviour
     //    }
     //}
 }
+
+// infinity symbol: \x221E

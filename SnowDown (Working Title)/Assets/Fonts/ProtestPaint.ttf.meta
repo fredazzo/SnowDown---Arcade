@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f211e875994b61041bcb7c67b9d28179
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: ProtestPaint BB
+  fontNames:
+  - ProtestPaint BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c4ee2ab7a237c844cbffc4bfc1fd325b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

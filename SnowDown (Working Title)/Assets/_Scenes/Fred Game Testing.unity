@@ -4954,6 +4954,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568e5ccbd636e3b4898cf3cc4034b9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1248741597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554442624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1386017332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8648096266160701095, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
@@ -5077,11 +5089,63 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201727671133129132, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201727671133129132, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8201727671133129132, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 94.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c, type: 3}
 --- !u!114 &1554442625 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1092645833949453585, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1554442624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1637534256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
     type: 3}
   m_PrefabInstance: {fileID: 1554442624}
   m_PrefabAsset: {fileID: 0}
@@ -10089,6 +10153,14 @@ PrefabInstance:
       propertyPath: playerTwoReload
       value: 
       objectReference: {fileID: 969009274}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneUnlimAmmo
+      value: 
+      objectReference: {fileID: 1637534256}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoUnlimAmmo
+      value: 
+      objectReference: {fileID: 1248741597}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
 --- !u!1001 &4899845448951600855
@@ -10344,7 +10416,7 @@ PrefabInstance:
     - target: {fileID: 8880183917612889915, guid: 17eac6f87785e3243a4e91fe5fa0879c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.33
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8880183917612889915, guid: 17eac6f87785e3243a4e91fe5fa0879c,
         type: 3}
