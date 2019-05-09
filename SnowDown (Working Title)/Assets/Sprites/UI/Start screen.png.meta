@@ -2,9 +2,9 @@ fileFormatVersion: 2
 guid: 875423198cb971d438332f025381e0d6
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Start screen_0
-    21300002: Start screen_1
-    21300004: Start screen_2
+    21300000: Start
+    21300002: Menu Background
+    21300004: Credits
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -98,7 +98,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Start screen_0
+      name: Start
       rect:
         serializedVersion: 2
         x: 36
@@ -106,7 +106,7 @@ TextureImporter:
         width: 671
         height: 257
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -118,7 +118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start screen_1
+      name: Menu Background
       rect:
         serializedVersion: 2
         x: 794
@@ -126,7 +126,7 @@ TextureImporter:
         width: 1573
         height: 1231
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Start screen_2
+      name: Credits
       rect:
         serializedVersion: 2
         x: 165
@@ -146,7 +146,7 @@ TextureImporter:
         width: 396
         height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
