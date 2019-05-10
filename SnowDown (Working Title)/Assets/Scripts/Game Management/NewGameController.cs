@@ -88,7 +88,8 @@ public class NewGameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
-        playerOneHealth.fillAmount = player1.GetPercentageHP();
+        // playerOneHealth.fillAmount = player1.GetPercentageHP();
+        playerOneHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
         playerTwoHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
 
         SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
