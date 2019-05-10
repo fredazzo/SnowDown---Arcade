@@ -18,6 +18,11 @@ public class MenuController : MonoBehaviour
     public string creditsSelection;
     public string confirm;
 
+    public string gameScene;
+    public string creditsScene;
+
+    public Animator transitionAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,9 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
         ResetSize(start, startSelected, originalStart);
         ResetSize(credits, creditsSelected, originalCredits);
 
@@ -57,11 +65,11 @@ public class MenuController : MonoBehaviour
 
         if(startSelected && Input.GetButtonDown(confirm))
         {
-            SceneManager.LoadScene("Game");
+           StartCoroutine(OnSceneLoad(gameScene));
         }
         if(creditsSelected && Input.GetButtonDown(confirm))
         {
-            SceneManager.LoadScene("Credits");
+            StartCoroutine(OnSceneLoad(creditsScene));
         }
     }
 
@@ -76,5 +84,12 @@ public class MenuController : MonoBehaviour
         {
             button.transform.localScale = originalSize;
         }
+    }
+
+    IEnumerator OnSceneLoad(string scene)
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(scene);
     }
 }
