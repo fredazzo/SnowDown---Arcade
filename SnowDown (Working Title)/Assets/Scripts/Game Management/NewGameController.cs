@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class NewGameController : MonoBehaviour
 {
     public GameObject _player1;
+    public PlayerGlobal player1;
     public GameObject _player2;
+    public PlayerGlobal player2;
     public GameObject cover;
     public GameObject powerUp;
     public GameObject[] coverPool;
@@ -27,6 +29,8 @@ public class NewGameController : MonoBehaviour
     public Transform[] coverSpawnLocationsRight;
     public Transform[] powerUpSpawnsLeft;
     public Transform[] powerUpSpawnsRight;
+
+    public Animator transitionAnim;
 
     public float coverSpawnWait;
     private float coverSpawnTimer;
@@ -71,19 +75,20 @@ public class NewGameController : MonoBehaviour
         playerTwoAmmo.text = _player2.GetComponent<PlayerGlobal>().currentClipSize.ToString();
         playerOneReload.text = " ";
         playerTwoReload.text = " ";
-
+        player2 = _player2.GetComponent<PlayerGlobal>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
-        playerOneHealth.fillAmount = (float)_player1.GetComponent<PlayerGlobal>().currentHealthPoints / _player1.GetComponent<PlayerGlobal>().maxHealthPoints;
+        playerOneHealth.fillAmount = player1.GetPercentageHP();
         playerTwoHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
 
         SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
@@ -223,6 +228,7 @@ public class NewGameController : MonoBehaviour
     //        powerUpActivity = true;
     //    }
     //}
+
 }
 
 // infinity symbol: \x221E

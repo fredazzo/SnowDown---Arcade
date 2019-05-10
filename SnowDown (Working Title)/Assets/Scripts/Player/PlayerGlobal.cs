@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public class STATS
+{
+    public static int LIFE = 10;
+
+}
+
 public class PlayerGlobal : MonoBehaviour
 {
     public bool playerOne;
@@ -213,4 +220,9 @@ public class PlayerGlobal : MonoBehaviour
         }
     }
 
+    public float GetPercentageHP()
+    {
+        return (float)(currentHealthPoints / maxHealthPoints);
+
+    }
 }
