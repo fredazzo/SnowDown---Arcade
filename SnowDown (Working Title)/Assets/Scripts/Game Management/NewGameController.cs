@@ -89,7 +89,7 @@ public class NewGameController : MonoBehaviour
             Application.Quit();
 
         // playerOneHealth.fillAmount = player1.GetPercentageHP();
-        playerOneHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
+        playerOneHealth.fillAmount = (float)_player1.GetComponent<PlayerGlobal>().currentHealthPoints / _player1.GetComponent<PlayerGlobal>().maxHealthPoints;
         playerTwoHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
 
         SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
