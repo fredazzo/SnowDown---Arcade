@@ -112,6 +112,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &211343939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &238862487 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &510669347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10052,6 +10076,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: _player1
+      value: 
+      objectReference: {fileID: 1386017332}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: _player2
+      value: 
+      objectReference: {fileID: 1869334098}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneHealth
+      value: 
+      objectReference: {fileID: 841347148}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoHealth
+      value: 
+      objectReference: {fileID: 1759148917}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneAmmo
+      value: 
+      objectReference: {fileID: 1288264405}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoAmmo
+      value: 
+      objectReference: {fileID: 981797850}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneReload
+      value: 
+      objectReference: {fileID: 1222304604}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoReload
+      value: 
+      objectReference: {fileID: 1091413652}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneUnlimAmmo
+      value: 
+      objectReference: {fileID: 238862487}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoUnlimAmmo
+      value: 
+      objectReference: {fileID: 211343939}
     - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
         type: 3}
       propertyPath: coverSpawnLocationsLeft.Array.size
@@ -10252,38 +10316,6 @@ PrefabInstance:
       propertyPath: powerUpIdleDuration
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: _player1
-      value: 
-      objectReference: {fileID: 1386017332}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: _player2
-      value: 
-      objectReference: {fileID: 1869334098}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: playerOneHealth
-      value: 
-      objectReference: {fileID: 841347148}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: playerTwoHealth
-      value: 
-      objectReference: {fileID: 1759148917}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: playerOneAmmo
-      value: 
-      objectReference: {fileID: 1288264405}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: playerTwoAmmo
-      value: 
-      objectReference: {fileID: 981797850}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: playerOneReload
-      value: 
-      objectReference: {fileID: 1222304604}
-    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
-      propertyPath: playerTwoReload
-      value: 
-      objectReference: {fileID: 1091413652}
     m_RemovedComponents:
     - {fileID: 5966138931832207118, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
