@@ -14,9 +14,9 @@ public class MenuController : MonoBehaviour
     bool startSelected;
     bool creditsSelected;
 
-    public string startSelection;
-    public string creditsSelection;
-    public string confirm;
+    public KeyCode startSelection;
+    public KeyCode creditsSelection;
+    public KeyCode confirm;
 
     public string gameScene;
     public string creditsScene;
@@ -41,7 +41,7 @@ public class MenuController : MonoBehaviour
         ResetSize(start, startSelected, originalStart);
         ResetSize(credits, creditsSelected, originalCredits);
 
-        if(Input.GetButtonDown(startSelection))
+        if(Input.GetKeyDown(startSelection))
         {
             if(!startSelected)
             {
@@ -51,7 +51,7 @@ public class MenuController : MonoBehaviour
             creditsSelected = false;
 
         }
-        else if(Input.GetButtonDown(creditsSelection))
+        else if(Input.GetKeyDown(creditsSelection))
         {
             if(!creditsSelected)
             {
@@ -63,11 +63,11 @@ public class MenuController : MonoBehaviour
         }
 
 
-        if(startSelected && Input.GetButtonDown(confirm))
+        if(startSelected && Input.GetKeyDown(confirm))
         {
            StartCoroutine(OnSceneLoad(gameScene));
         }
-        if(creditsSelected && Input.GetButtonDown(confirm))
+        if(creditsSelected && Input.GetKeyDown(confirm))
         {
             StartCoroutine(OnSceneLoad(creditsScene));
         }
