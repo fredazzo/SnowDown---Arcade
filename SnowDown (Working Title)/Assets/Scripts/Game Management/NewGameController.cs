@@ -126,8 +126,7 @@ public class NewGameController : MonoBehaviour
                 coverPool[i].GetComponent<Cover>().timer += Time.deltaTime;
                 if (coverPool[i].GetComponent<Cover>().timer > coverDuration)
                 {
-                    coverPool[i].SetActive(false);
-                    coverPool[i].GetComponent<Cover>().timer = 0.0f;
+                    StartCoroutine(DespawnCover(i));
                 }
             }
         }
@@ -175,6 +174,15 @@ public class NewGameController : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator DespawnCover(int index)
+    {
+        coverPool[index].GetComponent<Cover>().timer = 0.0f;
+        coverPool[index].GetComponent<Cover>().anim.SetTrigger("Despawn");
+        coverPool[index].GetComponent<Cover>().anim.SetBool("Exit", true);
+        yield return new WaitForSeconds(1.5f);
+        coverPool[index].SetActive(false);
     }
 
     void SpawnPowerUp(Transform[] locations)
