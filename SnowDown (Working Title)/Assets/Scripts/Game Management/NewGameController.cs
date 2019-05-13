@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class NewGameController : MonoBehaviour
 {
-    public GameObject _player1;
-    public PlayerGlobal player1;
-    public GameObject _player2;
-    public PlayerGlobal player2;
+    public GameObject player1;
+    private PlayerGlobal _player1;
+    public GameObject player2;
+    private PlayerGlobal _player2;
     public GameObject cover;
     public GameObject powerUp;
     public GameObject[] coverPool;
@@ -69,13 +69,15 @@ public class NewGameController : MonoBehaviour
             powerUpPool[i] = obj;
             powerUpPool[i].SetActive(false);
         }
-        healthThreshold = _player1.GetComponent<PlayerGlobal>().maxHealthPoints / 2;
+        _player1 = player1.GetComponent<PlayerGlobal>();
+        _player2 = player2.GetComponent<PlayerGlobal>();
 
-        playerOneAmmo.text = _player1.GetComponent<PlayerGlobal>().currentClipSize.ToString();
-        playerTwoAmmo.text = _player2.GetComponent<PlayerGlobal>().currentClipSize.ToString();
+        healthThreshold = _player1.maxHealthPoints / 2;
+
+        playerOneAmmo.text = _player1.currentClipSize.ToString();
+        playerTwoAmmo.text = _player2.currentClipSize.ToString();
         playerOneReload.text = " ";
         playerTwoReload.text = " ";
-        player2 = _player2.GetComponent<PlayerGlobal>();
     }
 
     // Update is called once per frame
@@ -88,12 +90,11 @@ public class NewGameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
-        // playerOneHealth.fillAmount = player1.GetPercentageHP();
-        playerOneHealth.fillAmount = (float)_player1.GetComponent<PlayerGlobal>().currentHealthPoints / _player1.GetComponent<PlayerGlobal>().maxHealthPoints;
-        playerTwoHealth.fillAmount = (float)_player2.GetComponent<PlayerGlobal>().currentHealthPoints / _player2.GetComponent<PlayerGlobal>().maxHealthPoints;
+        playerOneHealth.fillAmount = _player1.GetPercentageHP();
+        playerTwoHealth.fillAmount = _player2.GetPercentageHP();
 
-        SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
-        SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo,  _player2);
+        SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, player1);
+        SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo,  player2);
 
         if (_player1.GetComponent<PlayerGlobal>().currentHealthPoints < healthThreshold && !powerUpActivatedRight)
         {
