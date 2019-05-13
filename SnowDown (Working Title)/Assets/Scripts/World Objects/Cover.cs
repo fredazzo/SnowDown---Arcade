@@ -5,16 +5,22 @@ using UnityEngine;
 public class Cover : MonoBehaviour
 {
     public float timer = 0.0f;
+    public Animator anim;
+    BoxCollider2D collision;
 
     // Start is called before the first frame update
     void Start()
     {
+        collision = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (anim.GetBool("Solid"))
+            collision.enabled = true;
+        else
+            collision.enabled = false;
     }
 
 
