@@ -414,8 +414,8 @@ MonoBehaviour:
   playerOne: 1
   horizontalAxis: Horizontal_P1
   verticalAxis: Vertical_P1
-  fireButton: Fire1
-  reloadButton: Reload_P1
+  fireButton: 102
+  reloadButton: 114
   rotateAxis: Rotate_P1
   currentClipSize: 0
   reloadAmount: 1

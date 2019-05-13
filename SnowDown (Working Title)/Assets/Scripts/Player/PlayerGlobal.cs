@@ -15,8 +15,8 @@ public class PlayerGlobal : MonoBehaviour
 
     public string horizontalAxis;
     public string verticalAxis;
-    public string fireButton;
-    public string reloadButton;
+    public KeyCode fireButton;
+    public KeyCode reloadButton;
     public string rotateAxis;
 
     Rigidbody2D rb;
@@ -109,7 +109,7 @@ public class PlayerGlobal : MonoBehaviour
 
         fireTimer += Time.deltaTime;
 
-        if (Input.GetButtonDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate)
+        if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate)
         {
             fireTimer = 0f;
             currentClipSize--;
@@ -133,7 +133,7 @@ public class PlayerGlobal : MonoBehaviour
 
 
 
-        if (Input.GetButtonUp(reloadButton))
+        if (Input.GetKeyUp(reloadButton))
         {
             currentClipSize++;
         }
