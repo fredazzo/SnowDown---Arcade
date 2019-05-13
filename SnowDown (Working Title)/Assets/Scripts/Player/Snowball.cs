@@ -32,7 +32,7 @@ public class Snowball : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Cover")
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("collided", true);
