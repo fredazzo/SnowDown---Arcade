@@ -222,7 +222,7 @@ public class PlayerGlobal : MonoBehaviour
 
     public float GetPercentageHP()
     {
-        return (float)(currentHealthPoints / maxHealthPoints);
+        return (float)currentHealthPoints / maxHealthPoints;
 
     }
 }
