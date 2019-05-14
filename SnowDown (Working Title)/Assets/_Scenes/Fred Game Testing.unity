@@ -9992,6 +9992,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: rotateSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa134346cad646848bb3d2355d363fde, type: 3}
 --- !u!1001 &2390477012753700490
@@ -10115,6 +10119,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
       propertyPath: player2
+      value: 
+      objectReference: {fileID: 1869334098}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOne
+      value: 
+      objectReference: {fileID: 1386017332}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwo
       value: 
       objectReference: {fileID: 1869334098}
     m_RemovedComponents: []
@@ -10269,6 +10281,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: rotateSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
