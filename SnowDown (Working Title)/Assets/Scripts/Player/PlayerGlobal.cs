@@ -98,7 +98,7 @@ public class PlayerGlobal : MonoBehaviour
         rb.freezeRotation = true;
 
         rotationZ += rotate * rotateSpeed;
-        rotationZ = Mathf.Clamp(rotationZ, originalRotation.z - 45, originalRotation.z + 45);
+        rotationZ = Mathf.Clamp(rotationZ, originalRotation.z - 90, originalRotation.z + 90);
 
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -rotationZ);
         //transform.Rotate(0.0f, 0.0f, -rotate * rotateSpeed);
