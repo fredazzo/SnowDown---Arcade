@@ -28,20 +28,21 @@ public class PlayerGlobal : MonoBehaviour
     public int maxHealthPoints;
 
     public float fireRate;
-    float fireTimer = 0f;
+    private float fireTimer = 0f;
     public float speed;
     public float rotateSpeed;
-    float rotaionInRadians;
+    private float rotaionInRadians;
     public float unlimAmmoDuration;
-    float powerUpTimer = 0f;
+    private float powerUpTimer = 0f;
+    private float rotationZ;
 
     public GameObject shot;
     public GameObject[] shotPool;
 
     public Transform shotSpawn;
 
-    bool moving;
-    bool hit;
+    private bool moving;
+    private bool hit;
     public bool unlimAmmo;
 
     public SpriteRenderer body;
@@ -49,6 +50,8 @@ public class PlayerGlobal : MonoBehaviour
     AudioSource moveSource;
     AudioSource shootSource;
     AudioSource hitSource;
+
+    Vector3 originalRotation;
 
     void Start()
     {
@@ -77,6 +80,8 @@ public class PlayerGlobal : MonoBehaviour
             hitSource = SoundManager.instance.p2HitSource;
         }
 
+        originalRotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        rotationZ = transform.eulerAngles.z;
     }
 
     void FixedUpdate()
@@ -84,14 +89,19 @@ public class PlayerGlobal : MonoBehaviour
 
         float moveHorizontal = Input.GetAxis(horizontalAxis);
         float moveVertical = Input.GetAxis(verticalAxis);
-
+        float rotate = Input.GetAxis(rotateAxis);
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
 
-        //transform.Rotate(0.0f, 0.0f, -Input.GetAxis(rotateAxis) * rotateSpeed);
 
         rb.freezeRotation = true;
+
+        rotationZ += rotate * rotateSpeed;
+        rotationZ = Mathf.Clamp(rotationZ, originalRotation.z - 45, originalRotation.z + 45);
+
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -rotationZ);
+        //transform.Rotate(0.0f, 0.0f, -rotate * rotateSpeed);
 
 
     }
@@ -135,7 +145,7 @@ public class PlayerGlobal : MonoBehaviour
 
         if (Input.GetKeyUp(reloadButton))
         {
-            currentClipSize++;
+            currentClipSize += reloadAmount;
         }
         if (currentClipSize > maxClipSize)
         {
@@ -225,4 +235,5 @@ public class PlayerGlobal : MonoBehaviour
         return (float)currentHealthPoints / maxHealthPoints;
 
     }
+
 }
