@@ -9992,6 +9992,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: rotateAxis
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: fireButton
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: reloadButton
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: reloadAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: maxHealthPoints
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2359954321262655738, guid: aa134346cad646848bb3d2355d363fde,
         type: 3}
       propertyPath: shootClip
@@ -10116,6 +10140,14 @@ PrefabInstance:
       propertyPath: playerTwoUnlimAmmo
       value: 
       objectReference: {fileID: 211343939}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOne
+      value: 
+      objectReference: {fileID: 1386017332}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwo
+      value: 
+      objectReference: {fileID: 1869334098}
     - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
         type: 3}
       propertyPath: coverSpawnLocationsLeft.Array.size
@@ -10390,7 +10422,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 817aac4497a59864db4f3a1f37b0d8b8, type: 3}
     - target: {fileID: 4644107894331494494, guid: 4452a38c7295d97498aff77253651050,
         type: 3}
       propertyPath: Loop
@@ -10469,6 +10501,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: rotateAxis
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: fireButton
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: reloadAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: maxHealthPoints
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8648096266160701088, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
         type: 3}

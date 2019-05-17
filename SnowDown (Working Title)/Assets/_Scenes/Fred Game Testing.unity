@@ -5089,6 +5089,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5470425715803006396, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c, type: 3}
 --- !u!114 &1554442625 stripped
@@ -9996,6 +10001,10 @@ PrefabInstance:
       propertyPath: rotateSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: rotateAxis
+      value: Mouse X
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa134346cad646848bb3d2355d363fde, type: 3}
 --- !u!1001 &2390477012753700490
@@ -10285,6 +10294,10 @@ PrefabInstance:
     - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
       propertyPath: rotateSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: rotateAxis
+      value: Mouse Y
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
