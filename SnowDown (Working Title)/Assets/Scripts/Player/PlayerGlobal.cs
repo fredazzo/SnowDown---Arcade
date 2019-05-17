@@ -17,7 +17,7 @@ public class PlayerGlobal : MonoBehaviour
     public string verticalAxis;
     public KeyCode fireButton;
     public KeyCode reloadButton;
-    public string rotateAxis;
+    //public string rotateAxis;
 
     Rigidbody2D rb;
 
@@ -89,7 +89,7 @@ public class PlayerGlobal : MonoBehaviour
 
         float moveHorizontal = Input.GetAxis(horizontalAxis);
         float moveVertical = Input.GetAxis(verticalAxis);
-        float rotate = Input.GetAxis(rotateAxis);
+
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         rb.velocity = movement * speed;
@@ -97,10 +97,10 @@ public class PlayerGlobal : MonoBehaviour
 
         rb.freezeRotation = true;
 
-        rotationZ += rotate * rotateSpeed;
-        rotationZ = Mathf.Clamp(rotationZ, originalRotation.z - 90, originalRotation.z + 90);
+        //rotationZ += rotate * rotateSpeed;
+        //rotationZ = Mathf.Clamp(rotationZ, originalRotation.z - 90, originalRotation.z + 90);
 
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -rotationZ);
+        //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, -rotationZ);
         //transform.Rotate(0.0f, 0.0f, -rotate * rotateSpeed);
 
 

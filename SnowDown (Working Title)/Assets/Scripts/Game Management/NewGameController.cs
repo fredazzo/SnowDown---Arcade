@@ -37,7 +37,7 @@ public class NewGameController : MonoBehaviour
     public float coverDuration;
     public float powerUpIdleDuration;
     public float powerUpCooldown;
-    float healthThreshold;
+    private float healthThreshold;
 
     bool powerUpActivatedRight;
     bool powerUpActivatedLeft;
