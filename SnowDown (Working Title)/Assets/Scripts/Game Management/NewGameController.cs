@@ -116,14 +116,27 @@ public class NewGameController : MonoBehaviour
         {
             p2Won = true;
             p2WinCount++;
-            StartCoroutine(RoundReset());
+            roundTextRight.text = "Round Lost!";
+            roundTextLeft.text = "Round Won!";
+            gameActive = false;
+
         }
 
         if (_player2.currentHealthPoints <= 0)
         {
             p1Won = true;
             p1WinCount++;
-            StartCoroutine(RoundReset());
+            roundTextRight.text = "Round Won!";
+            roundTextLeft.text = "Round Lost!";
+            gameActive = false;
+
+        }
+
+        if (p1Won || p2Won)
+        {
+           StartCoroutine( RoundReset());
+
+
         }
 
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
@@ -295,16 +308,11 @@ public class NewGameController : MonoBehaviour
         rightCountdown.text = " ";
            
     }
-    //roundTextRight.text = "Round Won!";
-    //roundTextLeft.text = "Round Lost!";
 
-    //roundTextRight.text = "Round Lost!";
-    //roundTextLeft.text = "Round Won!";
     IEnumerator RoundReset()
     {
         yield return new WaitForSeconds(5.0f);
 
-        gameActive = false;
         playerOne.transform.position = playerOneStartPos;
         _player1.currentHealthPoints = _player1.maxHealthPoints;
         _player1.currentClipSize = _player1.maxClipSize;
@@ -315,6 +323,11 @@ public class NewGameController : MonoBehaviour
         playerTwo.gameObject.SetActive(true);
         p1Won = false;
         p2Won = false;
+        _player1.canShoot = false;
+        _player2.canShoot = false;
+        roundTextLeft.text = " ";
+        roundTextRight.text = " ";
+        StartCoroutine(StartUp("Round 2"));
     }
 
 
