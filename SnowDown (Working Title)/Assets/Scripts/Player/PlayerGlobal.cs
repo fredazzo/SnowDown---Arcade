@@ -44,6 +44,7 @@ public class PlayerGlobal : MonoBehaviour
     private bool moving;
     private bool hit;
     public bool unlimAmmo;
+    public bool canShoot;
 
     public SpriteRenderer body;
 
@@ -57,6 +58,7 @@ public class PlayerGlobal : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         hit = false;
+        canShoot = false;
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
 
@@ -119,7 +121,7 @@ public class PlayerGlobal : MonoBehaviour
 
         fireTimer += Time.deltaTime;
 
-        if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate)
+        if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
         {
             fireTimer = 0f;
             currentClipSize--;
