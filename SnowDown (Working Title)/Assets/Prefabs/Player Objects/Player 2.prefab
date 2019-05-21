@@ -99,11 +99,9 @@ MonoBehaviour:
   verticalAxis: Vertical_P2
   fireButton: 32
   reloadButton: 114
-  rotateAxis: Rotate_P2
   currentClipSize: 0
   reloadAmount: 1
   maxClipSize: 10
-  currentHealthPoints: 0
   maxHealthPoints: 20
   fireRate: 0.2
   speed: 7
@@ -118,7 +116,9 @@ MonoBehaviour:
   - {fileID: 0}
   shotSpawn: {fileID: 4189963192649911442}
   unlimAmmo: 0
+  canShoot: 0
   body: {fileID: 8432094443746746612}
+  anim: {fileID: 0}
 --- !u!1 &3462740543555489952
 GameObject:
   m_ObjectHideFlags: 0
