@@ -186,6 +186,7 @@ public class PlayerGlobal : MonoBehaviour
         transform.position = startingPosition;
         currentHealthPoints = maxHealthPoints;
         currentClipSize = maxClipSize;
+        unlimAmmo = false;
         gameObject.SetActive(true);
     }
 

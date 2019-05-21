@@ -405,13 +405,15 @@ public class NewGameController : MonoBehaviour
         _player2.Reset(playerTwoStartPos);
         _player1.canShoot = false;
         _player2.canShoot = false;
+        powerUpActivatedRight = false;
+        powerUpActivatedLeft = false;
         roundTextLeft.text = " ";
         roundTextRight.text = " ";
         string round = " ";
         if (roundCounter == 2)
             round = "Round 2";
         else if (roundCounter == 3)
-            round = "Final Round";
+            round = "Final Round!";
         StartCoroutine(StartUp(round));
     }
 
