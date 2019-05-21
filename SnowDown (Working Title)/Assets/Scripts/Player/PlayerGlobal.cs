@@ -24,7 +24,7 @@ public class PlayerGlobal : MonoBehaviour
     public int currentClipSize;
     public int reloadAmount;
     public int maxClipSize;
-    public int currentHealthPoints;
+    private int currentHealthPoints;
     public int maxHealthPoints;
 
     public float fireRate;
@@ -44,6 +44,7 @@ public class PlayerGlobal : MonoBehaviour
     private bool moving;
     private bool hit;
     public bool unlimAmmo;
+    public bool canShoot;
 
     public SpriteRenderer body;
 
@@ -57,6 +58,7 @@ public class PlayerGlobal : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         hit = false;
+        canShoot = false;
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
 
@@ -119,7 +121,7 @@ public class PlayerGlobal : MonoBehaviour
 
         fireTimer += Time.deltaTime;
 
-        if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate)
+        if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
         {
             fireTimer = 0f;
             currentClipSize--;
@@ -151,10 +153,7 @@ public class PlayerGlobal : MonoBehaviour
         {
             currentClipSize = maxClipSize;
         }
-        if (currentHealthPoints <= 0)
-        {
-            this.gameObject.SetActive(false);
-        }
+       
 
         if (gameObject.activeSelf)
         {
@@ -170,11 +169,36 @@ public class PlayerGlobal : MonoBehaviour
     {
         if (other.gameObject.tag == "Projectile")
         {
-            currentHealthPoints--;
+            // GameController: NotificationManager.Subscribe("PlayerDeath", PlayerDeath(Notification) );
+            //
+            // Player: NotificationManager.Post("PlayerDeath", PlayerID);
+            ModifyHealth(-1);
             SoundManager.instance.PlaySingle(hitSource);
             hit = true;
             CameraShake.instance.MinorShake(.05f);
         }
+    }
+
+    public void Reset(Vector3 startingPosition)
+    {
+        transform.position = startingPosition;
+        currentHealthPoints = maxHealthPoints;
+        currentClipSize = maxClipSize;
+        gameObject.SetActive(true);
+    }
+    public int GetHealth()
+    {
+        return currentHealthPoints;
+    }
+
+    public void ModifyHealth(int value)
+    {
+        currentHealthPoints += value;
+        if (currentHealthPoints > maxHealthPoints)
+            currentHealthPoints = maxHealthPoints;
+        if (currentHealthPoints <= 0)
+            this.gameObject.SetActive(false);
+        
     }
 
     public void OnMovement(AudioSource source, string horizontalAxis, string verticalAxis)

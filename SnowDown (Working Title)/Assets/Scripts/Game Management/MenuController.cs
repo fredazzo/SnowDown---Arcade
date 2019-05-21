@@ -75,7 +75,7 @@ public class MenuController : MonoBehaviour
 
     void Enlarge(GameObject button)
     {
-          button.transform.localScale += new Vector3(0.3f, 0.3f, 0.0f);
+          button.transform.localScale += new Vector3(0.2f, 0.2f, 0.0f);
     }
 
     void ResetSize(GameObject button, bool selection, Vector3 originalSize)

@@ -24,6 +24,10 @@ public class NewGameController : MonoBehaviour
     public Text playerTwoReload;
     public Text playerOneUnlimAmmo;
     public Text playerTwoUnlimAmmo;
+    public Text leftCountdown;
+    public Text rightCountdown;
+    public Text roundTextLeft;
+    public Text roundTextRight;
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
@@ -41,12 +45,21 @@ public class NewGameController : MonoBehaviour
 
     bool powerUpActivatedRight;
     bool powerUpActivatedLeft;
+    public bool gameActive;
+    bool p1Won;
+    bool p2Won;
 
     int coverSpawnLocation;
+    int p1WinCount;
+    public int p2WinCount;
+
+    Vector3 playerOneStartPos;
+    Vector3 playerTwoStartPos;
 
     // Start is called before the first frame update
     void Start()
     {
+        gameActive = false;
         coverSpawnLocation = 0;
 
         Debug.Log("displays connected: " + Display.displays.Length);
@@ -71,6 +84,8 @@ public class NewGameController : MonoBehaviour
         }
         _player1 = playerOne.GetComponent<PlayerGlobal>();
         _player2 = playerTwo.GetComponent<PlayerGlobal>();
+        playerOneStartPos = playerOne.transform.position;
+        playerTwoStartPos = playerTwo.transform.position;
 
         healthThreshold = _player1.maxHealthPoints / 2;
 
@@ -78,6 +93,12 @@ public class NewGameController : MonoBehaviour
         playerTwoAmmo.text = _player2.currentClipSize.ToString();
         playerOneReload.text = " ";
         playerTwoReload.text = " ";
+        leftCountdown.text = " ";
+        rightCountdown.text = " ";
+        roundTextLeft.text = " ";
+        roundTextRight.text = " ";
+        StartCoroutine(StartUp("Round 1"));
+
     }
 
     // Update is called once per frame
@@ -90,31 +111,57 @@ public class NewGameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
+        if (_player1.GetHealth() <= 0)
+        {
+            p2Won = true;
+            roundTextRight.text = "Round Lost!";
+            roundTextLeft.text = "Round Won!";
+            gameActive = false;
+
+        }
+
+        if (_player2.GetHealth() <= 0)
+        {
+            p1Won = true;
+            roundTextRight.text = "Round Won!";
+            roundTextLeft.text = "Round Lost!";
+            gameActive = false;
+
+        }
+
+        if (p1Won || p2Won)
+        {
+           StartCoroutine(RoundReset());
+        }
+
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
         playerTwoHealth.fillAmount = _player2.GetPercentageHP();
 
         SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
         SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo, _player2);
 
-        if (_player1.currentHealthPoints < healthThreshold && !powerUpActivatedRight)
+        if (_player1.GetHealth() < healthThreshold && !powerUpActivatedRight)
         {
             SpawnPowerUp(powerUpSpawnsRight);
             powerUpActivatedRight = true;
         }
-        if (_player2.currentHealthPoints < healthThreshold && !powerUpActivatedLeft)
+        if (_player2.GetHealth() < healthThreshold && !powerUpActivatedLeft)
         {
             SpawnPowerUp(powerUpSpawnsLeft);
             powerUpActivatedLeft = true;
         }
 
-        coverSpawnTimer += Time.deltaTime;
-
-        if (coverSpawnTimer > coverSpawnWait)
+        if (gameActive)
         {
+            coverSpawnTimer += Time.deltaTime;
 
-            SpawnCover(coverSpawnLocation);
-            coverSpawnLocation++;
+            if (coverSpawnTimer > coverSpawnWait)
+            {
 
+                SpawnCover(coverSpawnLocation);
+                coverSpawnLocation++;
+
+            }
         }
 
         if (coverSpawnLocation > 2)
@@ -229,6 +276,70 @@ public class NewGameController : MonoBehaviour
             unlimAmmoText.text = " ";
         }
     }
+
+
+    IEnumerator StartUp(string roundNumber)
+    {
+        roundTextLeft.text = roundNumber;
+        roundTextRight.text = roundNumber;
+        leftCountdown.text = "3...";
+        rightCountdown.text = "3...";
+        yield return new WaitForSeconds(1.0f);
+        leftCountdown.text = "2...";
+        rightCountdown.text = "2...";
+        yield return new WaitForSeconds(1.0f);
+        leftCountdown.text = "1...";
+        rightCountdown.text = "1...";
+        yield return new WaitForSeconds(1.0f);
+        leftCountdown.text = "Start!";
+        rightCountdown.text = "Start!";
+        gameActive = true;
+        _player1.canShoot = true;
+        _player2.canShoot = true;
+        yield return new WaitForSeconds(1.0f);
+        roundTextLeft.text = " ";
+        roundTextRight.text = " ";
+        leftCountdown.text = " ";
+        rightCountdown.text = " ";
+        resetActive = false;
+    }
+
+    private bool resetActive = false;
+    private int roundCounter = 1;
+
+    IEnumerator RoundReset()
+    {
+        if (resetActive)
+            yield break;
+        resetActive = true;
+        roundCounter++;
+        if(p1Won)
+        {
+            p1WinCount++;
+            p1Won = false;
+        }
+        if (p2Won)
+        {
+            p2WinCount++;
+            p2Won = false; 
+
+        }
+        yield return new WaitForSeconds(5.0f);
+
+        _player1.Reset(playerOneStartPos);
+        _player2.Reset(playerTwoStartPos);
+        _player1.canShoot = false;
+        _player2.canShoot = false;
+        roundTextLeft.text = " ";
+        roundTextRight.text = " ";
+        string round = " ";
+        if (roundCounter == 2)
+            round = "Round 2";
+        else if (roundCounter == 3)
+            round = "Round 3";
+        StartCoroutine(StartUp(round));
+    }
+
 
     //void PowerUpActivity(GameObject player, bool powerUpActivity, Transform[] spawns)
     //{
