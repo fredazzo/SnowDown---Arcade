@@ -32,6 +32,8 @@ public class NewGameController : MonoBehaviour
     public Text roundTextRight;
     public Text reloadIndicatorLeft;
     public Text reloadIndicatorRight;
+    public Text leftLowHealth;
+    public Text rightLowHealth;
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
@@ -182,18 +184,37 @@ public class NewGameController : MonoBehaviour
         SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, reloadIndicatorRight, _player1);
         SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo, reloadIndicatorLeft, _player2);
 
-        if (_player1.GetHealth() < healthThreshold && !powerUpActivatedRight)
+        if (_player1.GetHealth() < healthThreshold)
         {
-            SpawnPowerUp(powerUpSpawnsRight);
-            powerUpActivatedRight = true;
             p1HealthAnim.SetBool("low health", true);
+            rightLowHealth.gameObject.SetActive(true);
+            if (!powerUpActivatedRight)
+            {
+                SpawnPowerUp(powerUpSpawnsRight);
+                powerUpActivatedRight = true;
+            }
         }
-        if (_player2.GetHealth() < healthThreshold && !powerUpActivatedLeft)
+        else
         {
-            SpawnPowerUp(powerUpSpawnsLeft);
-            powerUpActivatedLeft = true;
-            p2HealthAnim.SetBool("low health", true);
+            p1HealthAnim.SetBool("low health", false);
+            rightLowHealth.gameObject.SetActive(false);
         }
+        if (_player2.GetHealth() < healthThreshold)
+        {
+            p2HealthAnim.SetBool("low health", true);
+            leftLowHealth.gameObject.SetActive(true);
+            if (!powerUpActivatedLeft)
+            {
+                SpawnPowerUp(powerUpSpawnsLeft);
+                powerUpActivatedLeft = true;
+            }
+        }
+        else
+        {
+            p2HealthAnim.SetBool("low health", false);
+            leftLowHealth.gameObject.SetActive(false);
+        }
+
 
         if (gameActive)
         {
