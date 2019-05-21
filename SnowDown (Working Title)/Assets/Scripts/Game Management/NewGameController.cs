@@ -17,6 +17,8 @@ public class NewGameController : MonoBehaviour
 
     public Image playerOneHealth;
     public Image playerTwoHealth;
+    public Image[] playerOneWins;
+    public Image[] playerTwoWins;
 
     public Text playerOneAmmo;
     public Text playerTwoAmmo;
@@ -134,10 +136,41 @@ public class NewGameController : MonoBehaviour
         if (p1Won || p2Won)
         {
            StartCoroutine(RoundReset());
+            p1Won = false;
+            p2Won = false;
         }
 
-        if (p1WinCount == 2 || p2WinCount == 2)
-            SceneManager.LoadScene(winScene);
+        if(p1WinCount == 0)
+        {
+            playerOneWins[0].gameObject.SetActive(false);
+            playerOneWins[1].gameObject.SetActive(false);
+        }
+        else if (p1WinCount == 1)
+        {
+            playerOneWins[0].gameObject.SetActive(true);
+        }
+        else if (p1WinCount == 2)
+        {
+            playerOneWins[0].gameObject.SetActive(true);
+            playerOneWins[1].gameObject.SetActive(true);
+        }
+        if(p2WinCount == 0)
+        {
+            playerTwoWins[0].gameObject.SetActive(false);
+            playerTwoWins[1].gameObject.SetActive(false);
+        }
+        else if (p2WinCount == 1)
+        {
+            playerTwoWins[0].gameObject.SetActive(true);
+        }
+        else if (p2WinCount == 2)
+        {
+            playerTwoWins[0].gameObject.SetActive(true);
+            playerTwoWins[1].gameObject.SetActive(true);
+        }
+
+
+
 
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
         playerTwoHealth.fillAmount = _player2.GetPercentageHP();
@@ -319,21 +352,25 @@ public class NewGameController : MonoBehaviour
             yield break;
         resetActive = true;
         roundCounter++;
-
-        yield return new WaitForSeconds(5.0f);
         if (p1Won)
         {
             p1WinCount++;
-            p1Won = false;
+            //p1Won = false;
         }
         if (p2Won)
         {
             p2WinCount++;
-            p2Won = false;
+            //p2Won = false;
 
         }
+
+        yield return new WaitForSeconds(5.0f);
+
         if (p1WinCount == 2 || p2WinCount == 2)
+        {
+            StartCoroutine(OnSceneLoad(winScene));
             yield break;
+        }
 
         _player1.Reset(playerOneStartPos);
         _player2.Reset(playerTwoStartPos);
@@ -349,6 +386,12 @@ public class NewGameController : MonoBehaviour
         StartCoroutine(StartUp(round));
     }
 
+    IEnumerator OnSceneLoad(string scene)
+    {
+        transitionAnim.SetTrigger("end");
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(scene);
+    }
 
     //void PowerUpActivity(GameObject player, bool powerUpActivity, Transform[] spawns)
     //{
