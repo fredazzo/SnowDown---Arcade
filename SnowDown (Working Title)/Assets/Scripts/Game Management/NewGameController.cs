@@ -43,18 +43,20 @@ public class NewGameController : MonoBehaviour
     public float powerUpCooldown;
     private float healthThreshold;
 
-    bool powerUpActivatedRight;
-    bool powerUpActivatedLeft;
-    public bool gameActive;
-    bool p1Won;
-    bool p2Won;
+    private bool powerUpActivatedRight;
+    private bool powerUpActivatedLeft;
+    private bool gameActive;
+    private bool p1Won;
+    private bool p2Won;
 
-    int coverSpawnLocation;
-    int p1WinCount;
-    public int p2WinCount;
+    private int coverSpawnLocation;
+    private int p1WinCount;
+    private int p2WinCount;
 
-    Vector3 playerOneStartPos;
-    Vector3 playerTwoStartPos;
+    private Vector3 playerOneStartPos;
+    private Vector3 playerTwoStartPos;
+
+    public string winScene;
 
     // Start is called before the first frame update
     void Start()
@@ -133,6 +135,9 @@ public class NewGameController : MonoBehaviour
         {
            StartCoroutine(RoundReset());
         }
+
+        if (p1WinCount == 2 || p2WinCount == 2)
+            SceneManager.LoadScene(winScene);
 
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
         playerTwoHealth.fillAmount = _player2.GetPercentageHP();
@@ -309,11 +314,14 @@ public class NewGameController : MonoBehaviour
 
     IEnumerator RoundReset()
     {
+
         if (resetActive)
             yield break;
         resetActive = true;
         roundCounter++;
-        if(p1Won)
+
+        yield return new WaitForSeconds(5.0f);
+        if (p1Won)
         {
             p1WinCount++;
             p1Won = false;
@@ -321,10 +329,11 @@ public class NewGameController : MonoBehaviour
         if (p2Won)
         {
             p2WinCount++;
-            p2Won = false; 
+            p2Won = false;
 
         }
-        yield return new WaitForSeconds(5.0f);
+        if (p1WinCount == 2 || p2WinCount == 2)
+            yield break;
 
         _player1.Reset(playerOneStartPos);
         _player2.Reset(playerTwoStartPos);

@@ -54,6 +54,8 @@ public class PlayerGlobal : MonoBehaviour
 
     Vector3 originalRotation;
 
+    public Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -205,6 +207,7 @@ public class PlayerGlobal : MonoBehaviour
     {
         if (Input.GetButton(horizontalAxis))
         {
+            //anim.SetBool("moving", true);
             if (!source.isPlaying)
             {
                 source.Play();
@@ -212,6 +215,7 @@ public class PlayerGlobal : MonoBehaviour
         }
         if (Input.GetButton(verticalAxis))
         {
+            //anim.SetBool("moving", true);
             if (!source.isPlaying)
             {
                 source.Play();
@@ -220,6 +224,7 @@ public class PlayerGlobal : MonoBehaviour
 
         if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
         {
+            //anim.SetBool("moving", false);
             source.Pause();
         }
     }

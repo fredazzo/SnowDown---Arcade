@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: 21d8e2316f206fd4cb5b282cf8d4df3e
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Pinguin_Moving_Animation_0
+    21300002: Pinguin_Moving_Animation_1
+    21300004: Pinguin_Moving_Animation_2
+    21300006: Pinguin_Moving_Animation_3
+    21300008: Pinguin_Moving_Animation_4
+    21300010: Pinguin_Moving_Animation_5
+    21300012: Pinguin_Moving_Animation_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -40,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +76,160 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 586
+        width: 206
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0bbbba259d3ce94c9cbf9662b1c2d25
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 695
+        width: 263
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8776f8421d21c5f44a200595b9a09c82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 322
+        width: 207
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378a7c750b72ace41a990aeb4d741aef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 469
+        width: 262
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874481d356a4d8040aac892aff5bd779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 59
+        width: 207
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1e2289434890d64a91c2eb3d785930a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 237
+        width: 264
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3349c5e0d841a40af113448e9165de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pinguin_Moving_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 14
+        width: 264
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35bb28b9fdd442b4786766d8e77343c3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
