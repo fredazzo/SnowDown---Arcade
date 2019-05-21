@@ -30,6 +30,8 @@ public class NewGameController : MonoBehaviour
     public Text rightCountdown;
     public Text roundTextLeft;
     public Text roundTextRight;
+    public Text reloadIndicatorLeft;
+    public Text reloadIndicatorRight;
 
     public Transform[] coverSpawnLocationsLeft;
     public Transform[] coverSpawnLocationsRight;
@@ -37,6 +39,8 @@ public class NewGameController : MonoBehaviour
     public Transform[] powerUpSpawnsRight;
 
     public Animator transitionAnim;
+    public Animator p1HealthAnim;
+    public Animator p2HealthAnim;
 
     public float coverSpawnWait;
     private float coverSpawnTimer;
@@ -175,18 +179,20 @@ public class NewGameController : MonoBehaviour
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
         playerTwoHealth.fillAmount = _player2.GetPercentageHP();
 
-        SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, _player1);
-        SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo, _player2);
+        SetAmmoText(playerOneAmmo, playerOneReload, playerOneUnlimAmmo, reloadIndicatorRight, _player1);
+        SetAmmoText(playerTwoAmmo, playerTwoReload, playerTwoUnlimAmmo, reloadIndicatorLeft, _player2);
 
         if (_player1.GetHealth() < healthThreshold && !powerUpActivatedRight)
         {
             SpawnPowerUp(powerUpSpawnsRight);
             powerUpActivatedRight = true;
+            p1HealthAnim.SetBool("low health", true);
         }
         if (_player2.GetHealth() < healthThreshold && !powerUpActivatedLeft)
         {
             SpawnPowerUp(powerUpSpawnsLeft);
             powerUpActivatedLeft = true;
+            p2HealthAnim.SetBool("low health", true);
         }
 
         if (gameActive)
@@ -291,19 +297,21 @@ public class NewGameController : MonoBehaviour
 
     }
 
-    void SetAmmoText(Text ammoText, Text reloadText, Text unlimAmmoText, PlayerGlobal player)
+    void SetAmmoText(Text ammoText, Text reloadText, Text unlimAmmoText, Text relaodIndicator, PlayerGlobal player)
     {
         ammoText.text = player.currentClipSize.ToString();
         if (player.currentClipSize <= 0)
         {
             ammoText.text = " ";
             reloadText.text = "Reload!";
+            relaodIndicator.gameObject.SetActive(true);
         }
         else
         {
             reloadText.text = " ";
+            relaodIndicator.gameObject.SetActive(false);
         }
-        if(player.unlimAmmo)
+        if (player.unlimAmmo)
         {
             ammoText.text = " ";
             reloadText.text = " ";
@@ -382,7 +390,7 @@ public class NewGameController : MonoBehaviour
         if (roundCounter == 2)
             round = "Round 2";
         else if (roundCounter == 3)
-            round = "Round 3";
+            round = "Final Round";
         StartCoroutine(StartUp(round));
     }
 

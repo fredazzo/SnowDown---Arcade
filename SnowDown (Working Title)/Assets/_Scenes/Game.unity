@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!95 &196562583 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5566509860961142478, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &211343939 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
@@ -289,6 +295,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &601900390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8229877934793919195, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &811942666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7494997432835535499, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &841347148 stripped
@@ -5169,6 +5199,18 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1339971925 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 555120911130572934, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1386017332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8648096266160701095, guid: 6aff2568509f4bf4283fc8ac4adf4c13,
@@ -9904,6 +9946,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2359954321353184088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2071394896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 323158588255449403, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2287806014693743316
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10149,6 +10203,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneWins.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoWins.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
       propertyPath: _player1
       value: 
       objectReference: {fileID: 1386017332}
@@ -10220,6 +10282,26 @@ PrefabInstance:
       propertyPath: winScene
       value: End Screen
       objectReference: {fileID: 0}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneWins.Array.data[0]
+      value: 
+      objectReference: {fileID: 601900390}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneWins.Array.data[1]
+      value: 
+      objectReference: {fileID: 811942666}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoWins.Array.data[0]
+      value: 
+      objectReference: {fileID: 2071394896}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoWins.Array.data[1]
+      value: 
+      objectReference: {fileID: 1339971925}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: transitionAnim
+      value: 
+      objectReference: {fileID: 196562583}
     - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
         type: 3}
       propertyPath: coverSpawnLocationsLeft.Array.size

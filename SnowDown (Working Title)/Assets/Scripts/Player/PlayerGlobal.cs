@@ -188,10 +188,12 @@ public class PlayerGlobal : MonoBehaviour
         currentClipSize = maxClipSize;
         gameObject.SetActive(true);
     }
+
     public int GetHealth()
     {
         return currentHealthPoints;
     }
+    
 
     public void ModifyHealth(int value)
     {
