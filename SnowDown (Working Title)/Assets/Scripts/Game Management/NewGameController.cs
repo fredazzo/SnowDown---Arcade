@@ -78,6 +78,8 @@ public class NewGameController : MonoBehaviour
             Display.displays[1].Activate();
         if (Display.displays.Length > 2)
             Display.displays[2].Activate();
+        if (Display.displays.Length > 3)
+            Display.displays[3].Activate();
 
         for (int i = 0; i < coverPool.Length; i++)
         {
@@ -98,6 +100,8 @@ public class NewGameController : MonoBehaviour
         playerTwoStartPos = playerTwo.transform.position;
 
         healthThreshold = _player1.maxHealthPoints / 2;
+
+        SoundManager.instance.musicSource.Play();
 
         playerOneAmmo.text = _player1.currentClipSize.ToString();
         playerTwoAmmo.text = _player2.currentClipSize.ToString();
