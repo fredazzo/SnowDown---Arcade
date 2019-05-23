@@ -138,6 +138,10 @@ public class PlayerGlobal : MonoBehaviour
                     shotPool[i].GetComponent<Snowball>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Snowball>().movement.y = Mathf.Sin(rotaionInRadians);
                     SoundManager.instance.PlaySingle(shootSource);
+                    if (playerOne)
+                        shotPool[i].GetComponent<Snowball>().setType(Snowball.Type.PLAYER_ONE);
+                    else
+                        shotPool[i].GetComponent<Snowball>().setType(Snowball.Type.PLAYER_TWO);
                     shotPool[i].SetActive(true);
 
                     break;
@@ -174,9 +178,23 @@ public class PlayerGlobal : MonoBehaviour
             // GameController: NotificationManager.Subscribe("PlayerDeath", PlayerDeath(Notification) );
             //
             // Player: NotificationManager.Post("PlayerDeath", PlayerID);
-            ModifyHealth(-1);
+            if (playerOne)
+            {
+                if (other.gameObject.GetComponent<Snowball>().getType() == Snowball.Type.PLAYER_TWO)
+                {
+                    ModifyHealth(-1);
+                    hit = true;
+                }
+            }
+            else
+            {
+                if (other.gameObject.GetComponent<Snowball>().getType() == Snowball.Type.PLAYER_ONE)
+                {
+                    ModifyHealth(-1);
+                    hit = true;
+                }
+            }
             SoundManager.instance.PlaySingle(hitSource);
-            hit = true;
             CameraShake.instance.MinorShake(.05f);
         }
     }
@@ -210,7 +228,7 @@ public class PlayerGlobal : MonoBehaviour
     {
         if (Input.GetButton(horizontalAxis))
         {
-            //anim.SetBool("moving", true);
+            anim.SetBool("moving", true);
             if (!source.isPlaying)
             {
                 source.Play();
@@ -218,7 +236,7 @@ public class PlayerGlobal : MonoBehaviour
         }
         if (Input.GetButton(verticalAxis))
         {
-            //anim.SetBool("moving", true);
+            anim.SetBool("moving", true);
             if (!source.isPlaying)
             {
                 source.Play();
@@ -227,7 +245,7 @@ public class PlayerGlobal : MonoBehaviour
 
         if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
         {
-            //anim.SetBool("moving", false);
+            anim.SetBool("moving", false);
             source.Pause();
         }
     }

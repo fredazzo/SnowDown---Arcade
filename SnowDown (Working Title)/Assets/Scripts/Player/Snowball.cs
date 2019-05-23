@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Snowball : MonoBehaviour
 {
+    public enum Type
+    {
+        PLAYER_ONE,
+        PLAYER_TWO
+    }
+
     Rigidbody2D rb;
     public float speed;
     public int damage;
@@ -11,6 +17,8 @@ public class Snowball : MonoBehaviour
     public Vector2 movement;
 
     public Animator anim;
+
+    private Type projectileType;
 
     // Start is called before the first frame update
     void Start()
@@ -41,5 +49,14 @@ public class Snowball : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+    public void setType(Type p_type)
+    {
+        projectileType = p_type;
+    }
+
+    public Type getType()
+    {
+        return projectileType;
     }
 }
