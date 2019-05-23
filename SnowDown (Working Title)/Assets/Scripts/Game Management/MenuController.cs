@@ -38,6 +38,9 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
+        if (Input.GetKeyDown(KeyCode.Delete))
+            Application.Quit();
+
         ResetSize(start, startSelected, originalStart);
         ResetSize(credits, creditsSelected, originalCredits);
 

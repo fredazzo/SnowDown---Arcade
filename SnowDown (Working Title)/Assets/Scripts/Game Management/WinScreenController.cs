@@ -9,6 +9,8 @@ public class WinScreenController : MonoBehaviour
     public Text p1Win;
     public Text p2Win;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,8 @@ public class WinScreenController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Delete))
+            Application.Quit();
 
     }
 }
