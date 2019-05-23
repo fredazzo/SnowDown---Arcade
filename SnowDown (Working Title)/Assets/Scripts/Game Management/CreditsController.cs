@@ -4,16 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class WinScreenController : MonoBehaviour
+public class CreditsController : MonoBehaviour
 {
-    public Text p1Win;
-    public Text p2Win;
 
     public Animator transitionAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -23,6 +22,7 @@ public class WinScreenController : MonoBehaviour
             StartCoroutine(OnSceneLoad("Menu"));
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
+
 
     }
 
