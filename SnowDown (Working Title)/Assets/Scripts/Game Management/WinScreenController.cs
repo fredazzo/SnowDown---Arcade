@@ -19,6 +19,8 @@ public class WinScreenController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene("Game");
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
