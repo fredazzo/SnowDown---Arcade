@@ -2,18 +2,18 @@ fileFormatVersion: 2
 guid: 7a3b0371123f576499f39faf55246fcd
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Freeze Animation_0
-    21300002: Freeze Animation_1
-    21300004: Freeze Animation_2
-    21300006: Freeze Animation_3
-    21300008: Freeze Animation_4
-    21300010: Freeze Animation_5
-    21300012: Freeze Animation_6
-    21300014: Freeze Animation_7
-    21300016: Freeze Animation_8
-    21300018: Freeze Animation_9
-    21300020: Freeze Animation_10
-    21300022: Freeze Animation_11
+    21300000: Player_Two_1
+    21300002: Player_Two_2
+    21300004: Player_Two_3
+    21300006: Player_Two_4
+    21300008: Player_Two_5
+    21300010: Player_Two_6
+    21300012: Player_One_1
+    21300014: Player_One_2
+    21300016: Player_One_3
+    21300018: Player_One_4
+    21300020: Player_One_5
+    21300022: Player_One_6
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -96,7 +96,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Freeze Animation_0
+      name: Player_Two_1
       rect:
         serializedVersion: 2
         x: 22
@@ -104,7 +104,7 @@ TextureImporter:
         width: 267
         height: 215
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -116,7 +116,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_1
+      name: Player_Two_2
       rect:
         serializedVersion: 2
         x: 368
@@ -124,7 +124,7 @@ TextureImporter:
         width: 274
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,7 +136,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_2
+      name: Player_Two_3
       rect:
         serializedVersion: 2
         x: 714
@@ -144,7 +144,7 @@ TextureImporter:
         width: 275
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,7 +156,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_3
+      name: Player_Two_4
       rect:
         serializedVersion: 2
         x: 1056
@@ -164,7 +164,7 @@ TextureImporter:
         width: 274
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,15 +176,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_4
+      name: Player_Two_5
       rect:
         serializedVersion: 2
-        x: 1390
-        y: 340
+        x: 1381
+        y: 342
         width: 283
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,7 +196,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_5
+      name: Player_Two_6
       rect:
         serializedVersion: 2
         x: 1719
@@ -204,7 +204,7 @@ TextureImporter:
         width: 293
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -216,7 +216,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_6
+      name: Player_One_1
       rect:
         serializedVersion: 2
         x: 18
@@ -224,7 +224,7 @@ TextureImporter:
         width: 268
         height: 215
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -236,7 +236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_7
+      name: Player_One_2
       rect:
         serializedVersion: 2
         x: 359
@@ -244,7 +244,7 @@ TextureImporter:
         width: 280
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,7 +256,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_8
+      name: Player_One_3
       rect:
         serializedVersion: 2
         x: 705
@@ -264,7 +264,7 @@ TextureImporter:
         width: 280
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -276,7 +276,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_9
+      name: Player_One_4
       rect:
         serializedVersion: 2
         x: 1046
@@ -284,7 +284,7 @@ TextureImporter:
         width: 281
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,7 +296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_10
+      name: Player_One_5
       rect:
         serializedVersion: 2
         x: 1381
@@ -304,7 +304,7 @@ TextureImporter:
         width: 283
         height: 254
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -316,7 +316,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Freeze Animation_11
+      name: Player_One_6
       rect:
         serializedVersion: 2
         x: 1710
@@ -324,7 +324,7 @@ TextureImporter:
         width: 293
         height: 253
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

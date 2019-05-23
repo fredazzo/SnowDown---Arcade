@@ -30,6 +30,7 @@ public class PlayerGlobal : MonoBehaviour
     public float fireRate;
     private float fireTimer = 0f;
     public float speed;
+    private float originalSpeed;
     public float rotateSpeed;
     private float rotaionInRadians;
     public float unlimAmmoDuration;
@@ -47,14 +48,18 @@ public class PlayerGlobal : MonoBehaviour
     public bool canShoot;
 
     public SpriteRenderer body;
+    public SpriteRenderer arms;
+    public SpriteRenderer cannon;
 
     AudioSource moveSource;
     AudioSource shootSource;
     AudioSource hitSource;
+    AudioSource deathSource;
 
     Vector3 originalRotation;
 
     public Animator anim;
+    public Animator deathAnim;
 
     void Start()
     {
@@ -63,6 +68,7 @@ public class PlayerGlobal : MonoBehaviour
         canShoot = false;
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
+        originalSpeed = speed;
 
         for (int i = 0; i < shotPool.Length; i++)
         {
@@ -76,12 +82,14 @@ public class PlayerGlobal : MonoBehaviour
             moveSource = SoundManager.instance.p1MoveSource;
             shootSource = SoundManager.instance.p1ShootingSource;
             hitSource = SoundManager.instance.p1HitSource;
+            deathSource = SoundManager.instance.p1DeathSource;
         }
         else
         {
             moveSource = SoundManager.instance.p2MoveSource;
             shootSource = SoundManager.instance.p2ShootingSource;
             hitSource = SoundManager.instance.p2HitSource;
+            deathSource = SoundManager.instance.p2Deathsource;
         }
 
         originalRotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -137,11 +145,12 @@ public class PlayerGlobal : MonoBehaviour
                     shotPool[i].transform.rotation = shotSpawn.transform.rotation;
                     shotPool[i].GetComponent<Snowball>().movement.x = Mathf.Cos(rotaionInRadians);
                     shotPool[i].GetComponent<Snowball>().movement.y = Mathf.Sin(rotaionInRadians);
+                    //shotPool[i].GetComponent<Snowball>().ResetProperties();
                     SoundManager.instance.PlaySingle(shootSource);
                     if (playerOne)
-                        shotPool[i].GetComponent<Snowball>().setType(Snowball.Type.PLAYER_ONE);
+                        shotPool[i].GetComponent<Snowball>().SetProjectileType(Snowball.Type.PLAYER_ONE);
                     else
-                        shotPool[i].GetComponent<Snowball>().setType(Snowball.Type.PLAYER_TWO);
+                        shotPool[i].GetComponent<Snowball>().SetProjectileType(Snowball.Type.PLAYER_TWO);
                     shotPool[i].SetActive(true);
 
                     break;
@@ -180,17 +189,17 @@ public class PlayerGlobal : MonoBehaviour
             // Player: NotificationManager.Post("PlayerDeath", PlayerID);
             if (playerOne)
             {
-                if (other.gameObject.GetComponent<Snowball>().getType() == Snowball.Type.PLAYER_TWO)
+                if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_TWO)
                 {
-                    ModifyHealth(-1);
+                    ModifyHealth(-1, deathSource);
                     hit = true;
                 }
             }
             else
             {
-                if (other.gameObject.GetComponent<Snowball>().getType() == Snowball.Type.PLAYER_ONE)
+                if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_ONE)
                 {
-                    ModifyHealth(-1);
+                    ModifyHealth(-1, deathSource);
                     hit = true;
                 }
             }
@@ -205,6 +214,11 @@ public class PlayerGlobal : MonoBehaviour
         currentHealthPoints = maxHealthPoints;
         currentClipSize = maxClipSize;
         unlimAmmo = false;
+        arms.enabled = true;
+        cannon.enabled = true;
+        body.enabled = true;
+        speed = originalSpeed;
+        deathAnim.SetBool("dead", false);
         gameObject.SetActive(true);
     }
 
@@ -214,21 +228,28 @@ public class PlayerGlobal : MonoBehaviour
     }
     
 
-    public void ModifyHealth(int value)
+    public void ModifyHealth(int value, AudioSource deathSource)
     {
         currentHealthPoints += value;
         if (currentHealthPoints > maxHealthPoints)
             currentHealthPoints = maxHealthPoints;
         if (currentHealthPoints <= 0)
-            this.gameObject.SetActive(false);
-        
+        {
+            arms.enabled = false;
+            cannon.enabled = false;
+            body.enabled = false;
+            canShoot = false;
+            SoundManager.instance.PlaySingle(deathSource);
+            deathAnim.SetBool("dead", true);
+            speed = 0;
+        }
     }
 
     public void OnMovement(AudioSource source, string horizontalAxis, string verticalAxis)
     {
         if (Input.GetButton(horizontalAxis))
         {
-            anim.SetBool("moving", true);
+            //anim.SetBool("moving", true);
             if (!source.isPlaying)
             {
                 source.Play();
@@ -236,7 +257,7 @@ public class PlayerGlobal : MonoBehaviour
         }
         if (Input.GetButton(verticalAxis))
         {
-            anim.SetBool("moving", true);
+            //anim.SetBool("moving", true);
             if (!source.isPlaying)
             {
                 source.Play();
@@ -245,7 +266,7 @@ public class PlayerGlobal : MonoBehaviour
 
         if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
         {
-            anim.SetBool("moving", false);
+            //anim.SetBool("moving", false);
             source.Pause();
         }
     }

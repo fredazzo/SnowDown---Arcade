@@ -393,7 +393,7 @@ public class NewGameController : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(6.0f);
 
         if (p1WinCount == 2 || p2WinCount == 2)
         {
