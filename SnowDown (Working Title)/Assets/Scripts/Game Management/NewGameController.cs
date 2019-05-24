@@ -125,22 +125,29 @@ public class NewGameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
-        if (_player1.GetHealth() <= 0)
+        if (_player1.GetHealth() <= 0 && _player2.GetHealth() > 0)
         {
             p2Won = true;
             roundTextRight.text = "Round Lost!";
             roundTextLeft.text = "Round Won!";
             gameActive = false;
-
+            _player2.canDie = false;
         }
 
-        if (_player2.GetHealth() <= 0)
+        if (_player2.GetHealth() <= 0 && _player1.GetHealth() > 0)
         {
             p1Won = true;
             roundTextRight.text = "Round Won!";
             roundTextLeft.text = "Round Lost!";
             gameActive = false;
-
+            _player1.canDie = false;
+        }
+        if(_player1.GetHealth() <= 0 && _player2.GetHealth() <= 0)
+        {
+            roundTextRight.text = "Draw!";
+            roundTextLeft.text = "Draw!";
+            gameActive = false;
+            StartCoroutine(RoundReset());
         }
 
         if (p1Won || p2Won)
@@ -388,12 +395,10 @@ public class NewGameController : MonoBehaviour
         if (p1Won)
         {
             p1WinCount++;
-            //p1Won = false;
         }
         if (p2Won)
         {
             p2WinCount++;
-            //p2Won = false;
 
         }
 
@@ -417,6 +422,37 @@ public class NewGameController : MonoBehaviour
         if (roundCounter == 2)
             round = "Round 2";
         else if (roundCounter == 3)
+        {
+            if (p1WinCount < 1 || p2WinCount < 1)
+                round = "Round 3";
+            else
+                round = "Final Round!";
+        }
+        else if (roundCounter == 4)
+        {
+            if (p1WinCount < 1 || p2WinCount < 1)
+                round = "Round 4";
+            else
+                round = "Final Round!";
+
+        }
+        else if (roundCounter == 5)
+        {
+            if (p1WinCount < 1 || p2WinCount < 1)
+                round = "Round 5";
+            else
+                round = "Final Round!";
+
+        }
+        else if (roundCounter == 6)
+        {
+            if (p1WinCount < 1 || p2WinCount < 1)
+                round = "Round 6";
+            else
+                round = "Final Round!";
+
+        }
+        else if (roundCounter == 7)
             round = "Final Round!";
         StartCoroutine(StartUp(round));
     }
