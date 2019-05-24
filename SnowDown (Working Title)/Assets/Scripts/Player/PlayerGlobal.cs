@@ -46,6 +46,7 @@ public class PlayerGlobal : MonoBehaviour
     private bool hit;
     public bool unlimAmmo;
     public bool canShoot;
+    public bool canDie;
 
     public SpriteRenderer body;
     public SpriteRenderer arms;
@@ -66,6 +67,7 @@ public class PlayerGlobal : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         hit = false;
         canShoot = false;
+        canDie = true;
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
         originalSpeed = speed;
@@ -189,7 +191,7 @@ public class PlayerGlobal : MonoBehaviour
             // Player: NotificationManager.Post("PlayerDeath", PlayerID);
             if (playerOne)
             {
-                if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_TWO)
+                if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_TWO && canDie)
                 {
                     ModifyHealth(-1, deathSource);
                     hit = true;
@@ -197,7 +199,7 @@ public class PlayerGlobal : MonoBehaviour
             }
             else
             {
-                if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_ONE)
+                if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_ONE && canDie)
                 {
                     ModifyHealth(-1, deathSource);
                     hit = true;
@@ -217,6 +219,7 @@ public class PlayerGlobal : MonoBehaviour
         arms.enabled = true;
         cannon.enabled = true;
         body.enabled = true;
+        canDie = true;
         speed = originalSpeed;
         deathAnim.SetBool("dead", false);
         gameObject.SetActive(true);
