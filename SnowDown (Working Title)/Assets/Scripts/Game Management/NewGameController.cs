@@ -19,13 +19,13 @@ public class NewGameController : MonoBehaviour
     public Image playerTwoHealth;
     public Image[] playerOneWins;
     public Image[] playerTwoWins;
+    public Image playerOneUnlimAmmo;
+    public Image playerTwoUnlimAmmo;
 
     public Text playerOneAmmo;
     public Text playerTwoAmmo;
     public Text playerOneReload;
     public Text playerTwoReload;
-    public Text playerOneUnlimAmmo;
-    public Text playerTwoUnlimAmmo;
     public Text leftCountdown;
     public Text rightCountdown;
     public Text roundTextLeft;
@@ -72,14 +72,6 @@ public class NewGameController : MonoBehaviour
         gameActive = false;
         coverSpawnLocation = 0;
 
-        Debug.Log("displays connected: " + Display.displays.Length);
-
-        if (Display.displays.Length > 1)
-            Display.displays[1].Activate();
-        if (Display.displays.Length > 2)
-            Display.displays[2].Activate();
-        if (Display.displays.Length > 3)
-            Display.displays[3].Activate();
 
         for (int i = 0; i < coverPool.Length; i++)
         {
@@ -329,7 +321,7 @@ public class NewGameController : MonoBehaviour
 
     }
 
-    void SetAmmoText(Text ammoText, Text reloadText, Text unlimAmmoText, Text relaodIndicator, PlayerGlobal player)
+    void SetAmmoText(Text ammoText, Text reloadText, Image unlimAmmo, Text relaodIndicator, PlayerGlobal player)
     {
         ammoText.text = player.currentClipSize.ToString();
         if (player.currentClipSize <= 0)
@@ -347,17 +339,19 @@ public class NewGameController : MonoBehaviour
         {
             ammoText.text = " ";
             reloadText.text = " ";
-            unlimAmmoText.text = "\x221E";
+            unlimAmmo.enabled = true;
         }
         else
         {
-            unlimAmmoText.text = " ";
+            unlimAmmo.enabled = false;
         }
     }
 
 
     IEnumerator StartUp(string roundNumber)
     {
+        reloadIndicatorLeft.text = "Reload!";
+        reloadIndicatorRight.text = "Reload!";
         roundTextLeft.text = roundNumber;
         roundTextRight.text = roundNumber;
         leftCountdown.text = "3...";
@@ -401,11 +395,16 @@ public class NewGameController : MonoBehaviour
             p2WinCount++;
 
         }
-
+        reloadIndicatorLeft.text = " ";
+        reloadIndicatorRight.text = " ";
         yield return new WaitForSeconds(6.0f);
 
         if (p1WinCount == 2 || p2WinCount == 2)
         {
+            if (p1WinCount == 2)
+                PlayerPrefs.SetInt("Winner", 1);
+            else
+                PlayerPrefs.SetInt("Winner", 2);
             StartCoroutine(OnSceneLoad(winScene));
             yield break;
         }

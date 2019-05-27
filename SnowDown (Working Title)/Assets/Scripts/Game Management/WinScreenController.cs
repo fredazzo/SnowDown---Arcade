@@ -8,21 +8,27 @@ public class WinScreenController : MonoBehaviour
 {
     public Text p1Win;
     public Text p2Win;
+    private int winner;
 
     public Animator transitionAnim;
 
     // Start is called before the first frame update
     void Start()
     {
+        winner = PlayerPrefs.GetInt("Winner");
         SoundManager.instance.musicSource.Stop();
-        Debug.Log("displays connected: " + Display.displays.Length);
-
-        if (Display.displays.Length > 1)
-            Display.displays[1].Activate();
-        if (Display.displays.Length > 2)
-            Display.displays[2].Activate();
-        if (Display.displays.Length > 3)
-            Display.displays[3].Activate();
+       
+        if(winner == 1)
+        {
+            print("got here");
+            p1Win.text = "Player 1 Won!";
+            p2Win.text = "Player 2 Lose";
+        }
+        else if(winner == 2)
+        {
+            p1Win.text = "Player 1 Lose";
+            p2Win.text = "Player 2 Won!";
+        }
 
     }
 

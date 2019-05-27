@@ -130,33 +130,9 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 510669347}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &211343939 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8844508671508646804, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-    type: 3}
-  m_PrefabInstance: {fileID: 510669347}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &214969186 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3556772215076783470, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
-    type: 3}
-  m_PrefabInstance: {fileID: 510669347}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &238862487 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5931871816850074627, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
     type: 3}
   m_PrefabInstance: {fileID: 510669347}
   m_PrefabAsset: {fileID: 0}
@@ -5229,6 +5205,18 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1143440148 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 575902985637954054, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1222304604 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3568101625917072599, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
@@ -10036,6 +10024,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 510669347}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1898695178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3477475063118234134, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2071394896 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 323158588255449403, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
@@ -10340,11 +10340,11 @@ PrefabInstance:
     - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
       propertyPath: playerOneUnlimAmmo
       value: 
-      objectReference: {fileID: 238862487}
+      objectReference: {fileID: 1898695178}
     - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
       propertyPath: playerTwoUnlimAmmo
       value: 
-      objectReference: {fileID: 211343939}
+      objectReference: {fileID: 1143440148}
     - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
       propertyPath: playerOne
       value: 
@@ -10436,6 +10436,10 @@ PrefabInstance:
     - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
       propertyPath: coverSpawnWait
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: powerUpIdleDuration
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
         type: 3}
@@ -10711,7 +10715,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 817aac4497a59864db4f3a1f37b0d8b8, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4644107894331494494, guid: 4452a38c7295d97498aff77253651050,
         type: 3}
       propertyPath: Loop
