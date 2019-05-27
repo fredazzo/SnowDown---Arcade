@@ -529,14 +529,6 @@ MonoBehaviour:
   positionsP2:
   - {fileID: 1570789117}
   - {fileID: 1852935982}
-  originalStart: {x: 0, y: 0, z: 0}
-  originalCredits: {x: 0, y: 0, z: 0}
-  startSelectedP1: 0
-  creditsSelectedP1: 0
-  confirmSelectedP1: 0
-  startSelectedP2: 0
-  creditsSelectedP2: 0
-  confirmSelectedP2: 0
   startP1: 119
   creditsP1: 115
   confirmP1: 32
@@ -545,6 +537,7 @@ MonoBehaviour:
   confirmP2: 105
   gameScene: Game
   creditsScene: Credits
+  gameplayScene: 
   readyP1: {fileID: 394713944}
   readyP2: {fileID: 2051716567}
   startSprite: {fileID: 844062291}
@@ -552,6 +545,7 @@ MonoBehaviour:
   startSnowball: {fileID: 21300000, guid: 674450bcbd61d8b48a637ed68ff24006, type: 3}
   creditsSnowball: {fileID: 21300002, guid: 674450bcbd61d8b48a637ed68ff24006, type: 3}
   transitionAnim: {fileID: 1785993055}
+  idleTimeLimit: 60
 --- !u!4 &808805971
 Transform:
   m_ObjectHideFlags: 0
