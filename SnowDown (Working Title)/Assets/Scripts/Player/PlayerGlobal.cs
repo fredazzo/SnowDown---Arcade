@@ -73,7 +73,6 @@ public class PlayerGlobal : MonoBehaviour
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
         originalSpeed = speed;
-        //aura.enabled = false;
         for (int i = 0; i < shotPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -130,9 +129,11 @@ public class PlayerGlobal : MonoBehaviour
 
         if (unlimAmmo)
         {
-            //aura.enabled = true;
+            aura.enabled = true;
             UnlimAmmo();
         }
+        else
+            aura.enabled = false;
 
         fireTimer += Time.deltaTime;
 

@@ -14,16 +14,16 @@ public class MenuController : MonoBehaviour
     public Transform[] positionsP1;
     public Transform[] positionsP2;
 
-    public Vector3 originalStart;
-    public Vector3 originalCredits;
+    private Vector3 originalStart;
+    private Vector3 originalCredits;
 
-    public bool startSelectedP1;
-    public bool creditsSelectedP1;
-    public bool confirmSelectedP1;
+    private bool startSelectedP1;
+    private bool creditsSelectedP1;
+    private bool confirmSelectedP1;
 
-    public bool startSelectedP2;
-    public bool creditsSelectedP2;
-    public bool confirmSelectedP2;
+    private bool startSelectedP2;
+    private bool creditsSelectedP2;
+    private bool confirmSelectedP2;
 
     public KeyCode startP1;
     public KeyCode creditsP1;
@@ -35,6 +35,7 @@ public class MenuController : MonoBehaviour
 
     public string gameScene;
     public string creditsScene;
+    public string gameplayScene;
 
     public Text readyP1;
     public Text readyP2;
@@ -46,6 +47,9 @@ public class MenuController : MonoBehaviour
 
     public Animator transitionAnim;
 
+    private float idleTimer;
+    public float idleTimeLimit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,14 +58,19 @@ public class MenuController : MonoBehaviour
         startSelectedP2 = true;
         creditsSelectedP1 = false;
         creditsSelectedP2 = false;
-        //originalStart = start.transform.localScale;
-        //originalCredits = credits.transform.localScale;
-        //Enlarge(start);
+        idleTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.anyKeyDown)
+            resetIdleTimer();
+        else
+            tick();
+
+        if (idleTimer > idleTimeLimit)
+            StartCoroutine(OnSceneLoad(gameplayScene));
 
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -173,4 +182,13 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
+    private void resetIdleTimer()
+    {
+        idleTimer = 0f;
+    }
+
+    private void tick()
+    {
+        idleTimer += Time.deltaTime;
+    }
 }
