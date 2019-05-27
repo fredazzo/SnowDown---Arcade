@@ -51,6 +51,7 @@ public class PlayerGlobal : MonoBehaviour
     public SpriteRenderer body;
     public SpriteRenderer arms;
     public SpriteRenderer cannon;
+    public SpriteRenderer aura;
 
     AudioSource moveSource;
     AudioSource shootSource;
@@ -59,8 +60,9 @@ public class PlayerGlobal : MonoBehaviour
 
     Vector3 originalRotation;
 
-    public Animator anim;
     public Animator deathAnim;
+    public Animator walkingAnim;
+    public Animator cannonMoveAnim;
 
     void Start()
     {
@@ -71,7 +73,7 @@ public class PlayerGlobal : MonoBehaviour
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
         originalSpeed = speed;
-
+        //aura.enabled = false;
         for (int i = 0; i < shotPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -128,6 +130,7 @@ public class PlayerGlobal : MonoBehaviour
 
         if (unlimAmmo)
         {
+            //aura.enabled = true;
             UnlimAmmo();
         }
 
@@ -248,11 +251,28 @@ public class PlayerGlobal : MonoBehaviour
         }
     }
 
+    public void DisableIdleSprites()
+    {
+        body.enabled = false;
+        arms.enabled = false;
+        cannon.enabled = false;
+    }
+
+    public void EnableIdleSprites()
+    {
+        body.enabled = true;
+        arms.enabled = true;
+        cannon.enabled = true;
+
+    }
+
     public void OnMovement(AudioSource source, string horizontalAxis, string verticalAxis)
     {
         if (Input.GetButton(horizontalAxis))
         {
-            //anim.SetBool("moving", true);
+            walkingAnim.SetBool("moving", true);
+            cannonMoveAnim.SetBool("moving", true);
+            DisableIdleSprites();
             if (!source.isPlaying)
             {
                 source.Play();
@@ -260,7 +280,9 @@ public class PlayerGlobal : MonoBehaviour
         }
         if (Input.GetButton(verticalAxis))
         {
-            //anim.SetBool("moving", true);
+            walkingAnim.SetBool("moving", true);
+            cannonMoveAnim.SetBool("moving", true);
+            DisableIdleSprites();
             if (!source.isPlaying)
             {
                 source.Play();
@@ -269,7 +291,9 @@ public class PlayerGlobal : MonoBehaviour
 
         if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
         {
-            //anim.SetBool("moving", false);
+            walkingAnim.SetBool("moving", false);
+            cannonMoveAnim.SetBool("moving", false);
+            EnableIdleSprites();
             source.Pause();
         }
     }
