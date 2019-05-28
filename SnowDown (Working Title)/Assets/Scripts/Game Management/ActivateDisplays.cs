@@ -7,7 +7,6 @@ public class ActivateDisplays : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("displays connected: " + Display.displays.Length);
 
         if (Display.displays.Length > 1)
             Display.displays[1].Activate();
@@ -15,6 +14,7 @@ public class ActivateDisplays : MonoBehaviour
             Display.displays[2].Activate();
         if (Display.displays.Length > 3)
             Display.displays[3].Activate();
+        Debug.Log("displays connected: " + Display.displays.Length);
 
     }
 
