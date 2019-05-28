@@ -211,6 +211,9 @@ public class PlayerGlobal : MonoBehaviour
             }
             SoundManager.instance.PlaySingle(hitSource);
             CameraShake.instance.MinorShake(.05f);
+            CameraP1.instance.MinorShake(.05f);
+            CameraP2.instance.MinorShake(.05f);
+
         }
     }
 
