@@ -167,7 +167,7 @@ PrefabInstance:
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
@@ -222,12 +222,12 @@ PrefabInstance:
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
@@ -252,27 +252,27 @@ PrefabInstance:
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 0.009259259
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 0.009259259
       objectReference: {fileID: 0}
     - target: {fileID: 7603151231221474935, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 0.009259259
       objectReference: {fileID: 0}
     - target: {fileID: 2376631327458183953, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
         type: 3}
@@ -288,6 +288,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603151231221474934, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7603151231221474934, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1034635737}
+    - target: {fileID: 7603151231221474934, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1062204401
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c, type: 3}
@@ -5346,7 +5361,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -10173,7 +10188,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -10897,7 +10912,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 817aac4497a59864db4f3a1f37b0d8b8, type: 3}
     - target: {fileID: 4644107894331494494, guid: 4452a38c7295d97498aff77253651050,
         type: 3}
       propertyPath: Loop

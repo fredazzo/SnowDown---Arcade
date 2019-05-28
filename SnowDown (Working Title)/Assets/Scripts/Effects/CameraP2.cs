@@ -19,7 +19,7 @@ public class CameraP2 : MonoBehaviour
         else if (instance != this)
             Destroy(gameObject);
 
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
 
         baseX = transform.position.x;
         baseY = transform.position.y;
