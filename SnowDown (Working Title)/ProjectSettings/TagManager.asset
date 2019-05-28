@@ -20,7 +20,7 @@ TagManager:
   - Projectile
   - PowerUp
   - Cannon
-  - 
+  - Particles
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 1758754377
+    locked: 0
+  - name: Splash
+    uniqueID: 1589128363
     locked: 0
   - name: Obstacle
     uniqueID: 2991357697
