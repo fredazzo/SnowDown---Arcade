@@ -23,6 +23,8 @@ public class Snowball : MonoBehaviour
 
     private CircleCollider2D collision;
 
+    public GameObject splash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,8 @@ public class Snowball : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" || other.gameObject.tag == "Cover")
         {
+            splash.transform.position = this.transform.position;
+            Instantiate(splash);
             anim.SetBool("collided", true);
             speed = 0;
             collision.enabled = false;

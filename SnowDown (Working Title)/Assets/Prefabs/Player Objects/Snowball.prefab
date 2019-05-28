@@ -71,6 +71,7 @@ MonoBehaviour:
   damage: 0
   movement: {x: 0, y: 0}
   anim: {fileID: 7213765716435953981}
+  splash: {fileID: 2525997727832519710, guid: 939b321c9057242438fea476f42b1285, type: 3}
 --- !u!58 &9105774296715166872
 CircleCollider2D:
   m_ObjectHideFlags: 0

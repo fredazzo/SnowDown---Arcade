@@ -245,14 +245,13 @@ public class PlayerGlobal : MonoBehaviour
             currentHealthPoints = maxHealthPoints;
         if (currentHealthPoints <= 0)
         {
-            arms.enabled = false;
-            cannon.enabled = false;
-            body.enabled = false;
+            DisableIdleSprites();        
             canShoot = false;
             SoundManager.instance.PlaySingle(deathSource);
             deathAnim.SetBool("dead", true);
             speed = 0;
         }
+        
     }
 
     public void DisableIdleSprites()
@@ -297,8 +296,11 @@ public class PlayerGlobal : MonoBehaviour
         {
             walkingAnim.SetBool("moving", false);
             cannonMoveAnim.SetBool("moving", false);
-            EnableIdleSprites();
             source.Pause();
+
+            if(currentHealthPoints > 0)
+                EnableIdleSprites();
+
         }
     }
 
