@@ -245,9 +245,7 @@ public class PlayerGlobal : MonoBehaviour
             currentHealthPoints = maxHealthPoints;
         if (currentHealthPoints <= 0)
         {
-            arms.enabled = false;
-            cannon.enabled = false;
-            body.enabled = false;
+            DisableIdleSprites();
             canShoot = false;
             SoundManager.instance.PlaySingle(deathSource);
             deathAnim.SetBool("dead", true);
