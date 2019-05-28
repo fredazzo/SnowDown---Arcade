@@ -630,7 +630,7 @@ MonoBehaviour:
   confirmP2: 105
   gameScene: Game
   creditsScene: Credits
-  gameplayScene: 
+  gameplayScene: Gameplay
   readyP1: {fileID: 394713944}
   readyP2: {fileID: 2051716567}
   startSprite: {fileID: 844062291}
@@ -638,7 +638,7 @@ MonoBehaviour:
   startSnowball: {fileID: 21300000, guid: 674450bcbd61d8b48a637ed68ff24006, type: 3}
   creditsSnowball: {fileID: 21300002, guid: 674450bcbd61d8b48a637ed68ff24006, type: 3}
   transitionAnim: {fileID: 129830458}
-  idleTimeLimit: 60
+  idleTimeLimit: 15
 --- !u!4 &808805971
 Transform:
   m_ObjectHideFlags: 0
@@ -945,8 +945,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: -6.2}
-  m_SizeDelta: {x: 1980.2, y: 1222.7}
+  m_AnchoredPosition: {x: 0.00005722, y: 0.012493}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &941034658
 MonoBehaviour:
@@ -961,14 +961,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6431373, g: 0.8078432, b: 0.8196079, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3582eb40e67dd5b4cb5e6cbf73ff386a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -69,9 +69,12 @@ public class MenuController : MonoBehaviour
         else
             tick();
 
-        if (idleTimer > idleTimeLimit)
-            StartCoroutine(OnSceneLoad(gameplayScene));
+        Debug.Log(idleTimer);
 
+        if (idleTimer > idleTimeLimit)
+        {
+            StartCoroutine(OnSceneLoad(gameplayScene));
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
