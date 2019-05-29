@@ -125,12 +125,17 @@ public class PlayerGlobal : MonoBehaviour
     {
         rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
 
-        OnMovement(moveSource, horizontalAxis, verticalAxis);
+        if (currentHealthPoints > 0)
+        {
+            OnMovement(moveSource, horizontalAxis, verticalAxis);
+        }
 
         if (unlimAmmo)
         {
             aura.enabled = true;
             UnlimAmmo();
+            if (currentHealthPoints <= 0)
+                aura.enabled = false;
         }
         else
             aura.enabled = false;
@@ -181,6 +186,7 @@ public class PlayerGlobal : MonoBehaviour
             if (hit)
             {
                 body.color = Color.red;
+                arms.color = Color.red;
                 StartCoroutine(whitecolor());
             }
         }
@@ -193,12 +199,15 @@ public class PlayerGlobal : MonoBehaviour
             // GameController: NotificationManager.Subscribe("PlayerDeath", PlayerDeath(Notification) );
             //
             // Player: NotificationManager.Post("PlayerDeath", PlayerID);
+
+            hit = true;
+            walkingAnim.SetBool("hit", true);
+
             if (playerOne)
             {
                 if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_TWO && canDie)
                 {
                     ModifyHealth(-1, deathSource);
-                    hit = true;
                 }
             }
             else
@@ -206,11 +215,10 @@ public class PlayerGlobal : MonoBehaviour
                 if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_ONE && canDie)
                 {
                     ModifyHealth(-1, deathSource);
-                    hit = true;
                 }
             }
             SoundManager.instance.PlaySingle(hitSource);
-            CameraShake.instance.MinorShake(.05f);
+            //CameraShake.instance.MinorShake(.05f);
             CameraP1.instance.MinorShake(.05f);
             CameraP2.instance.MinorShake(.05f);
 
@@ -245,7 +253,9 @@ public class PlayerGlobal : MonoBehaviour
             currentHealthPoints = maxHealthPoints;
         if (currentHealthPoints <= 0)
         {
-            DisableIdleSprites();        
+            DisableIdleSprites();
+            walkingAnim.SetBool("moving", false);
+            cannonMoveAnim.SetBool("moving", false);
             canShoot = false;
             SoundManager.instance.PlaySingle(deathSource);
             deathAnim.SetBool("dead", true);
@@ -308,6 +318,8 @@ public class PlayerGlobal : MonoBehaviour
     {
         yield return new WaitForSeconds(0.02f);
         body.color = Color.white;
+        arms.color = Color.white;
+        walkingAnim.SetBool("hit", false);
         hit = false;
     }
 

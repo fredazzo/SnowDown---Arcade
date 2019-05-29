@@ -623,12 +623,12 @@ MonoBehaviour:
   positionsP2:
   - {fileID: 1570789117}
   - {fileID: 1852935982}
-  startP1: 119
-  creditsP1: 115
-  confirmP1: 32
-  startP2: 273
-  creditsP2: 274
-  confirmP2: 105
+  startP1: 115
+  creditsP1: 119
+  confirmP1: 105
+  startP2: 274
+  creditsP2: 273
+  confirmP2: 32
   gameScene: Game
   creditsScene: Credits
   gameplayScene: Gameplay
@@ -639,7 +639,7 @@ MonoBehaviour:
   startSnowball: {fileID: 21300000, guid: 674450bcbd61d8b48a637ed68ff24006, type: 3}
   creditsSnowball: {fileID: 21300002, guid: 674450bcbd61d8b48a637ed68ff24006, type: 3}
   transitionAnim: {fileID: 129830458}
-  idleTimeLimit: 15
+  idleTimeLimit: 60
   click: {fileID: 808805973}
 --- !u!4 &808805971
 Transform:
