@@ -10477,11 +10477,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
       propertyPath: fireButton
-      value: 105
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
       propertyPath: reloadButton
-      value: 102
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
       propertyPath: speed
@@ -11135,6 +11135,14 @@ PrefabInstance:
     - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
       propertyPath: maxSnowballMeltTime
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: reloadButton
+      value: 305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: fireButton
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
