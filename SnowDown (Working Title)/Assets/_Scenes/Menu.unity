@@ -629,7 +629,7 @@ MonoBehaviour:
   startP2: 274
   creditsP2: 273
   confirmP2: 32
-  gameScene: Game
+  gameScene: Loading Screen
   creditsScene: Credits
   gameplayScene: Gameplay
   readyP1: {fileID: 394713944}
