@@ -66,7 +66,7 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(startP1) || Input.GetKeyDown(startP2) || Input.GetKeyDown(creditsP1) || Input.GetKeyDown(creditsP2) || Input.GetKeyDown(confirmP1) || Input.GetKeyDown(confirmP2))
             resetIdleTimer();
         else
             tick();
