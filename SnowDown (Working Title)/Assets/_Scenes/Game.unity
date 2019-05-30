@@ -5149,13 +5149,14 @@ GameObject:
   - component: {fileID: 1034635737}
   - component: {fileID: 1034635736}
   - component: {fileID: 1034635739}
+  - component: {fileID: 1034635740}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1034635736
 AudioListener:
   m_ObjectHideFlags: 0
@@ -5230,6 +5231,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 568e5ccbd636e3b4898cf3cc4034b9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1034635740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034635735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 873f77c00b69c8b449907fb705c0a199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1091413652 stripped
@@ -10196,8 +10209,6 @@ GameObject:
   - component: {fileID: 1878679412}
   - component: {fileID: 1878679411}
   - component: {fileID: 1878679410}
-  - component: {fileID: 1878679413}
-  - component: {fileID: 1878679414}
   m_Layer: 0
   m_Name: P1 Camera
   m_TagString: MainCamera
@@ -10250,7 +10261,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 2
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -10273,26 +10284,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1878679413
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878679409}
-  m_Enabled: 1
---- !u!114 &1878679414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1878679409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 873f77c00b69c8b449907fb705c0a199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1886731493 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5767993583403245357, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
