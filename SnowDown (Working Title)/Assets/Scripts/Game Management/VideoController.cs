@@ -31,7 +31,7 @@ public class VideoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.I))
             StartCoroutine(OnSceneLoad("Menu"));
         if (finished)
             StartCoroutine(OnSceneLoad("Gameplay"));
