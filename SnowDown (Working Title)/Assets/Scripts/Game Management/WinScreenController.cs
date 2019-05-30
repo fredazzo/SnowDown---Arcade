@@ -16,6 +16,15 @@ public class WinScreenController : MonoBehaviour
 
     public Animator transitionAnim;
 
+    private float timer = 0f;
+    public float maxTime;
+
+    public KeyCode p1Confirm;
+    public KeyCode p2Confirm;
+
+    private bool p1Ready;
+    private bool p2Ready;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,17 +44,27 @@ public class WinScreenController : MonoBehaviour
             screen.sprite = playerTwoWin;
         }
 
+        p1Ready = false;
+        p2Ready = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-            StartCoroutine(OnSceneLoad("Menu"));
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
+        if (Input.GetKeyDown(p1Confirm))
+            p1Ready = true;
+        if (Input.GetKeyDown(p2Confirm))
+            p2Ready = true;
+
+        timer += Time.deltaTime;
+
+        if (p1Ready && p2Ready)
+            StartCoroutine(OnSceneLoad("Menu"));
+        if (timer > maxTime)
+            StartCoroutine(OnSceneLoad("Menu"));
     }
 
     IEnumerator OnSceneLoad(string scene)

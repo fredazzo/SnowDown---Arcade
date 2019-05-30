@@ -759,6 +759,9 @@ MonoBehaviour:
   playerOneWin: {fileID: 21300000, guid: 247161a7368b34640806988289782a3a, type: 3}
   playerTwoWin: {fileID: 21300000, guid: 1d77e7cb4dcfb6f41805f227cbc537c5, type: 3}
   transitionAnim: {fileID: 540550533}
+  maxTime: 15
+  p1Confirm: 105
+  p2Confirm: 32
 --- !u!1 &1442475813
 GameObject:
   m_ObjectHideFlags: 0
