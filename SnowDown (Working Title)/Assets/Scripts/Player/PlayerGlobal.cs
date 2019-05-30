@@ -158,6 +158,11 @@ public class PlayerGlobal : MonoBehaviour
             else
                 tickFireTimer();
         }
+        else
+        {
+            resetFIreTimer();
+            resetMeltTimer();
+        }
 
 
         if (fireIdleTImer > maxFireIdleTime)
@@ -205,7 +210,10 @@ public class PlayerGlobal : MonoBehaviour
         if (Input.GetKeyUp(reloadButton))
         {
             currentClipSize += reloadAmount;
+            resetFIreTimer();
+            resetMeltTimer();
         }
+
         if (currentClipSize > maxClipSize)
         {
             currentClipSize = maxClipSize;
@@ -283,6 +291,8 @@ public class PlayerGlobal : MonoBehaviour
             currentHealthPoints = maxHealthPoints;
         if (currentHealthPoints <= 0)
         {
+            fireIdleTImer = 0f;
+
             DisableIdleSprites();
             walkingAnim.SetBool("moving", false);
             cannonMoveAnim.SetBool("moving", false);
@@ -316,27 +326,27 @@ public class PlayerGlobal : MonoBehaviour
             walkingAnim.SetBool("moving", true);
             cannonMoveAnim.SetBool("moving", true);
             DisableIdleSprites();
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
+            //if (!source.isPlaying)
+            //{
+            //    source.Play();
+            //}
         }
         if (Input.GetButton(verticalAxis))
         {
             walkingAnim.SetBool("moving", true);
             cannonMoveAnim.SetBool("moving", true);
             DisableIdleSprites();
-            if (!source.isPlaying)
-            {
-                source.Play();
-            }
+            //if (!source.isPlaying)
+            //{
+            //    source.Play();
+            //}
         }
 
         if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
         {
             walkingAnim.SetBool("moving", false);
             cannonMoveAnim.SetBool("moving", false);
-            source.Pause();
+            //source.Pause();
 
             if (currentHealthPoints > 0)
                 EnableIdleSprites();
@@ -394,7 +404,8 @@ public class PlayerGlobal : MonoBehaviour
 
     public void resetMeltTimer()
     {
-        snowballMeltTimer = 0f;
+        snowballMeltTimer = maxSnowballMeltTime;
+        melting = false;
     }
 
     public void meltSnowball()

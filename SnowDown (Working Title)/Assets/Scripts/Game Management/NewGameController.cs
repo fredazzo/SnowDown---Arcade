@@ -130,6 +130,7 @@ public class NewGameController : MonoBehaviour
             roundTextLeft.text = "Round Won!";
             gameActive = false;
             _player2.canDie = false;
+            //_player2.resetMeltTimer();
         }
 
         if (_player2.GetHealth() <= 0 && _player1.GetHealth() > 0)
@@ -139,7 +140,10 @@ public class NewGameController : MonoBehaviour
             roundTextLeft.text = "Round Lost!";
             gameActive = false;
             _player1.canDie = false;
+            //_player1.resetMeltTimer();
         }
+
+
         if(_player1.GetHealth() <= 0 && _player2.GetHealth() <= 0)
         {
             roundTextRight.text = "Draw!";
@@ -254,6 +258,8 @@ public class NewGameController : MonoBehaviour
 
             }
         }
+
+
 
         if (coverSpawnLocation > 2)
             coverSpawnLocation = 0;
