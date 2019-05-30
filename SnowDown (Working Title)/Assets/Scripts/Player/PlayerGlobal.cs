@@ -62,6 +62,7 @@ public class PlayerGlobal : MonoBehaviour
     AudioSource shootSource;
     AudioSource hitSource;
     AudioSource deathSource;
+    AudioSource reloadSource;
 
     Vector3 originalRotation;
 
@@ -92,6 +93,7 @@ public class PlayerGlobal : MonoBehaviour
             shootSource = SoundManager.instance.p1ShootingSource;
             hitSource = SoundManager.instance.p1HitSource;
             deathSource = SoundManager.instance.p1DeathSource;
+            reloadSource = SoundManager.instance.p1ReloadSource;
         }
         else
         {
@@ -99,6 +101,7 @@ public class PlayerGlobal : MonoBehaviour
             shootSource = SoundManager.instance.p2ShootingSource;
             hitSource = SoundManager.instance.p2HitSource;
             deathSource = SoundManager.instance.p2Deathsource;
+            reloadSource = SoundManager.instance.p2ReloadSource;
         }
 
         originalRotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -212,6 +215,7 @@ public class PlayerGlobal : MonoBehaviour
             currentClipSize += reloadAmount;
             resetFIreTimer();
             resetMeltTimer();
+            reloadSource.Play();
         }
 
         if (currentClipSize > maxClipSize)
@@ -326,27 +330,27 @@ public class PlayerGlobal : MonoBehaviour
             walkingAnim.SetBool("moving", true);
             cannonMoveAnim.SetBool("moving", true);
             DisableIdleSprites();
-            //if (!source.isPlaying)
-            //{
-            //    source.Play();
-            //}
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
         if (Input.GetButton(verticalAxis))
         {
             walkingAnim.SetBool("moving", true);
             cannonMoveAnim.SetBool("moving", true);
             DisableIdleSprites();
-            //if (!source.isPlaying)
-            //{
-            //    source.Play();
-            //}
+            if (!source.isPlaying)
+            {
+                source.Play();
+            }
         }
 
         if (!Input.GetButton(horizontalAxis) && !Input.GetButton(verticalAxis))
         {
             walkingAnim.SetBool("moving", false);
             cannonMoveAnim.SetBool("moving", false);
-            //source.Pause();
+            source.Pause();
 
             if (currentHealthPoints > 0)
                 EnableIdleSprites();

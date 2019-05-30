@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource p2MoveSource;
     public AudioSource p1DeathSource;
     public AudioSource p2Deathsource;
+    public AudioSource p1ReloadSource;
+    public AudioSource p2ReloadSource;
 
     public static SoundManager instance = null;
 
