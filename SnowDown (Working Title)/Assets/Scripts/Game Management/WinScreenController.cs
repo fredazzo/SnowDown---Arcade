@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class WinScreenController : MonoBehaviour
 {
-    public Text p1Win;
-    public Text p2Win;
+    public Text p1Text;
+    public Text p2Text;
     private int winner;
+
+    public SpriteRenderer screen;
+    public Sprite playerOneWin;
+    public Sprite playerTwoWin;
 
     public Animator transitionAnim;
 
@@ -20,14 +24,15 @@ public class WinScreenController : MonoBehaviour
        
         if(winner == 1)
         {
-            print("got here");
-            p1Win.text = "Player 1 Won!";
-            p2Win.text = "Player 2 Lose";
+            p1Text.text = "You Won!";
+            p2Text.text = "You Lost!";
+            screen.sprite = playerOneWin;
         }
         else if(winner == 2)
         {
-            p1Win.text = "Player 1 Lose";
-            p2Win.text = "Player 2 Won!";
+            p1Text.text = "You Lost!";
+            p2Text.text = "You Won!";
+            screen.sprite = playerTwoWin;
         }
 
     }

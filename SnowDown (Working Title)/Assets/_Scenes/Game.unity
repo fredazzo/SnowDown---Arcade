@@ -11035,56 +11035,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4644107894331494494, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4644107894331494494, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1159030087863242771, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1159030087863242771, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7f8b4380e552bdc43a8eed05e7c77ca2, type: 3}
-    - target: {fileID: 4608396839605446489, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4531f6048317de4458d11963518c68b7, type: 3}
-    - target: {fileID: 6074730041479338411, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4531f6048317de4458d11963518c68b7, type: 3}
-    - target: {fileID: 8983075829692578782, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7f8b4380e552bdc43a8eed05e7c77ca2, type: 3}
-    - target: {fileID: 8983075829692578782, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8108688993511294420, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3d7a50968227e3946bbeb0d4ed8306a0, type: 3}
-    - target: {fileID: 6790768982442372929, guid: 4452a38c7295d97498aff77253651050,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5d73636a4cf2d5a4eb6a9ec555ccd696, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4452a38c7295d97498aff77253651050, type: 3}
 --- !u!1001 &8648096266278622044
