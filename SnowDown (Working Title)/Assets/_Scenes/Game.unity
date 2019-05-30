@@ -142,6 +142,30 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &365663986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 100867374444976198, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &506289233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5290684486254707430, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &510669347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5250,6 +5274,18 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1260236032 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2868960705005523234, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1288264405 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7603151231249244939, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
@@ -5292,12 +5328,36 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8648096266278622044}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1561718758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6790117938665138278, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &1617124235 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6922472831658565924, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
     type: 3}
   m_PrefabInstance: {fileID: 510669347}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1641833817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8540180486789007625, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1676467078
 GameObject:
   m_ObjectHideFlags: 0
@@ -10251,6 +10311,18 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2067137351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3125491832409105688, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
+    type: 3}
+  m_PrefabInstance: {fileID: 510669347}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2071394896 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 323158588255449403, guid: a2c6ddc4ec814bb4098d2d6d84b31a1c,
@@ -10427,6 +10499,14 @@ PrefabInstance:
       propertyPath: aura
       value: 
       objectReference: {fileID: 1196082270}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: maxFireIdleTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869334099, guid: aa134346cad646848bb3d2355d363fde, type: 3}
+      propertyPath: maxSnowballMeltTime
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2359954321262655738, guid: aa134346cad646848bb3d2355d363fde,
         type: 3}
       propertyPath: shootClip
@@ -10670,6 +10750,30 @@ PrefabInstance:
       propertyPath: powerUpIdleDuration
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerOneMeltBar
+      value: 
+      objectReference: {fileID: 1260236032}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: playerTwoMeltBar
+      value: 
+      objectReference: {fileID: 1561718758}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: p1MeltOutline
+      value: 
+      objectReference: {fileID: 1641833817}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: p2MeltOutline
+      value: 
+      objectReference: {fileID: 506289233}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: p1MeltBackgorund
+      value: 
+      objectReference: {fileID: 2067137351}
+    - target: {fileID: 1193072813, guid: 399ae7c5d686de544a57d2c40b46cb40, type: 3}
+      propertyPath: p2MeltBackground
+      value: 
+      objectReference: {fileID: 365663986}
     - target: {fileID: 5271990237886897340, guid: 399ae7c5d686de544a57d2c40b46cb40,
         type: 3}
       propertyPath: coverSpawnLocationsLeft.Array.size
@@ -11023,6 +11127,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: maxFireIdleTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1386017333, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}
+      propertyPath: maxSnowballMeltTime
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aff2568509f4bf4283fc8ac4adf4c13, type: 3}

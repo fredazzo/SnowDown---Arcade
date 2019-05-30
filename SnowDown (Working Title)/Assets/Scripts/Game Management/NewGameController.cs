@@ -21,6 +21,12 @@ public class NewGameController : MonoBehaviour
     public Image[] playerTwoWins;
     public Image playerOneUnlimAmmo;
     public Image playerTwoUnlimAmmo;
+    public Image playerOneMeltBar;
+    public Image playerTwoMeltBar;
+    public Image p1MeltOutline;
+    public Image p2MeltOutline;
+    public Image p1MeltBackgorund;
+    public Image p2MeltBackground;
 
     public Text playerOneAmmo;
     public Text playerTwoAmmo;
@@ -178,8 +184,25 @@ public class NewGameController : MonoBehaviour
             playerTwoWins[1].gameObject.SetActive(true);
         }
 
+        if(_player1.melting)
+        {
+            enableMeltBar(playerOneMeltBar, p1MeltOutline, p1MeltBackgorund);
+            playerOneMeltBar.fillAmount = _player1.getMeltTimer();
+        }
+        else
+        {
+            disableMeltBar(playerOneMeltBar, p1MeltOutline, p1MeltBackgorund);
+        }
 
-
+        if (_player2.melting)
+        {
+            enableMeltBar(playerTwoMeltBar, p2MeltOutline, p2MeltBackground);
+            playerTwoMeltBar.fillAmount = _player2.getMeltTimer();
+        }
+        else
+        {
+            disableMeltBar(playerTwoMeltBar, p2MeltOutline, p2MeltBackground);
+        }
 
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
         playerTwoHealth.fillAmount = _player2.GetPercentageHP();
@@ -461,6 +484,20 @@ public class NewGameController : MonoBehaviour
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(scene);
+    }
+
+    public void enableMeltBar(Image bar, Image outline, Image background)
+    {
+        bar.enabled = true;
+        outline.enabled = true;
+        background.enabled = true;
+    }
+
+    public void disableMeltBar(Image bar, Image outline, Image background)
+    {
+        bar.enabled = false;
+        outline.enabled = false;
+        background.enabled = false;
     }
 
     //void PowerUpActivity(GameObject player, bool powerUpActivity, Transform[] spawns)
