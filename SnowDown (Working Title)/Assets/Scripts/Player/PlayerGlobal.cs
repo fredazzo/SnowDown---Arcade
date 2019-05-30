@@ -29,6 +29,10 @@ public class PlayerGlobal : MonoBehaviour
 
     public float fireRate;
     private float fireTimer = 0f;
+    public float maxFireIdleTime;
+    private float fireIdleTImer = 0f;
+    public float maxSnowballMeltTime;
+    private float snowballMeltTimer;
     public float speed;
     private float originalSpeed;
     public float rotateSpeed;
@@ -47,6 +51,7 @@ public class PlayerGlobal : MonoBehaviour
     public bool unlimAmmo;
     public bool canShoot;
     public bool canDie;
+    public bool melting;
 
     public SpriteRenderer body;
     public SpriteRenderer arms;
@@ -73,6 +78,7 @@ public class PlayerGlobal : MonoBehaviour
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
         originalSpeed = speed;
+        snowballMeltTimer = maxSnowballMeltTime;
         for (int i = 0; i < shotPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -80,7 +86,7 @@ public class PlayerGlobal : MonoBehaviour
             shotPool[i].SetActive(false);
         }
 
-        if(playerOne)
+        if (playerOne)
         {
             moveSource = SoundManager.instance.p1MoveSource;
             shootSource = SoundManager.instance.p1ShootingSource;
@@ -142,6 +148,33 @@ public class PlayerGlobal : MonoBehaviour
 
         fireTimer += Time.deltaTime;
 
+        if (canShoot)
+        {
+            if (Input.GetKeyDown(fireButton))
+            {
+                resetFIreTimer();
+                resetMeltTimer();
+            }
+            else
+                tickFireTimer();
+        }
+
+
+        if (fireIdleTImer > maxFireIdleTime)
+        {
+            melting = true;
+            meltSnowball();
+            if (currentClipSize <= 0)
+            {
+                melting = false;
+            }
+        }
+        else
+            melting = false;
+
+        Debug.Log("fireIdleTimer" + fireIdleTImer);
+        //Debug.Log("snowballMeltTimer" + snowballMeltTimer);
+
         if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
         {
             fireTimer = 0f;
@@ -169,8 +202,6 @@ public class PlayerGlobal : MonoBehaviour
             }
         }
 
-
-
         if (Input.GetKeyUp(reloadButton))
         {
             currentClipSize += reloadAmount;
@@ -179,7 +210,7 @@ public class PlayerGlobal : MonoBehaviour
         {
             currentClipSize = maxClipSize;
         }
-       
+
 
         if (gameObject.activeSelf)
         {
@@ -244,7 +275,6 @@ public class PlayerGlobal : MonoBehaviour
     {
         return currentHealthPoints;
     }
-    
 
     public void ModifyHealth(int value, AudioSource deathSource)
     {
@@ -261,7 +291,7 @@ public class PlayerGlobal : MonoBehaviour
             deathAnim.SetBool("dead", true);
             speed = 0;
         }
-        
+
     }
 
     public void DisableIdleSprites()
@@ -308,7 +338,7 @@ public class PlayerGlobal : MonoBehaviour
             cannonMoveAnim.SetBool("moving", false);
             source.Pause();
 
-            if(currentHealthPoints > 0)
+            if (currentHealthPoints > 0)
                 EnableIdleSprites();
 
         }
@@ -351,5 +381,37 @@ public class PlayerGlobal : MonoBehaviour
         return (float)currentHealthPoints / maxHealthPoints;
 
     }
+
+    public void resetFIreTimer()
+    {
+        fireIdleTImer = 0f;
+    }
+
+    public void tickFireTimer()
+    {
+        fireIdleTImer += Time.deltaTime;
+    }
+
+    public void resetMeltTimer()
+    {
+        snowballMeltTimer = 0f;
+    }
+
+    public void meltSnowball()
+    {
+        snowballMeltTimer -= Time.deltaTime;
+        if(snowballMeltTimer < 0)
+        {
+            currentClipSize -= 1;
+            snowballMeltTimer = maxSnowballMeltTime;
+            //fireIdleTImer = 0f;
+        }
+    }
+
+    public float getMeltTimer()
+    {
+        return snowballMeltTimer / maxSnowballMeltTime;
+    }
+
 
 }
