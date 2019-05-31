@@ -50,7 +50,8 @@ public class MenuController : MonoBehaviour
     private float idleTimer;
     public float idleTimeLimit;
 
-    public AudioSource click;
+    public AudioSource clickP1;
+    public AudioSource clickP2;
 
     // Start is called before the first frame update
     void Start()
@@ -86,13 +87,13 @@ public class MenuController : MonoBehaviour
         {
             startSelectedP1 = true;
             creditsSelectedP1 = false;
-            click.Play();
+            clickP1.Play();
         }
         else if (Input.GetKeyDown(creditsP1))
         {
             startSelectedP1 = false;
             creditsSelectedP1 = true;
-            click.Play();
+            clickP1.Play();
         }
         if (startSelectedP1)
         {
@@ -106,6 +107,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyDown(confirmP1))
         {
             confirmSelectedP1 = true;
+            clickP1.Play();
         }
 
         if (confirmSelectedP1)
@@ -123,13 +125,13 @@ public class MenuController : MonoBehaviour
         {
             startSelectedP2 = true;
             creditsSelectedP2 = false;
-            click.Play();
+            clickP2.Play();
         }
         else if (Input.GetKeyDown(creditsP2))
         {
             startSelectedP2 = false;
             creditsSelectedP2 = true;
-            click.Play();
+            clickP2.Play();
         }
         if (startSelectedP2)
         {
@@ -142,6 +144,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyDown(confirmP2))
         {
             confirmSelectedP2 = true;
+            clickP2.Play();
         }
         if (confirmSelectedP2)
         {
