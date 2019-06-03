@@ -1157,6 +1157,8 @@ MonoBehaviour:
   image: {fileID: 72029700}
   videoToPlay: {fileID: 32900000, guid: 0021e022b38d9294a88152623dbccc39, type: 3}
   transitionAnim: {fileID: 758479130}
+  altConfirmP1: Confirm_P1
+  altConfirmP2: Confirm_P2
 --- !u!1 &1846181795
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,11 @@ public class CreditsController : MonoBehaviour
 
     public Animator transitionAnim;
 
+
+    public string altConfirmP1;
+    public string altConfirmP2;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +23,7 @@ public class CreditsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown(altConfirmP1) || Input.GetButtonDown(altConfirmP2))
             StartCoroutine(OnSceneLoad("Menu"));
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();

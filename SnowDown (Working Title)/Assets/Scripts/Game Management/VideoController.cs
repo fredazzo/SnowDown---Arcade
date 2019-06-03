@@ -18,6 +18,9 @@ public class VideoController : MonoBehaviour
 
     public Animator transitionAnim;
 
+    public string altConfirmP1;
+    public string altConfirmP2;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class VideoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(altConfirmP1) || Input.GetButtonDown(altConfirmP2))
             StartCoroutine(OnSceneLoad("Menu"));
         if (finished)
             StartCoroutine(OnSceneLoad("Gameplay"));

@@ -25,6 +25,9 @@ public class WinScreenController : MonoBehaviour
     private bool p1Ready;
     private bool p2Ready;
 
+    public string altConfirmP1;
+    public string altConfirmP2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,9 +58,9 @@ public class WinScreenController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
-        if (Input.GetKeyDown(p1Confirm))
+        if (Input.GetKeyDown(p1Confirm) || Input.GetButtonDown(altConfirmP1))
             p1Ready = true;
-        if (Input.GetKeyDown(p2Confirm))
+        if (Input.GetKeyDown(p2Confirm) || Input.GetButtonDown(altConfirmP2))
             p2Ready = true;
 
         timer += Time.deltaTime;
