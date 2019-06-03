@@ -678,6 +678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionAnim: {fileID: 1967644099}
+  altConfirmP1: Confirm_P1
+  altConfirmP2: Confirm_P2
 --- !u!1 &1215860531
 GameObject:
   m_ObjectHideFlags: 0

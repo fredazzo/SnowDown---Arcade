@@ -707,6 +707,12 @@ MonoBehaviour:
   startP2: 274
   creditsP2: 273
   confirmP2: 32
+  altStartP1: Start_Selection_P1
+  altCreditsP1: Credits_Selection_P1
+  altConfirmP1: Confirm_P1
+  altStartP2: Start_Selection_P2
+  altCreditsP2: Credits_Selection_P2
+  altConfirmP2: Confirm_P2
   gameScene: Loading Screen
   creditsScene: Credits
   gameplayScene: Gameplay

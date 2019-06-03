@@ -15,6 +15,8 @@ public class PlayerGlobal : MonoBehaviour
 
     public string horizontalAxis;
     public string verticalAxis;
+    public string altFireButton;
+    public string altReloadButton;
     public KeyCode fireButton;
     public KeyCode reloadButton;
     //public string rotateAxis;
@@ -153,7 +155,7 @@ public class PlayerGlobal : MonoBehaviour
 
         if (canShoot)
         {
-            if (Input.GetKeyDown(fireButton))
+            if (Input.GetKeyDown(fireButton) || Input.GetButtonDown(altFireButton))
             {
                 resetFIreTimer();
                 resetMeltTimer();
@@ -183,7 +185,7 @@ public class PlayerGlobal : MonoBehaviour
         Debug.Log("fireIdleTimer" + fireIdleTImer);
         //Debug.Log("snowballMeltTimer" + snowballMeltTimer);
 
-        if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
+        if (Input.GetKeyDown(fireButton) || Input.GetButtonDown(altFireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
         {
             fireTimer = 0f;
             currentClipSize--;
@@ -210,7 +212,7 @@ public class PlayerGlobal : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(reloadButton))
+        if (Input.GetKeyUp(reloadButton) || Input.GetButtonDown(altReloadButton))
         {
             currentClipSize += reloadAmount;
             resetFIreTimer();

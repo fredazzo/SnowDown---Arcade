@@ -33,6 +33,15 @@ public class MenuController : MonoBehaviour
     public KeyCode creditsP2;
     public KeyCode confirmP2;
 
+
+    public string altStartP1;
+    public string altCreditsP1;
+    public string altConfirmP1;
+
+    public string altStartP2;
+    public string altCreditsP2;
+    public string altConfirmP2;
+
     public string gameScene;
     public string creditsScene;
     public string gameplayScene;
@@ -71,7 +80,10 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(startP1) || Input.GetKeyDown(startP2) || Input.GetKeyDown(creditsP1) || Input.GetKeyDown(creditsP2) || Input.GetKeyDown(confirmP1) || Input.GetKeyDown(confirmP2))
+        if (Input.GetKeyDown(startP1) || Input.GetKeyDown(startP2) || Input.GetKeyDown(creditsP1) ||
+            Input.GetKeyDown(creditsP2) || Input.GetKeyDown(confirmP1) || Input.GetKeyDown(confirmP2) ||
+            Input.GetButtonDown(altStartP1) || Input.GetButtonDown(altCreditsP1)|| Input.GetButtonDown(altConfirmP1) ||
+            Input.GetButtonDown(altStartP2) || Input.GetButtonDown(altCreditsP2) || Input.GetButtonDown(altConfirmP2))
             resetIdleTimer();
         else
             tick();
@@ -87,13 +99,13 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete))
             Application.Quit();
 
-        if (Input.GetKeyDown(startP1))
+        if (Input.GetKeyDown(startP1) || Input.GetButtonDown(altStartP1))
         {
             startSelectedP1 = true;
             creditsSelectedP1 = false;
             clickP1.Play();
         }
-        else if (Input.GetKeyDown(creditsP1))
+        else if (Input.GetKeyDown(creditsP1) || Input.GetButtonDown(altCreditsP1))
         {
             startSelectedP1 = false;
             creditsSelectedP1 = true;
@@ -108,7 +120,7 @@ public class MenuController : MonoBehaviour
             cursorP1.transform.position = positionsP1[1].position;
         }
 
-        if (Input.GetKeyDown(confirmP1))
+        if (Input.GetKeyDown(confirmP1) || Input.GetButtonDown(altConfirmP1))
         {
             confirmSelectedP1 = true;
             clickP1.Play();
@@ -125,13 +137,13 @@ public class MenuController : MonoBehaviour
         else
             readyP1.enabled = false;
 
-        if (Input.GetKeyDown(startP2))
+        if (Input.GetKeyDown(startP2) || Input.GetButtonDown(altStartP2))
         {
             startSelectedP2 = true;
             creditsSelectedP2 = false;
             clickP2.Play();
         }
-        else if (Input.GetKeyDown(creditsP2))
+        else if (Input.GetKeyDown(creditsP2) || Input.GetButtonDown(altCreditsP2))
         {
             startSelectedP2 = false;
             creditsSelectedP2 = true;
@@ -145,7 +157,7 @@ public class MenuController : MonoBehaviour
         {
             cursorP2.transform.position = positionsP2[1].position;
         }
-        if (Input.GetKeyDown(confirmP2))
+        if (Input.GetKeyDown(confirmP2) || Input.GetButtonDown(altConfirmP2))
         {
             confirmSelectedP2 = true;
             clickP2.Play();
