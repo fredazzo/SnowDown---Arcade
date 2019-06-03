@@ -185,29 +185,32 @@ public class PlayerGlobal : MonoBehaviour
         Debug.Log("fireIdleTimer" + fireIdleTImer);
         //Debug.Log("snowballMeltTimer" + snowballMeltTimer);
 
-        if (Input.GetKeyDown(fireButton) || Input.GetButtonDown(altFireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
+        if (Input.GetKeyDown(fireButton) || Input.GetButtonDown(altFireButton))
         {
-            fireTimer = 0f;
-            currentClipSize--;
-
-
-            for (int i = 0; i < shotPool.Length; i++)
+            if (currentClipSize > 0 && fireTimer > fireRate && canShoot)
             {
-                if (shotPool[i].activeInHierarchy == false)
-                {
-                    shotPool[i].transform.position = shotSpawn.transform.position;
-                    shotPool[i].transform.rotation = shotSpawn.transform.rotation;
-                    shotPool[i].GetComponent<Snowball>().movement.x = Mathf.Cos(rotaionInRadians);
-                    shotPool[i].GetComponent<Snowball>().movement.y = Mathf.Sin(rotaionInRadians);
-                    //shotPool[i].GetComponent<Snowball>().ResetProperties();
-                    SoundManager.instance.PlaySingle(shootSource);
-                    if (playerOne)
-                        shotPool[i].GetComponent<Snowball>().SetProjectileType(Snowball.Type.PLAYER_ONE);
-                    else
-                        shotPool[i].GetComponent<Snowball>().SetProjectileType(Snowball.Type.PLAYER_TWO);
-                    shotPool[i].SetActive(true);
+                fireTimer = 0f;
+                currentClipSize--;
 
-                    break;
+
+                for (int i = 0; i < shotPool.Length; i++)
+                {
+                    if (shotPool[i].activeInHierarchy == false)
+                    {
+                        shotPool[i].transform.position = shotSpawn.transform.position;
+                        shotPool[i].transform.rotation = shotSpawn.transform.rotation;
+                        shotPool[i].GetComponent<Snowball>().movement.x = Mathf.Cos(rotaionInRadians);
+                        shotPool[i].GetComponent<Snowball>().movement.y = Mathf.Sin(rotaionInRadians);
+                        //shotPool[i].GetComponent<Snowball>().ResetProperties();
+                        SoundManager.instance.PlaySingle(shootSource);
+                        if (playerOne)
+                            shotPool[i].GetComponent<Snowball>().SetProjectileType(Snowball.Type.PLAYER_ONE);
+                        else
+                            shotPool[i].GetComponent<Snowball>().SetProjectileType(Snowball.Type.PLAYER_TWO);
+                        shotPool[i].SetActive(true);
+
+                        break;
+                    }
                 }
             }
         }

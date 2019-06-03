@@ -28,7 +28,7 @@ public class VideoController : MonoBehaviour
         Application.runInBackground = true;
         StartCoroutine(playVideo());
         finished = false;
-
+        SoundManager.instance.menuMusic.Pause();
     }
 
     // Update is called once per frame
