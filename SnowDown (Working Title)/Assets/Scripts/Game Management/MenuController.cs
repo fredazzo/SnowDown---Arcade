@@ -64,6 +64,7 @@ public class MenuController : MonoBehaviour
         idleTimer = 0f;
         clickP1 = SoundManager.instance.menuClickP1;
         clickP2 = SoundManager.instance.menuClickP2;
+        SoundManager.instance.musicSource.Stop();
         SoundManager.instance.menuMusic.Play();
     }
 

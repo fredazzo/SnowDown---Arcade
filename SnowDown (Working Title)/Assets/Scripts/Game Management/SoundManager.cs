@@ -21,6 +21,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource menuMusic;
     public AudioSource menuClickP1;
     public AudioSource menuClickP2;
+    public AudioSource powerUpSound;
+    public AudioSource bigWin;
 
     public static SoundManager instance = null;
 

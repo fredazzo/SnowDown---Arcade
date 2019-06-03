@@ -29,8 +29,9 @@ public class WinScreenController : MonoBehaviour
     void Start()
     {
         winner = PlayerPrefs.GetInt("Winner");
-        SoundManager.instance.musicSource.Stop();
-       
+        SoundManager.instance.musicSource.Pause();
+        SoundManager.instance.bigWin.Play();
+
         if(winner == 1)
         {
             p1Text.text = "You Won!";
@@ -65,6 +66,15 @@ public class WinScreenController : MonoBehaviour
             StartCoroutine(OnSceneLoad("Menu"));
         if (timer > maxTime)
             StartCoroutine(OnSceneLoad("Menu"));
+
+        if (!SoundManager.instance.bigWin.isPlaying)
+        {
+            if (!SoundManager.instance.musicSource.isPlaying)
+            {
+                SoundManager.instance.musicSource.Play();
+            }
+        }
+
     }
 
     IEnumerator OnSceneLoad(string scene)

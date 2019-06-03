@@ -23,8 +23,14 @@ public class UnlimAmmo : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<PlayerGlobal>().unlimAmmo = true;
+            SoundManager.instance.powerUpSound.Play();
             gameObject.SetActive(false);
         }
 
+    }
+
+    public void ResetTimer()
+    {
+        timer = 0f;
     }
 }

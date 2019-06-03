@@ -439,6 +439,11 @@ public class NewGameController : MonoBehaviour
             yield break;
         }
 
+        for(int i = 0; i < powerUpPool.Length; i++)
+        {
+            powerUpPool[i].GetComponent<UnlimAmmo>().ResetTimer();
+        }
+
         _player1.Reset(playerOneStartPos);
         _player2.Reset(playerTwoStartPos);
         _player1.canShoot = false;
