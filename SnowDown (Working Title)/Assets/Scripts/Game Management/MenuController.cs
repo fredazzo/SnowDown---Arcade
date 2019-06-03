@@ -50,8 +50,8 @@ public class MenuController : MonoBehaviour
     private float idleTimer;
     public float idleTimeLimit;
 
-    public AudioSource clickP1;
-    public AudioSource clickP2;
+    AudioSource clickP1;
+    AudioSource clickP2;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +62,9 @@ public class MenuController : MonoBehaviour
         creditsSelectedP1 = false;
         creditsSelectedP2 = false;
         idleTimer = 0f;
+        clickP1 = SoundManager.instance.menuClickP1;
+        clickP2 = SoundManager.instance.menuClickP2;
+        SoundManager.instance.menuMusic.Play();
     }
 
     // Update is called once per frame

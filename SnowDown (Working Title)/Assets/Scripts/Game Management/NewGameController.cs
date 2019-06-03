@@ -78,6 +78,7 @@ public class NewGameController : MonoBehaviour
         gameActive = false;
         coverSpawnLocation = 0;
 
+        SoundManager.instance.menuMusic.Stop();
 
         for (int i = 0; i < coverPool.Length; i++)
         {
