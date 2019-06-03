@@ -181,10 +181,6 @@ public class PlayerGlobal : MonoBehaviour
         }
         else
             melting = false;
-
-        Debug.Log("fireIdleTimer" + fireIdleTImer);
-        //Debug.Log("snowballMeltTimer" + snowballMeltTimer);
-
         if (Input.GetKeyDown(fireButton) || Input.GetButtonDown(altFireButton))
         {
             if (currentClipSize > 0 && fireTimer > fireRate && canShoot)
@@ -215,7 +211,7 @@ public class PlayerGlobal : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(reloadButton))
+        if (Input.GetKeyUp(reloadButton) || Input.GetButtonDown(altReloadButton))
         {
             currentClipSize += reloadAmount;
             resetFIreTimer();
