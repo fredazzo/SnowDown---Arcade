@@ -215,7 +215,7 @@ public class PlayerGlobal : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(reloadButton) || Input.GetButtonDown(altReloadButton))
+        if (Input.GetKeyUp(reloadButton))
         {
             currentClipSize += reloadAmount;
             resetFIreTimer();
