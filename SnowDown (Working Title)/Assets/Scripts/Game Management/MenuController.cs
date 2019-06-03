@@ -129,7 +129,7 @@ public class MenuController : MonoBehaviour
         if (confirmSelectedP1)
         {
             readyP1.enabled = true;
-            if (Input.GetKeyDown(startP1) || Input.GetKeyDown(creditsP1))
+            if (Input.GetKeyDown(startP1) || Input.GetKeyDown(creditsP1) || Input.GetButtonDown(altStartP1) || Input.GetButtonDown(altCreditsP1))
             {
                 confirmSelectedP1 = false;
             }
@@ -165,7 +165,7 @@ public class MenuController : MonoBehaviour
         if (confirmSelectedP2)
         {
             readyP2.enabled = true;
-            if (Input.GetKeyDown(startP2) || Input.GetKeyDown(creditsP2))
+            if (Input.GetKeyDown(startP2) || Input.GetKeyDown(creditsP2) || Input.GetButtonDown(altStartP2) || Input.GetButtonDown(altCreditsP2))
             {
                 confirmSelectedP2 = false;
             }
