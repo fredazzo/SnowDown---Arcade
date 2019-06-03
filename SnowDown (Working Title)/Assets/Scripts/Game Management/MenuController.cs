@@ -50,6 +50,9 @@ public class MenuController : MonoBehaviour
     private float idleTimer;
     public float idleTimeLimit;
 
+    AudioSource clickP1;
+    AudioSource clickP2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,19 +62,25 @@ public class MenuController : MonoBehaviour
         creditsSelectedP1 = false;
         creditsSelectedP2 = false;
         idleTimer = 0f;
+        clickP1 = SoundManager.instance.menuClickP1;
+        clickP2 = SoundManager.instance.menuClickP2;
+        SoundManager.instance.musicSource.Stop();
+        SoundManager.instance.menuMusic.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(startP1) || Input.GetKeyDown(startP2) || Input.GetKeyDown(creditsP1) || Input.GetKeyDown(creditsP2) || Input.GetKeyDown(confirmP1) || Input.GetKeyDown(confirmP2))
             resetIdleTimer();
         else
             tick();
 
-        if (idleTimer > idleTimeLimit)
-            StartCoroutine(OnSceneLoad(gameplayScene));
 
+        if (idleTimer > idleTimeLimit)
+        {
+            StartCoroutine(OnSceneLoad(gameplayScene));
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
@@ -82,11 +91,13 @@ public class MenuController : MonoBehaviour
         {
             startSelectedP1 = true;
             creditsSelectedP1 = false;
+            clickP1.Play();
         }
         else if (Input.GetKeyDown(creditsP1))
         {
             startSelectedP1 = false;
             creditsSelectedP1 = true;
+            clickP1.Play();
         }
         if (startSelectedP1)
         {
@@ -100,6 +111,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyDown(confirmP1))
         {
             confirmSelectedP1 = true;
+            clickP1.Play();
         }
 
         if (confirmSelectedP1)
@@ -117,11 +129,13 @@ public class MenuController : MonoBehaviour
         {
             startSelectedP2 = true;
             creditsSelectedP2 = false;
+            clickP2.Play();
         }
         else if (Input.GetKeyDown(creditsP2))
         {
             startSelectedP2 = false;
             creditsSelectedP2 = true;
+            clickP2.Play();
         }
         if (startSelectedP2)
         {
@@ -134,6 +148,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetKeyDown(confirmP2))
         {
             confirmSelectedP2 = true;
+            clickP2.Play();
         }
         if (confirmSelectedP2)
         {

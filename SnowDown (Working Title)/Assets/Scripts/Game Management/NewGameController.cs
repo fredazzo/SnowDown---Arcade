@@ -21,6 +21,12 @@ public class NewGameController : MonoBehaviour
     public Image[] playerTwoWins;
     public Image playerOneUnlimAmmo;
     public Image playerTwoUnlimAmmo;
+    public Image playerOneMeltBar;
+    public Image playerTwoMeltBar;
+    public Image p1MeltOutline;
+    public Image p2MeltOutline;
+    public Image p1MeltBackgorund;
+    public Image p2MeltBackground;
 
     public Text playerOneAmmo;
     public Text playerTwoAmmo;
@@ -72,6 +78,7 @@ public class NewGameController : MonoBehaviour
         gameActive = false;
         coverSpawnLocation = 0;
 
+        SoundManager.instance.menuMusic.Stop();
 
         for (int i = 0; i < coverPool.Length; i++)
         {
@@ -124,6 +131,7 @@ public class NewGameController : MonoBehaviour
             roundTextLeft.text = "Round Won!";
             gameActive = false;
             _player2.canDie = false;
+            //_player2.resetMeltTimer();
         }
 
         if (_player2.GetHealth() <= 0 && _player1.GetHealth() > 0)
@@ -133,7 +141,10 @@ public class NewGameController : MonoBehaviour
             roundTextLeft.text = "Round Lost!";
             gameActive = false;
             _player1.canDie = false;
+            //_player1.resetMeltTimer();
         }
+
+
         if(_player1.GetHealth() <= 0 && _player2.GetHealth() <= 0)
         {
             roundTextRight.text = "Draw!";
@@ -178,8 +189,25 @@ public class NewGameController : MonoBehaviour
             playerTwoWins[1].gameObject.SetActive(true);
         }
 
+        if(_player1.melting)
+        {
+            enableMeltBar(playerOneMeltBar, p1MeltOutline, p1MeltBackgorund);
+            playerOneMeltBar.fillAmount = _player1.getMeltTimer();
+        }
+        else
+        {
+            disableMeltBar(playerOneMeltBar, p1MeltOutline, p1MeltBackgorund);
+        }
 
-
+        if (_player2.melting)
+        {
+            enableMeltBar(playerTwoMeltBar, p2MeltOutline, p2MeltBackground);
+            playerTwoMeltBar.fillAmount = _player2.getMeltTimer();
+        }
+        else
+        {
+            disableMeltBar(playerTwoMeltBar, p2MeltOutline, p2MeltBackground);
+        }
 
         playerOneHealth.fillAmount = _player1.GetPercentageHP();
         playerTwoHealth.fillAmount = _player2.GetPercentageHP();
@@ -231,6 +259,8 @@ public class NewGameController : MonoBehaviour
 
             }
         }
+
+
 
         if (coverSpawnLocation > 2)
             coverSpawnLocation = 0;
@@ -409,6 +439,11 @@ public class NewGameController : MonoBehaviour
             yield break;
         }
 
+        for(int i = 0; i < powerUpPool.Length; i++)
+        {
+            powerUpPool[i].GetComponent<UnlimAmmo>().ResetTimer();
+        }
+
         _player1.Reset(playerOneStartPos);
         _player2.Reset(playerTwoStartPos);
         _player1.canShoot = false;
@@ -461,6 +496,20 @@ public class NewGameController : MonoBehaviour
         transitionAnim.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(scene);
+    }
+
+    public void enableMeltBar(Image bar, Image outline, Image background)
+    {
+        bar.enabled = true;
+        outline.enabled = true;
+        background.enabled = true;
+    }
+
+    public void disableMeltBar(Image bar, Image outline, Image background)
+    {
+        bar.enabled = false;
+        outline.enabled = false;
+        background.enabled = false;
     }
 
     //void PowerUpActivity(GameObject player, bool powerUpActivity, Transform[] spawns)

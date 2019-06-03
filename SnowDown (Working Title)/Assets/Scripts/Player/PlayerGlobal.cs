@@ -29,6 +29,10 @@ public class PlayerGlobal : MonoBehaviour
 
     public float fireRate;
     private float fireTimer = 0f;
+    public float maxFireIdleTime;
+    private float fireIdleTImer = 0f;
+    public float maxSnowballMeltTime;
+    private float snowballMeltTimer;
     public float speed;
     private float originalSpeed;
     public float rotateSpeed;
@@ -47,6 +51,7 @@ public class PlayerGlobal : MonoBehaviour
     public bool unlimAmmo;
     public bool canShoot;
     public bool canDie;
+    public bool melting;
 
     public SpriteRenderer body;
     public SpriteRenderer arms;
@@ -57,6 +62,7 @@ public class PlayerGlobal : MonoBehaviour
     AudioSource shootSource;
     AudioSource hitSource;
     AudioSource deathSource;
+    AudioSource reloadSource;
 
     Vector3 originalRotation;
 
@@ -73,6 +79,7 @@ public class PlayerGlobal : MonoBehaviour
         currentClipSize = maxClipSize;
         currentHealthPoints = maxHealthPoints;
         originalSpeed = speed;
+        snowballMeltTimer = maxSnowballMeltTime;
         for (int i = 0; i < shotPool.Length; i++)
         {
             GameObject obj = (GameObject)Instantiate(shot);
@@ -80,12 +87,13 @@ public class PlayerGlobal : MonoBehaviour
             shotPool[i].SetActive(false);
         }
 
-        if(playerOne)
+        if (playerOne)
         {
             moveSource = SoundManager.instance.p1MoveSource;
             shootSource = SoundManager.instance.p1ShootingSource;
             hitSource = SoundManager.instance.p1HitSource;
             deathSource = SoundManager.instance.p1DeathSource;
+            reloadSource = SoundManager.instance.p1ReloadSource;
         }
         else
         {
@@ -93,6 +101,7 @@ public class PlayerGlobal : MonoBehaviour
             shootSource = SoundManager.instance.p2ShootingSource;
             hitSource = SoundManager.instance.p2HitSource;
             deathSource = SoundManager.instance.p2Deathsource;
+            reloadSource = SoundManager.instance.p2ReloadSource;
         }
 
         originalRotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -125,17 +134,54 @@ public class PlayerGlobal : MonoBehaviour
     {
         rotaionInRadians = transform.eulerAngles.z * Mathf.Deg2Rad;
 
-        OnMovement(moveSource, horizontalAxis, verticalAxis);
+        if (currentHealthPoints > 0)
+        {
+            OnMovement(moveSource, horizontalAxis, verticalAxis);
+        }
 
         if (unlimAmmo)
         {
             aura.enabled = true;
             UnlimAmmo();
+            if (currentHealthPoints <= 0)
+                aura.enabled = false;
         }
         else
             aura.enabled = false;
 
         fireTimer += Time.deltaTime;
+
+        if (canShoot)
+        {
+            if (Input.GetKeyDown(fireButton))
+            {
+                resetFIreTimer();
+                resetMeltTimer();
+            }
+            else
+                tickFireTimer();
+        }
+        else
+        {
+            resetFIreTimer();
+            resetMeltTimer();
+        }
+
+
+        if (fireIdleTImer > maxFireIdleTime)
+        {
+            melting = true;
+            meltSnowball();
+            if (currentClipSize <= 0)
+            {
+                melting = false;
+            }
+        }
+        else
+            melting = false;
+
+        Debug.Log("fireIdleTimer" + fireIdleTImer);
+        //Debug.Log("snowballMeltTimer" + snowballMeltTimer);
 
         if (Input.GetKeyDown(fireButton) && currentClipSize > 0 && fireTimer > fireRate && canShoot)
         {
@@ -164,23 +210,26 @@ public class PlayerGlobal : MonoBehaviour
             }
         }
 
-
-
         if (Input.GetKeyUp(reloadButton))
         {
             currentClipSize += reloadAmount;
+            resetFIreTimer();
+            resetMeltTimer();
+            reloadSource.Play();
         }
+
         if (currentClipSize > maxClipSize)
         {
             currentClipSize = maxClipSize;
         }
-       
+
 
         if (gameObject.activeSelf)
         {
             if (hit)
             {
                 body.color = Color.red;
+                arms.color = Color.red;
                 StartCoroutine(whitecolor());
             }
         }
@@ -193,12 +242,15 @@ public class PlayerGlobal : MonoBehaviour
             // GameController: NotificationManager.Subscribe("PlayerDeath", PlayerDeath(Notification) );
             //
             // Player: NotificationManager.Post("PlayerDeath", PlayerID);
+
+            hit = true;
+            walkingAnim.SetBool("hit", true);
+
             if (playerOne)
             {
                 if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_TWO && canDie)
                 {
                     ModifyHealth(-1, deathSource);
-                    hit = true;
                 }
             }
             else
@@ -206,11 +258,13 @@ public class PlayerGlobal : MonoBehaviour
                 if (other.gameObject.GetComponent<Snowball>().GetProjectileType() == Snowball.Type.PLAYER_ONE && canDie)
                 {
                     ModifyHealth(-1, deathSource);
-                    hit = true;
                 }
             }
             SoundManager.instance.PlaySingle(hitSource);
             CameraShake.instance.MinorShake(.05f);
+            CameraP1.instance.MinorShake(.05f);
+            CameraP2.instance.MinorShake(.05f);
+
         }
     }
 
@@ -233,7 +287,6 @@ public class PlayerGlobal : MonoBehaviour
     {
         return currentHealthPoints;
     }
-    
 
     public void ModifyHealth(int value, AudioSource deathSource)
     {
@@ -242,14 +295,17 @@ public class PlayerGlobal : MonoBehaviour
             currentHealthPoints = maxHealthPoints;
         if (currentHealthPoints <= 0)
         {
-            arms.enabled = false;
-            cannon.enabled = false;
-            body.enabled = false;
+            fireIdleTImer = 0f;
+
+            DisableIdleSprites();
+            walkingAnim.SetBool("moving", false);
+            cannonMoveAnim.SetBool("moving", false);
             canShoot = false;
             SoundManager.instance.PlaySingle(deathSource);
             deathAnim.SetBool("dead", true);
             speed = 0;
         }
+
     }
 
     public void DisableIdleSprites()
@@ -294,8 +350,11 @@ public class PlayerGlobal : MonoBehaviour
         {
             walkingAnim.SetBool("moving", false);
             cannonMoveAnim.SetBool("moving", false);
-            EnableIdleSprites();
             source.Pause();
+
+            if (currentHealthPoints > 0)
+                EnableIdleSprites();
+
         }
     }
 
@@ -303,6 +362,8 @@ public class PlayerGlobal : MonoBehaviour
     {
         yield return new WaitForSeconds(0.02f);
         body.color = Color.white;
+        arms.color = Color.white;
+        walkingAnim.SetBool("hit", false);
         hit = false;
     }
 
@@ -334,5 +395,38 @@ public class PlayerGlobal : MonoBehaviour
         return (float)currentHealthPoints / maxHealthPoints;
 
     }
+
+    public void resetFIreTimer()
+    {
+        fireIdleTImer = 0f;
+    }
+
+    public void tickFireTimer()
+    {
+        fireIdleTImer += Time.deltaTime;
+    }
+
+    public void resetMeltTimer()
+    {
+        snowballMeltTimer = maxSnowballMeltTime;
+        melting = false;
+    }
+
+    public void meltSnowball()
+    {
+        snowballMeltTimer -= Time.deltaTime;
+        if(snowballMeltTimer < 0)
+        {
+            currentClipSize -= 1;
+            snowballMeltTimer = maxSnowballMeltTime;
+            //fireIdleTImer = 0f;
+        }
+    }
+
+    public float getMeltTimer()
+    {
+        return snowballMeltTimer / maxSnowballMeltTime;
+    }
+
 
 }

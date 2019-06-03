@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/Menu.unity
     guid: 98bd053bd07c96e43aae91ae51475d26
   - enabled: 1
+    path: Assets/_Scenes/Loading Screen.unity
+    guid: fb2275795f7ff564aa956b59c130a8f7
+  - enabled: 1
     path: Assets/_Scenes/Game.unity
     guid: e1457ad51cf3e624bb7a360dad0fd838
   - enabled: 1
@@ -17,10 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/End Screen.unity
     guid: 9c439fb9c9fd0864aa113440094e550b
+  - enabled: 1
+    path: Assets/_Scenes/Gameplay.unity
+    guid: ed62ab3f011a216439e8b5dfde824864
   - enabled: 0
-    path: Assets/_Scenes/2 Displays Horizontal.unity
-    guid: e68bbaf79a3cbf34e9c749e0780ffbd1
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/_Scenes/Fred Game Testing.unity
-    guid: 2dabe8653cbfefb47bb98465df7215ab
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

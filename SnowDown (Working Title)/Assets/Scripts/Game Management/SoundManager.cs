@@ -16,6 +16,13 @@ public class SoundManager : MonoBehaviour
     public AudioSource p2MoveSource;
     public AudioSource p1DeathSource;
     public AudioSource p2Deathsource;
+    public AudioSource p1ReloadSource;
+    public AudioSource p2ReloadSource;
+    public AudioSource menuMusic;
+    public AudioSource menuClickP1;
+    public AudioSource menuClickP2;
+    public AudioSource powerUpSound;
+    public AudioSource bigWin;
 
     public static SoundManager instance = null;
 
